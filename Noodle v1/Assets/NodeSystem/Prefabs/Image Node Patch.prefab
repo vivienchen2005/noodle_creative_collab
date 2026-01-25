@@ -236,9 +236,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -11.935760, z: 0.300000}
+    Position: {x: 0.000000, y: -18.625481, z: 0.300003}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 8bf4ba02-a6b5-4dcb-ad7b-60ae46ec1c75
@@ -411,8 +411,7 @@
   Enabled: true
   ScriptAsset: !<reference> cd466f70-8f5c-4de8-8652-738aebb3298b
   ScriptInputsDefault:
-    cropCircleObject: true
-    captureButton: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -423,8 +422,8 @@
       imageComponent: !<reference.Image> fa27ce8c-3f93-4faa-902a-62075770d72e
       cameraService: !<reference.ScriptComponent> 14df27f2-af09-434a-8806-78be9a7e7a72
       imageContainer: !<reference.SceneObject> d5d6e4cd-ddb0-4154-82f1-ba016716c550
-      cropCircleObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      captureButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      cropCircleObject: !<reference.SceneObject> 9693c2b3-2db5-4f14-adf9-76d7893ef48c
+      captureButton: !<MappingBased.AssignableType_2> 4c8259dc-c1f7-40c7-bb36-cfefaae3cb60
   ScriptTypes:
     "":
       {}
@@ -456,7 +455,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> de9934c8-1e1c-461c-809f-13d4fd26853f
+    - !<reference> 08502db3-6793-4307-9fd4-d3331ed190e0
   FlipX: false
   FlipY: false
   RotationAngle: 0

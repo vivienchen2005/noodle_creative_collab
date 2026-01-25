@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 875
+    size: 873
     values:
       - Crop Circle.lspkg
       - Crop Circle.lspkg/3DModels
@@ -44,7 +44,6 @@ CollapsedEntities:
       - Fonts/Poppins-Bold.ttf
       - Fonts/Poppins-Medium.ttf
       - Hand Menu.lspkg
-      - Materials
       - Materials/ImageMaterial.mat
       - Materials/Input.mat
       - Materials/Mic.mat
@@ -869,7 +868,6 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/Textures/test-image.jpg
       - SpectaclesUIKit.lspkg/package.native
       - SpectaclesUIKit.lspkg/package_dependencies.json
-      - Textures
       - Textures/Circle.png
       - Textures/Eclips.png
       - Textures/MaterialParams.png

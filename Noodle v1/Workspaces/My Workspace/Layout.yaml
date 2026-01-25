@@ -32,7 +32,7 @@ dock:
           - persistentName: Snap.Plugin.Gui.Graph.Editor
             Uuid: c9d12c70-23bb-45f2-8e77-5b312a57221b
         type: section
-        current: 4
+        current: 0
       - items:
           - items:
               - items:

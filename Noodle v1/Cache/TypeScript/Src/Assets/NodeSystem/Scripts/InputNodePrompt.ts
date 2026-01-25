@@ -1,5 +1,6 @@
 import { BaseNode } from "./BaseNode";
 import { RoundButton } from "SpectaclesUIKit.lspkg/Scripts/Components/Button/RoundButton";
+import { CapsuleButton } from "SpectaclesUIKit.lspkg/Scripts/Components/Button/CapsuleButton";
 import { VoiceToText } from "./VoiceToText";
 import { BaseButton } from "SpectaclesUIKit.lspkg/Scripts/Components/Button/BaseButton";
 import { NodeConnectionController } from "./NodeConnectionController";
@@ -20,9 +21,9 @@ export class InputNodePrompt extends BaseScriptComponent {
     public titleText: Text | null = null;
 
     @input
-    @hint("Round button for output connection (will be created if not set)")
+    @hint("Capsule button for output connection (will be created if not set)")
     @allowUndefined
-    public outputButton: RoundButton | null = null;
+    public outputButton: CapsuleButton | null = null;
 
     @input
     @hint("Text component for displaying prompt text (will be created if not set)")
@@ -239,7 +240,7 @@ export class InputNodePrompt extends BaseScriptComponent {
     }
 
     /**
-     * Sets up the output button (round button at connection point)
+     * Sets up the output button (capsule button at connection point)
      */
     private setupOutputButton(): void {
         // Generate unique ID for this button
@@ -257,10 +258,12 @@ export class InputNodePrompt extends BaseScriptComponent {
         this._outputButtonObject = global.scene.createSceneObject("InputNodePrompt_OutputButton");
         this._outputButtonObject.setParent(this.sceneObject);
 
-        // Create RoundButton component
-        this.outputButton = this._outputButtonObject.createComponent(RoundButton.getTypeName() as any) as RoundButton;
+        // Create CapsuleButton component
+        this.outputButton = this._outputButtonObject.createComponent(CapsuleButton.getTypeName() as any) as CapsuleButton;
         if (this.outputButton) {
-            this.outputButton.width = 2;
+            // CapsuleButton uses size property (vec3) - width, height, depth in cm
+            this.outputButton.size = new vec3(4, 2, 1);
+
             // Position at right center (output connection point)
             const transform = this._outputButtonObject.getTransform();
             if (this.baseNode) {
@@ -271,7 +274,7 @@ export class InputNodePrompt extends BaseScriptComponent {
             // Set up button click tracking
             this.setupButtonClickTracking();
 
-            print("InputNodePrompt: Created output button");
+            print("InputNodePrompt: Created output button (CapsuleButton)");
         }
     }
 
@@ -557,7 +560,7 @@ export class InputNodePrompt extends BaseScriptComponent {
     /**
      * Gets the output button (for connection handling)
      */
-    public getOutputButton(): RoundButton | null {
+    public getOutputButton(): CapsuleButton | null {
         return this.outputButton;
     }
 

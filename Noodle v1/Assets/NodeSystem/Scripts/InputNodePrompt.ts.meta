@@ -55,7 +55,7 @@
   InputLines:
     - '// @input AssignableType baseNode {"hint":"BaseNode component (required)"}'
     - '// @input Component.Text titleText {"hint":"Title text component (optional - will be created if not set)"}'
-    - '// @input AssignableType_1 outputButton {"hint":"Round button for output connection (will be created if not set)"}'
+    - '// @input AssignableType_1 outputButton {"hint":"Capsule button for output connection (will be created if not set)"}'
     - '// @input Component.Text promptText {"hint":"Text component for displaying prompt text (will be created if not set)"}'
     - '// @input AssignableType_2 voiceToTextComponent {"hint":"Voice to text component (will be created if not set)"}'
     - '// @input AssignableType_3 voiceButton {"hint":"Button for voice-to-text (will be created if not set)"}'

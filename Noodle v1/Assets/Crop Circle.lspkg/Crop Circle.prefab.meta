@@ -21,7 +21,7 @@
   Enabled: true
   ScriptAsset: !<reference> a08c1b03-e037-4a32-bdbd-20d26dbffe38
   ScriptInputsDefault:
-    {}
+    showCapturedImageIn3D: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -37,6 +37,7 @@
       captureRendMesh: !<reference.RenderMeshVisual> e27e1d32-30fb-469d-6b2f-dd6d6818df26
       screenCropTexture: !<reference.Texture> cd12b01a-61d6-4671-bba2-6c3bde1a9812
       cropRegion: !<MappingBased.AssignableType> e596cf0b-36dd-4f0e-4fad-23c021af746c
+      showCapturedImageIn3D: false
   ScriptTypes:
     "":
       {}

@@ -895,7 +895,6 @@
   ScriptAsset: !<reference> b04714f3-684d-499e-8de9-dc4529b49015
   ScriptInputsDefault:
     loadingIndicator: true
-    outputButton: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -909,7 +908,7 @@
       outputImage: !<reference.Image> 3217133a-6694-4e73-5ee6-74ddd5231615
       statusText: !<reference.Text> ca3da94e-7c7d-4983-7d2d-a62863ee52e8
       loadingIndicator: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      outputButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      outputButton: !<MappingBased.AssignableType_2> 7680a297-5297-4900-52d7-ba4ca1a2c95f
   ScriptTypes:
     "":
       {}

@@ -52,6 +52,7 @@ function component(target) {
 }
 const BaseNode_1 = require("./BaseNode");
 const RoundButton_1 = require("SpectaclesUIKit.lspkg/Scripts/Components/Button/RoundButton");
+const CapsuleButton_1 = require("SpectaclesUIKit.lspkg/Scripts/Components/Button/CapsuleButton");
 const VoiceToText_1 = require("./VoiceToText");
 const NodeConnectionController_1 = require("./NodeConnectionController");
 /**
@@ -262,7 +263,7 @@ let InputNodePrompt = (() => {
             return `btn_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         }
         /**
-         * Sets up the output button (round button at connection point)
+         * Sets up the output button (capsule button at connection point)
          */
         setupOutputButton() {
             // Generate unique ID for this button
@@ -277,10 +278,11 @@ let InputNodePrompt = (() => {
             // Create output button object
             this._outputButtonObject = global.scene.createSceneObject("InputNodePrompt_OutputButton");
             this._outputButtonObject.setParent(this.sceneObject);
-            // Create RoundButton component
-            this.outputButton = this._outputButtonObject.createComponent(RoundButton_1.RoundButton.getTypeName());
+            // Create CapsuleButton component
+            this.outputButton = this._outputButtonObject.createComponent(CapsuleButton_1.CapsuleButton.getTypeName());
             if (this.outputButton) {
-                this.outputButton.width = 2;
+                // CapsuleButton uses size property (vec3) - width, height, depth in cm
+                this.outputButton.size = new vec3(4, 2, 1);
                 // Position at right center (output connection point)
                 const transform = this._outputButtonObject.getTransform();
                 if (this.baseNode) {
@@ -289,7 +291,7 @@ let InputNodePrompt = (() => {
                 }
                 // Set up button click tracking
                 this.setupButtonClickTracking();
-                print("InputNodePrompt: Created output button");
+                print("InputNodePrompt: Created output button (CapsuleButton)");
             }
         }
         /**
