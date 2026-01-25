@@ -88,3 +88,5 @@ secrets.json
 credentials.json
 **/api_keys*
 **/*_credentials*
+Noodle v1/Cache
+Noodle v1/Workspaces

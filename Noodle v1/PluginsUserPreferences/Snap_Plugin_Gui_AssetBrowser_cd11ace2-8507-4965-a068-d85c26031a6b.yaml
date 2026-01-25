@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 946
+    size: 931
     values:
       - Crop Circle.lspkg/3DModels
       - Crop Circle.lspkg/3DModels/SWIS_Frame.mesh
@@ -42,15 +42,7 @@ CollapsedEntities:
       - Hand Menu.lspkg
       - Hand Menu.lspkg/Hand Menu.prefab
       - Hand Menu.lspkg/package_dependencies.json
-      - Image 2.mat
-      - Image.mat
-      - Materials/Demo Mode/1.mat
-      - Materials/Demo Mode/2.mat
-      - Materials/Demo Mode/3.mat
-      - Materials/Demo Mode/4.mat
-      - Materials/Demo Mode/5.mat
-      - Materials/Demo Mode/6.mat
-      - Materials/Demo Mode/Prompt Ins.mat
+      - Materials/Demo Mode
       - Materials/Empty inputImage 2.mat
       - Materials/Empty inputImage.mat
       - Materials/ImageMaterial.mat
@@ -63,7 +55,6 @@ CollapsedEntities:
       - Materials/pbr.ss_graph
       - Meshs/Sphere.mesh
       - NodeSystem/CONNECTION_SETUP.md
-      - NodeSystem/Materials
       - NodeSystem/Prefabs/3d Node Patch.prefab
       - NodeSystem/Prefabs/Image Gen Node Patch.prefab
       - NodeSystem/Prefabs/Image Node Patch.prefab
@@ -71,6 +62,7 @@ CollapsedEntities:
       - NodeSystem/Scripts/BaseNode.ts
       - NodeSystem/Scripts/ConnectionLine.ts
       - NodeSystem/Scripts/ConnectionManager.ts
+      - NodeSystem/Scripts/DragDropSpawnAndReset.ts
       - NodeSystem/Scripts/InputNodeImage.ts
       - NodeSystem/Scripts/InputNodePrompt.ts
       - NodeSystem/Scripts/NodeConnectionController.ts
@@ -935,14 +927,7 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/package.native
       - SpectaclesUIKit.lspkg/package_dependencies.json
       - Textures/Circle.png
-      - Textures/Demo Mode/1.png
-      - Textures/Demo Mode/2.png
-      - Textures/Demo Mode/3.png
-      - Textures/Demo Mode/4.png
-      - Textures/Demo Mode/5.png
-      - Textures/Demo Mode/6.png
-      - Textures/Demo Mode/Capture_Example_UI.png
-      - Textures/Demo Mode/RecordExample_UI.png
+      - Textures/Demo Mode
       - Textures/Eclips.png
       - Textures/MaterialParams.png
       - Textures/Normal.png
