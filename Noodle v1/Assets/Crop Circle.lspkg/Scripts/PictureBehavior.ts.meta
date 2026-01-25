@@ -33,6 +33,7 @@
     loadingObj: false
     picAnchorObj: false
     screenCropTexture: false
+    showCapturedImageIn3D: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -50,6 +51,7 @@
       captureRendMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
       screenCropTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       cropRegion: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      showCapturedImageIn3D: false
   ScriptTypes:
     -
       {}
@@ -61,3 +63,4 @@
     - // @input Component.RenderMeshVisual captureRendMesh
     - // @input Asset.Texture screenCropTexture
     - // @input AssignableType cropRegion
+    - // @input bool showCapturedImageIn3D

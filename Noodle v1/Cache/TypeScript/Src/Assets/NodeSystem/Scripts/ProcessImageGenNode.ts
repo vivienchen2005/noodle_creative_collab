@@ -185,8 +185,11 @@ export class ProcessImageGenNode extends BaseScriptComponent {
 
     /**
      * Sets up the output button for connecting generated image to other nodes
+     * This button appears on the RIGHT side of the node (like input nodes)
      */
     private setupOutputButton(): void {
+        print("ProcessImageGenNode: Setting up output button...");
+
         // Generate unique ID for this button
         if (!this._outputButtonId) {
             this._outputButtonId = this.generateButtonId();
@@ -194,6 +197,7 @@ export class ProcessImageGenNode extends BaseScriptComponent {
 
         // If button already exists, just set up tracking
         if (this.outputButton) {
+            print("ProcessImageGenNode: Output button already exists, setting up click handler");
             this.setupOutputButtonClick();
             return;
         }
@@ -201,20 +205,29 @@ export class ProcessImageGenNode extends BaseScriptComponent {
         // Create output button object
         this._outputButtonObject = global.scene.createSceneObject("ProcessImageGen_OutputButton");
         this._outputButtonObject.setParent(this.sceneObject);
+        this._outputButtonObject.enabled = true;
 
         // Create RoundButton component
         this.outputButton = this._outputButtonObject.createComponent(RoundButton.getTypeName() as any) as RoundButton;
         if (this.outputButton) {
             this.outputButton.width = 2;
-            // Position at right center (output connection point)
+
+            // Position at RIGHT edge of frame (same as InputNodeImage output button)
             const transform = this._outputButtonObject.getTransform();
             if (this.baseNode) {
                 const frameSize = this.baseNode.frameSize;
-                transform.setLocalPosition(new vec3(frameSize.x / 200, -1, 0)); // Below generate button
+                // Position on the right edge, vertically centered with a slight offset down
+                transform.setLocalPosition(new vec3(frameSize.x / 200 + 0.5, 0, 0.01));
+                print(`ProcessImageGenNode: Output button positioned at right edge: x=${frameSize.x / 200 + 0.5}`);
+            } else {
+                transform.setLocalPosition(new vec3(4, 0, 0.01)); // Fallback position
+                print("ProcessImageGenNode: Output button using fallback position (no baseNode)");
             }
 
             this.setupOutputButtonClick();
-            print("ProcessImageGenNode: Created output button for chaining");
+            print("ProcessImageGenNode: OUTPUT BUTTON CREATED - Click this after generating to chain to other nodes!");
+        } else {
+            print("ProcessImageGenNode: ERROR - Failed to create RoundButton component for output");
         }
     }
 
@@ -238,6 +251,8 @@ export class ProcessImageGenNode extends BaseScriptComponent {
      * Called when output button is clicked - starts a connection from this node's output
      */
     private onOutputButtonClicked(): void {
+        print(`ProcessImageGenNode: OUTPUT BUTTON CLICKED!`);
+
         // Check if we have a generated image
         if (!this._generatedTexture) {
             print("ProcessImageGenNode: No generated image yet - generate an image first!");
@@ -245,12 +260,14 @@ export class ProcessImageGenNode extends BaseScriptComponent {
             return;
         }
 
-        print(`ProcessImageGenNode: Output button clicked (ID: ${this._outputButtonId}) - Generated image ready`);
+        print(`ProcessImageGenNode: Output button clicked (ID: ${this._outputButtonId}) - Generated image ready for chaining`);
+        print(`ProcessImageGenNode: NOW CLICK an image input section on another node (Image Gen or 3D Gen)`);
 
         // Notify connection controller - this node acts like an image input
         const controller = NodeConnectionController.getInstance();
         if (controller) {
             controller.onInputNodeButtonClicked(this.sceneObject, "image", this._outputButtonId);
+            this.updateStatus("Click target node's image input");
         } else {
             print("ProcessImageGenNode: WARNING - NodeConnectionController not found!");
         }

@@ -300,6 +300,7 @@ export class InputNodeImage extends BaseScriptComponent {
 
     /**
      * Called when capture button is clicked
+     * Supports re-capture: can be clicked multiple times to capture new images
      */
     private onCaptureButtonClicked(): void {
         print(`InputNodeImage: Capture button clicked - unhiding crop circle for ${this.sceneObject.name}`);
@@ -316,13 +317,119 @@ export class InputNodeImage extends BaseScriptComponent {
             return;
         }
 
+        // Clean up any old completed scanners (from previous captures)
+        // This ensures we find the new scanner, not the old one
+        this.cleanupOldScanners();
+
         // Unhide the crop circle object (it's already in the scene)
         this.cropCircleObject.enabled = true;
         this._isCapturing = true;
-        print(`InputNodeImage: Crop circle unhidden for ${this.sceneObject.name}`);
+        print(`InputNodeImage: Crop circle unhidden for ${this.sceneObject.name} - ready for RE-CAPTURE`);
 
         // Set up listener for when capture completes
         this.setupCaptureListener();
+    }
+
+    /**
+     * Cleans up old completed scanners to prepare for re-capture
+     * This ensures the new scanner is found, not the old one
+     * IMPORTANT: Does NOT destroy PictureController - only the instantiated scanner prefabs
+     */
+    private cleanupOldScanners(): void {
+        if (!this.cropCircleObject) return;
+
+        // Find the PictureController - we need to clean up its children (the instantiated scanners)
+        // NOT the PictureController itself!
+        const pictureController = this.findPictureControllerInHierarchy(this.cropCircleObject);
+
+        if (!pictureController || !pictureController.sceneObject) {
+            print(`InputNodeImage: PictureController not found, skipping cleanup (findActivePictureBehavior will handle it)`);
+            return;
+        }
+
+        const controllerObj = pictureController.sceneObject as SceneObject;
+
+        // Scanners are instantiated as children of PictureController's sceneObject
+        const childCount = controllerObj.getChildrenCount();
+        const objectsToDestroy: SceneObject[] = [];
+
+        for (let i = 0; i < childCount; i++) {
+            const child = controllerObj.getChild(i);
+            if (!child || isNull(child)) continue;
+
+            // Skip objects that look like permanent parts (not instantiated scanners)
+            const childName = child.name.toLowerCase();
+
+            // NEVER destroy these:
+            if (childName.includes("controller") ||
+                childName.includes("service") ||
+                childName.includes("camera") ||
+                childName.includes("region") ||
+                childName.includes("indicator")) {
+                print(`InputNodeImage: Skipping permanent object: ${child.name}`);
+                continue;
+            }
+
+            // Check if this child has a completed PictureBehavior (scanner instance)
+            const pictureBehavior = this.findPictureBehaviorInHierarchy(child);
+            if (pictureBehavior && pictureBehavior.isCaptureComplete()) {
+                // This scanner is complete, mark for destruction
+                objectsToDestroy.push(child);
+            }
+        }
+
+        // Destroy the old scanners
+        for (const obj of objectsToDestroy) {
+            try {
+                print(`InputNodeImage: Cleaning up old completed scanner instance: ${obj.name}`);
+                obj.destroy();
+            } catch (e) {
+                print(`InputNodeImage: Error destroying scanner: ${e}`);
+            }
+        }
+
+        if (objectsToDestroy.length > 0) {
+            print(`InputNodeImage: Cleaned up ${objectsToDestroy.length} old scanner(s) for re-capture`);
+        } else {
+            print(`InputNodeImage: No old scanners to clean up`);
+        }
+    }
+
+    /**
+     * Finds PictureController component in the hierarchy
+     */
+    private findPictureControllerInHierarchy(obj: SceneObject): any | null {
+        if (!obj || isNull(obj)) {
+            return null;
+        }
+
+        // Check current object for PictureController
+        // PictureController is from Crop Circle.lspkg, we access it dynamically
+        // Look for the scannerPrefab property which is unique to PictureController
+        try {
+            const scriptComponents = obj.getComponents("Component.ScriptComponent");
+            for (let i = 0; i < scriptComponents.length; i++) {
+                const script = scriptComponents[i] as any;
+                // Check if this is a PictureController by looking for its unique properties
+                if (script && script.scannerPrefab !== undefined) {
+                    return script;
+                }
+            }
+        } catch (e) {
+            // getComponents might fail, try alternative approach
+        }
+
+        // Check children recursively
+        const childCount = obj.getChildrenCount();
+        for (let i = 0; i < childCount; i++) {
+            const child = obj.getChild(i);
+            const found = this.findPictureControllerInHierarchy(child);
+            if (found) {
+                return found;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -355,14 +462,43 @@ export class InputNodeImage extends BaseScriptComponent {
                 return;
             }
 
-            // Try to find PictureBehavior (it's created when user pinches down)
-            const pictureBehavior = this.findPictureBehaviorInHierarchy(this.cropCircleObject);
+            // Try to find a NEW PictureBehavior (one that is not yet complete)
+            // This is important for re-capture - we need the new scanner, not the old one
+            const pictureBehavior = this.findActivePictureBehavior(this.cropCircleObject);
             if (pictureBehavior) {
                 listenerSetup = true;
-                print(`InputNodeImage: PictureBehavior found for ${this.sceneObject.name}, setting up capture listener...`);
+                print(`InputNodeImage: Active PictureBehavior found for ${this.sceneObject.name}, setting up capture listener...`);
                 this.setupCapturePolling(pictureBehavior);
             }
         });
+    }
+
+    /**
+     * Finds an active (not yet complete) PictureBehavior in the hierarchy
+     * This is used for re-capture to ensure we find the new scanner
+     */
+    private findActivePictureBehavior(obj: SceneObject): PictureBehavior | null {
+        if (!obj || isNull(obj)) {
+            return null;
+        }
+
+        // Check current object
+        const pictureBehavior = obj.getComponent(PictureBehavior.getTypeName() as any) as PictureBehavior | null;
+        if (pictureBehavior && !pictureBehavior.isCaptureComplete()) {
+            return pictureBehavior;
+        }
+
+        // Check children recursively
+        const childCount = obj.getChildrenCount();
+        for (let i = 0; i < childCount; i++) {
+            const child = obj.getChild(i);
+            const found = this.findActivePictureBehavior(child);
+            if (found) {
+                return found;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -374,10 +510,11 @@ export class InputNodeImage extends BaseScriptComponent {
             return;
         }
 
-        // Poll for capture completion (check if captureImage is set)
+        // Poll for capture completion using PictureBehavior's API
         let checkCount = 0;
         const maxChecks = 600; // 10 seconds at 60fps
         let callbackExecuted = false;
+
         this.createEvent("UpdateEvent").bind(() => {
             if (callbackExecuted) return; // Only execute once
 
@@ -397,63 +534,32 @@ export class InputNodeImage extends BaseScriptComponent {
                 return;
             }
 
-            // Check if capture is complete by looking at captureRendMesh
-            // When captureImage is set, it contains a ProceduralTextureProvider with the static cropped image
-            // We need to get the actual texture from it, not use screenCropTexture (which is live)
+            // Check if capture is complete using PictureBehavior's API
             try {
-                const captureRendMesh = (pictureBehavior as any).captureRendMesh;
-                const screenCropTexture = (pictureBehavior as any).screenCropTexture;
+                // Use the new cleaner API
+                if (pictureBehavior.isCaptureComplete()) {
+                    print(`InputNodeImage: Capture complete detected for ${this.sceneObject.name}!`);
 
-                if (captureRendMesh && captureRendMesh.mainPass && captureRendMesh.mainPass.captureImage) {
-                    // Capture is complete - get the static texture from PictureBehavior
-                    print(`InputNodeImage: Capture detected for ${this.sceneObject.name}! Getting static texture...`);
+                    // Get the captured texture
+                    let capturedTexture = pictureBehavior.getCapturedTexture();
 
-                    let staticTexture: Texture | null = null;
-
-                    try {
-                        // captureImage is a ProceduralTextureProvider created at capture time
-                        // It was created while screenCropTexture had a static frame as input
-                        // So it should contain the static CROPPED texture (not full frame, not live)
-                        const captureImage = captureRendMesh.mainPass.captureImage;
-
-                        // Use captureImage directly as texture
-                        // ProceduralTextureProvider can be used as Texture in Lens Studio
-                        // Since it was created while static input was set, it should be static
-                        staticTexture = captureImage as any as Texture;
-                        print(`InputNodeImage: Using captureImage directly as texture (should be static CROPPED snapshot)`);
-
-                        // Log for debugging
-                        if ((pictureBehavior as any).getCapturedStaticTexture && typeof (pictureBehavior as any).getCapturedStaticTexture === 'function') {
-                            const staticFrame = (pictureBehavior as any).getCapturedStaticTexture();
-                            if (staticFrame) {
-                                print(`InputNodeImage: Note - Static camera frame available (full frame, not cropped). Using captureImage for cropped version.`);
-                            }
+                    // Fallback to getCaptureImage if getCapturedTexture returns null
+                    if (!capturedTexture) {
+                        const captureImage = pictureBehavior.getCaptureImage();
+                        if (captureImage) {
+                            capturedTexture = captureImage as any as Texture;
+                            print(`InputNodeImage: Using getCaptureImage() as texture`);
                         }
-                    } catch (extractError) {
-                        print(`InputNodeImage: Error using captureImage: ${extractError}`);
-                        // Fallback: try to get static frame from PictureBehavior (full frame, not cropped)
-                        try {
-                            if ((pictureBehavior as any).getCapturedStaticTexture && typeof (pictureBehavior as any).getCapturedStaticTexture === 'function') {
-                                staticTexture = (pictureBehavior as any).getCapturedStaticTexture();
-                                print(`InputNodeImage: WARNING - Fallback to static camera frame (full frame, NOT cropped)`);
-                            }
-                        } catch (fallbackError) {
-                            print(`InputNodeImage: Fallback also failed: ${fallbackError}`);
-                        }
-
-                        // Final fallback to screenCropTexture (will be live)
-                        if (!staticTexture && screenCropTexture) {
-                            staticTexture = screenCropTexture;
-                            print(`InputNodeImage: WARNING - Using screenCropTexture as final fallback (will show live feed)`);
-                        }
+                    } else {
+                        print(`InputNodeImage: Using getCapturedTexture() as texture`);
                     }
 
-                    if (staticTexture) {
+                    if (capturedTexture) {
                         callbackExecuted = true;
                         this._isCapturing = false;
 
-                        // Pass the static cropped texture to InputNodeImage
-                        this.onCaptureComplete(staticTexture);
+                        // Pass the captured texture to InputNodeImage
+                        this.onCaptureComplete(capturedTexture);
 
                         // Hide crop circle after capture (don't destroy, just hide)
                         if (this.cropCircleObject) {
@@ -461,7 +567,9 @@ export class InputNodeImage extends BaseScriptComponent {
                             print(`InputNodeImage: Crop circle hidden after capture for ${this.sceneObject.name}`);
                         }
                     } else {
-                        print(`InputNodeImage: ERROR - Could not get static texture from capture`);
+                        print(`InputNodeImage: ERROR - Capture complete but no texture available`);
+                        callbackExecuted = true;
+                        this._isCapturing = false;
                     }
                 }
             } catch (e) {
@@ -534,6 +642,9 @@ export class InputNodeImage extends BaseScriptComponent {
                 print(`InputNodeImage: Using existing cloned material for ${this.sceneObject.name}, updating texture...`);
                 this.setImageTexture(croppedTexture);
                 print(`InputNodeImage: Cropped texture updated in ${this.sceneObject.name}`);
+
+                // Update capture button label to indicate recapture is possible
+                this.updateCaptureButtonLabel("Recapture");
                 return;
             }
 
@@ -573,6 +684,9 @@ export class InputNodeImage extends BaseScriptComponent {
                     // Set the cropped texture on the image component
                     this.setImageTexture(croppedTexture);
 
+                    // Update capture button label to indicate recapture is possible
+                    this.updateCaptureButtonLabel("Recapture");
+
                     print(`InputNodeImage: Cropped texture displayed in ${this.sceneObject.name} with newly cloned material`);
                     return;
                 }
@@ -599,6 +713,9 @@ export class InputNodeImage extends BaseScriptComponent {
                             // Set texture
                             this.imageComponent.mainPass.baseTex = croppedTexture;
                             print(`InputNodeImage: Texture set directly (material: ${this._clonedMaterial ? "cloned" : "original"})`);
+
+                            // Update capture button label to indicate recapture is possible
+                            this.updateCaptureButtonLabel("Recapture");
                         }
                     } catch (e) {
                         print(`InputNodeImage: ERROR - Could not set texture: ${e}`);
@@ -608,6 +725,16 @@ export class InputNodeImage extends BaseScriptComponent {
         } catch (e) {
             print(`InputNodeImage: ERROR - Failed to process captured cropped image: ${e}`);
         }
+    }
+
+    /**
+     * Logs that capture is ready for recapture
+     * Note: CapsuleButton doesn't have a setLabel method, so we just log
+     */
+    private updateCaptureButtonLabel(label: string): void {
+        // CapsuleButton labels are set via child Text components in the prefab
+        // Just log the state change for debugging
+        print(`InputNodeImage: Capture state - "${label}" (button ready for ${label.toLowerCase()})`);
     }
 
     /**

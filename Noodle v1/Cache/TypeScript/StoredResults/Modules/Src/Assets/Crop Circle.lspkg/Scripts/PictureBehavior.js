@@ -69,15 +69,11 @@ let PictureBehavior = (() => {
             this.captureRendMesh = this.captureRendMesh;
             this.screenCropTexture = this.screenCropTexture;
             this.cropRegion = this.cropRegion;
-            // Store the static captured texture (cropped snapshot)
-            this._capturedStaticTexture = null;
-            // Hidden Image component for capturing static texture
-            this._hiddenCaptureImage = null;
-            this._hiddenCaptureObject = null;
-            // RenderTarget for capturing static cropped texture
-            this._renderTarget = null;
-            this._renderTargetCamera = null;
-            this._renderTargetObject = null;
+            // Whether to show the captured image in 3D space (set to false for InputNodeImage usage)
+            this.showCapturedImageIn3D = this.showCapturedImageIn3D;
+            // Store the captured texture for external access (InputNodeImage)
+            this._capturedTexture = null;
+            this._captureComplete = false;
             this.isEditor = global.deviceInfoSystem.isEditor();
             this.rightHand = SIK_1.SIK.HandInputData.getHand("right");
             this.leftHand = SIK_1.SIK.HandInputData.getHand("left");
@@ -101,10 +97,12 @@ let PictureBehavior = (() => {
                         print("[PictureBehavior] Position " + i + ": x=" + pos.x.toFixed(2) + ", y=" + pos.y.toFixed(2) + ", z=" + pos.z.toFixed(2));
                     }
                     // Calculate min/max x,y from all tracked positions and show mask
+                    // This positions the circles, which CropRegion uses to set the crop rect
                     this.calculateRectangleFromTrackedPositions();
                     // Wait a moment for hands to move away before capturing the frame
                     // This ensures hands won't be in the captured image
-                    print("[PictureBehavior] Waiting for hands to move away before capturing frame...");
+                    // Also gives CropRegion time to update the crop rect based on circle positions
+                    print("[PictureBehavior] Waiting for hands to move away and CropRegion to update...");
                     const captureDelayEvent = this.createEvent("DelayedCallbackEvent");
                     captureDelayEvent.bind(() => {
                         print("[PictureBehavior] Hands should be away now - capturing frame");
@@ -126,15 +124,11 @@ let PictureBehavior = (() => {
             this.captureRendMesh = this.captureRendMesh;
             this.screenCropTexture = this.screenCropTexture;
             this.cropRegion = this.cropRegion;
-            // Store the static captured texture (cropped snapshot)
-            this._capturedStaticTexture = null;
-            // Hidden Image component for capturing static texture
-            this._hiddenCaptureImage = null;
-            this._hiddenCaptureObject = null;
-            // RenderTarget for capturing static cropped texture
-            this._renderTarget = null;
-            this._renderTargetCamera = null;
-            this._renderTargetObject = null;
+            // Whether to show the captured image in 3D space (set to false for InputNodeImage usage)
+            this.showCapturedImageIn3D = this.showCapturedImageIn3D;
+            // Store the captured texture for external access (InputNodeImage)
+            this._capturedTexture = null;
+            this._captureComplete = false;
             this.isEditor = global.deviceInfoSystem.isEditor();
             this.rightHand = SIK_1.SIK.HandInputData.getHand("right");
             this.leftHand = SIK_1.SIK.HandInputData.getHand("left");
@@ -158,10 +152,12 @@ let PictureBehavior = (() => {
                         print("[PictureBehavior] Position " + i + ": x=" + pos.x.toFixed(2) + ", y=" + pos.y.toFixed(2) + ", z=" + pos.z.toFixed(2));
                     }
                     // Calculate min/max x,y from all tracked positions and show mask
+                    // This positions the circles, which CropRegion uses to set the crop rect
                     this.calculateRectangleFromTrackedPositions();
                     // Wait a moment for hands to move away before capturing the frame
                     // This ensures hands won't be in the captured image
-                    print("[PictureBehavior] Waiting for hands to move away before capturing frame...");
+                    // Also gives CropRegion time to update the crop rect based on circle positions
+                    print("[PictureBehavior] Waiting for hands to move away and CropRegion to update...");
                     const captureDelayEvent = this.createEvent("DelayedCallbackEvent");
                     captureDelayEvent.bind(() => {
                         print("[PictureBehavior] Hands should be away now - capturing frame");
@@ -191,30 +187,6 @@ let PictureBehavior = (() => {
                 }
             }
             print("[PictureBehavior] Circles hidden initially");
-            // HIDE picAnchorObj and captureRendMesh from the start - we don't want to show captured image in 3D space
-            // The texture will be passed to InputNodeImage instead
-            if (this.picAnchorObj) {
-                this.picAnchorObj.enabled = false;
-                print("[PictureBehavior] picAnchorObj hidden from start - image will not be displayed in 3D space");
-            }
-            if (this.captureRendMesh && this.captureRendMesh.sceneObject) {
-                this.captureRendMesh.sceneObject.enabled = false;
-                print("[PictureBehavior] captureRendMesh hidden from start - image will not be displayed in 3D space");
-            }
-            // Create hidden Image component for capturing static texture
-            this._hiddenCaptureObject = global.scene.createSceneObject("HiddenCaptureImage");
-            this._hiddenCaptureObject.setParent(this.getSceneObject());
-            this._hiddenCaptureObject.enabled = false; // Keep it hidden
-            this._hiddenCaptureImage = this._hiddenCaptureObject.createComponent("Component.Image");
-            if (this._hiddenCaptureImage) {
-                print("[PictureBehavior] Created hidden Image component for static texture capture");
-            }
-            // Create RenderTarget for capturing static cropped texture
-            // This will render the cropped image to a static texture
-            // Note: RenderTarget must be created as an asset, not programmatically
-            // For now, we'll use a simpler approach: copy the camera frame and apply crop manually
-            // The RenderTarget approach would require a pre-created RenderTarget asset
-            print("[PictureBehavior] RenderTarget approach requires asset - using alternative method");
             // Use only right hand for single-hand pinch gesture
             this.rightHand.onPinchUp.add(this.rightPinchUp);
             this.rightHand.onPinchDown.add(this.rightPinchDown);
@@ -244,10 +216,6 @@ let PictureBehavior = (() => {
                 const trans = this.getSceneObject().getTransform();
                 trans.setWorldPosition(this.camTrans.getWorldPosition().add(this.camTrans.forward.uniformScale(-60)));
                 trans.setWorldRotation(quat.lookAt(this.camTrans.forward, vec3.up()));
-                // Create update event for editor mode too, so we can control visibility
-                this.updateEvent = this.createEvent("UpdateEvent");
-                this.updateEvent.bind(this.update.bind(this));
-                print("[PictureBehavior] Update event created for editor mode");
             }
             else {
                 //send offscreen
@@ -285,63 +253,18 @@ let PictureBehavior = (() => {
             }
         }
         captureAndProcessImage() {
-            // Ensure visual elements are hidden BEFORE capture - don't show image in 3D space
-            try {
-                if (this.picAnchorObj && !isNull(this.picAnchorObj)) {
-                    this.picAnchorObj.enabled = false;
-                }
-            }
-            catch (e) {
-                print("[PictureBehavior] Warning: Could not hide picAnchorObj: " + e);
-            }
-            try {
-                if (this.captureRendMesh && this.captureRendMesh.sceneObject && !isNull(this.captureRendMesh.sceneObject)) {
-                    this.captureRendMesh.sceneObject.enabled = false;
-                }
-            }
-            catch (e) {
-                print("[PictureBehavior] Warning: Could not hide captureRendMesh: " + e);
-            }
-            try {
-                if (this.loadingObj && !isNull(this.loadingObj)) {
-                    this.loadingObj.enabled = false;
-                }
-            }
-            catch (e) {
-                print("[PictureBehavior] Warning: Could not hide loadingObj: " + e);
-            }
             // Capture the image now (after hands have moved away)
+            // CropRegion should have updated the crop rect based on circle positions
             if (this.screenCropTexture && this.screenCropTexture.getColorspace() == 3) {
                 try {
-                    // DIRECTLY set crop rect based on circle positions - don't rely on CropRegion
-                    // This ensures the crop is applied correctly before capture
-                    this.setCropRectFromCircles();
-                    // Verify crop region is set
-                    const cropControl = this.screenCropTexture.control;
-                    if (cropControl && cropControl.cropRect) {
-                        const cropRect = cropControl.cropRect;
-                        const center = cropRect.getCenter();
-                        const size = cropRect.getSize();
-                        print(`[PictureBehavior] Final crop region: center=(${center.x.toFixed(3)}, ${center.y.toFixed(3)}), size=(${size.x.toFixed(3)}, ${size.y.toFixed(3)})`);
-                        // Check if crop is valid (not full frame)
-                        if (Math.abs(size.x - 2.0) < 0.01 && Math.abs(size.y - 2.0) < 0.01) {
-                            print("[PictureBehavior] WARNING - Crop region is full frame! Circle positions may be invalid.");
-                        }
-                    }
-                    // Create the static texture from the cropped screenCropTexture
-                    // ProceduralTextureProvider.createFromTexture creates a snapshot at creation time
+                    // Create ProceduralTextureProvider from the cropped screenCropTexture
+                    // This freezes the current cropped frame
                     const capturedTexture = ProceduralTextureProvider.createFromTexture(this.screenCropTexture);
                     this.captureRendMesh.mainPass.captureImage = capturedTexture;
-                    // Also store the screenCropTexture reference for InputNodeImage to use
-                    // The crop region is now applied, so screenCropTexture shows the cropped area
-                    this._capturedStaticTexture = this.screenCropTexture;
-                    print("[PictureBehavior] Frame captured with crop region applied!");
-                    print("[PictureBehavior] captureImage set to ProceduralTextureProvider");
-                    print("[PictureBehavior] _capturedStaticTexture set to screenCropTexture for backup");
-                    // Disable crop region after capture
-                    if (this.cropRegion) {
-                        this.cropRegion.enabled = false;
-                    }
+                    // Store the captured texture for external access
+                    this._capturedTexture = capturedTexture;
+                    this._captureComplete = true;
+                    print("[PictureBehavior] Frame captured successfully! Texture available for external use.");
                 }
                 catch (e) {
                     print("[PictureBehavior] Error capturing frame: " + e);
@@ -365,156 +288,57 @@ let PictureBehavior = (() => {
                     this.getSceneObject().destroy();
                     return;
                 }
-                // Disable crop region
+                // Disable crop region and show loading indicator
                 this.cropRegion.enabled = false;
-                // Ensure visual elements stay hidden - don't display captured image in 3D space
-                // The texture (screenCropTexture) is available for InputNodeImage to use directly
-                if (this.picAnchorObj) {
-                    this.picAnchorObj.enabled = false;
+                // Show loading if configured to show in 3D
+                if (this.showCapturedImageIn3D && this.loadingObj) {
+                    this.loadingObj.enabled = true;
                 }
-                if (this.captureRendMesh && this.captureRendMesh.sceneObject) {
-                    this.captureRendMesh.sceneObject.enabled = false;
+                // If NOT showing in 3D, hide the visual elements
+                if (!this.showCapturedImageIn3D) {
+                    if (this.picAnchorObj) {
+                        this.picAnchorObj.enabled = false;
+                    }
+                    if (this.captureRendMesh && this.captureRendMesh.sceneObject) {
+                        this.captureRendMesh.sceneObject.enabled = false;
+                    }
+                    if (this.loadingObj) {
+                        this.loadingObj.enabled = false;
+                    }
+                    // Hide circles too
+                    for (let i = 0; i < this.circleObjsRef.length; i++) {
+                        if (this.circleObjsRef[i]) {
+                            this.circleObjsRef[i].enabled = false;
+                        }
+                    }
+                    print("[PictureBehavior] Visuals hidden - texture available via getCapturedTexture()");
                 }
-                if (this.loadingObj) {
-                    this.loadingObj.enabled = false;
-                }
-                // Frame is now captured - _capturedStaticTexture contains the static camera frame
-                // InputNodeImage will poll for captureImage to be set, then get the static texture
-                print("[PictureBehavior] Freeze frame captured! Static texture stored. Visuals hidden.");
+                // Frame is now captured and available in captureRendMesh.mainPass.captureImage
+                print("[PictureBehavior] Freeze frame captured and ready to use!");
             }
         }
         /**
-         * Gets the captured static texture (cropped snapshot)
-         * Returns null if capture failed or texture is not available
+         * Gets the captured texture (cropped snapshot)
+         * Returns null if capture hasn't completed yet
          */
-        getCapturedStaticTexture() {
-            return this._capturedStaticTexture;
+        getCapturedTexture() {
+            return this._capturedTexture;
         }
         /**
-         * Directly sets the crop rect on screenCropTexture based on current circle positions
-         * This bypasses CropRegion to ensure crop is applied correctly before capture
+         * Checks if capture is complete
          */
-        setCropRectFromCircles() {
-            if (!this.screenCropTexture || !this.circleTrans || this.circleTrans.length < 4) {
-                print("[PictureBehavior] Cannot set crop rect - missing texture or circle transforms");
-                return;
-            }
-            const cropControl = this.screenCropTexture.control;
-            if (!cropControl) {
-                print("[PictureBehavior] Cannot set crop rect - no crop control");
-                return;
-            }
-            // Get the camera to use for world-to-screen conversion
-            // Use the same approach as CropRegion
-            const cameraService = this.cropRegion?.cameraService;
-            if (!cameraService) {
-                print("[PictureBehavior] WARNING - No camera service, trying to set crop from local positions");
-                // Fallback: use local positions relative to camera
-                this.setCropRectFromLocalPositions(cropControl);
-                return;
-            }
-            // Convert all 4 circle world positions to camera/screen space
-            const imagePoints = [];
-            for (let i = 0; i < this.circleTrans.length; i++) {
-                const worldPos = this.circleTrans[i].getWorldPosition();
-                let screenPos;
-                if (this.isEditor) {
-                    screenPos = cameraService.WorldToEditorCameraSpace(worldPos);
-                }
-                else {
-                    screenPos = cameraService.WorldToTrackingRightCameraSpace(worldPos);
-                }
-                imagePoints.push(screenPos);
-                print(`[PictureBehavior] Circle ${i} world=(${worldPos.x.toFixed(2)}, ${worldPos.y.toFixed(2)}, ${worldPos.z.toFixed(2)}) -> screen=(${screenPos.x.toFixed(3)}, ${screenPos.y.toFixed(3)})`);
-            }
-            // Calculate min/max bounds from all points
-            let min_x = Infinity, max_x = -Infinity;
-            let min_y = Infinity, max_y = -Infinity;
-            for (let i = 0; i < imagePoints.length; i++) {
-                const pt = imagePoints[i];
-                if (pt.x < min_x)
-                    min_x = pt.x;
-                if (pt.x > max_x)
-                    max_x = pt.x;
-                if (pt.y < min_y)
-                    min_y = pt.y;
-                if (pt.y > max_y)
-                    max_y = pt.y;
-            }
-            // Clamp to valid range [-1, 1]
-            min_x = Math.max(-1, Math.min(1, min_x));
-            max_x = Math.max(-1, Math.min(1, max_x));
-            min_y = Math.max(-1, Math.min(1, min_y));
-            max_y = Math.max(-1, Math.min(1, max_y));
-            // Ensure we have a valid rectangle (min < max)
-            if (min_x >= max_x || min_y >= max_y) {
-                print("[PictureBehavior] WARNING - Invalid crop bounds, using small default crop");
-                min_x = -0.3;
-                max_x = 0.3;
-                min_y = -0.3;
-                max_y = 0.3;
-            }
-            // Calculate center and size
-            const center = new vec2((min_x + max_x) * 0.5, (min_y + max_y) * 0.5);
-            const size = new vec2(max_x - min_x, max_y - min_y);
-            print(`[PictureBehavior] Setting crop rect: bounds=(${min_x.toFixed(3)}, ${min_y.toFixed(3)}) to (${max_x.toFixed(3)}, ${max_y.toFixed(3)})`);
-            print(`[PictureBehavior] Crop center=(${center.x.toFixed(3)}, ${center.y.toFixed(3)}), size=(${size.x.toFixed(3)}, ${size.y.toFixed(3)})`);
-            // Set the crop rect
-            const cropRect = cropControl.cropRect || Rect.create(0, 0, 0, 0);
-            cropRect.setCenter(center);
-            cropRect.setSize(size);
-            cropControl.cropRect = cropRect;
+        isCaptureComplete() {
+            return this._captureComplete;
         }
         /**
-         * Fallback: Set crop rect from local camera-space positions
+         * Gets the ProceduralTextureProvider from captureRendMesh
+         * This is what was set during capture
          */
-        setCropRectFromLocalPositions(cropControl) {
-            // Convert circle world positions to camera local space
-            const localPositions = this.circleTrans.map(t => this.camTrans.getInvertedWorldTransform().multiplyPoint(t.getWorldPosition()));
-            // Get camera frustum info to convert to normalized coordinates
-            // This is approximate - proper implementation would use camera intrinsics
-            let min_x = Infinity, max_x = -Infinity;
-            let min_y = Infinity, max_y = -Infinity;
-            for (const pos of localPositions) {
-                // Convert to normalized device coordinates (approximate)
-                // Assuming camera looks down -Z, with Y up and X right
-                const depth = -pos.z;
-                if (depth <= 0)
-                    continue; // Behind camera
-                const nx = pos.x / depth;
-                const ny = pos.y / depth;
-                // Scale to roughly [-1, 1] range (assumes ~60 degree FOV)
-                const scale = 1.0;
-                const screenX = nx * scale;
-                const screenY = ny * scale;
-                if (screenX < min_x)
-                    min_x = screenX;
-                if (screenX > max_x)
-                    max_x = screenX;
-                if (screenY < min_y)
-                    min_y = screenY;
-                if (screenY > max_y)
-                    max_y = screenY;
+        getCaptureImage() {
+            if (this.captureRendMesh && this.captureRendMesh.mainPass) {
+                return this.captureRendMesh.mainPass.captureImage;
             }
-            // Clamp to valid range
-            min_x = Math.max(-1, Math.min(1, min_x));
-            max_x = Math.max(-1, Math.min(1, max_x));
-            min_y = Math.max(-1, Math.min(1, min_y));
-            max_y = Math.max(-1, Math.min(1, max_y));
-            if (min_x >= max_x || min_y >= max_y) {
-                print("[PictureBehavior] Fallback crop bounds invalid, using default");
-                min_x = -0.3;
-                max_x = 0.3;
-                min_y = -0.3;
-                max_y = 0.3;
-            }
-            const center = new vec2((min_x + max_x) * 0.5, (min_y + max_y) * 0.5);
-            const size = new vec2(max_x - min_x, max_y - min_y);
-            print(`[PictureBehavior] Fallback crop: center=(${center.x.toFixed(3)}, ${center.y.toFixed(3)}), size=(${size.x.toFixed(3)}, ${size.y.toFixed(3)})`);
-            const cropRect = cropControl.cropRect || Rect.create(0, 0, 0, 0);
-            cropRect.setCenter(center);
-            cropRect.setSize(size);
-            cropControl.cropRect = cropRect;
+            return null;
         }
         localTopLeft() {
             return this.camTrans.getInvertedWorldTransform().multiplyPoint(this.circleTrans[0].getWorldPosition());
@@ -544,7 +368,6 @@ let PictureBehavior = (() => {
                     }
                 }
                 // Don't show mask during tracking - only show after pinch is released
-                // Removed: this.calculateRectangleFromTrackedPositions()
             }
         }
         calculateRectangleFromTrackedPositions() {
@@ -554,20 +377,13 @@ let PictureBehavior = (() => {
             }
             print("[PictureBehavior] calculateRectangleFromTrackedPositions: Processing " + this.trackedPositions.length + " positions");
             // Show the circles/mask now that we're done tracking
+            // This is CRITICAL - CropRegion uses the circle positions to set the crop rect!
             for (let i = 0; i < this.circleObjsRef.length; i++) {
                 if (this.circleObjsRef[i]) {
                     this.circleObjsRef[i].enabled = true;
                 }
             }
-            print("[PictureBehavior] Circles/mask enabled - showing rectangle");
-            // Ensure picAnchorObj and captureRendMesh stay hidden - don't show captured image in 3D space
-            // The texture will be passed to InputNodeImage instead
-            if (this.picAnchorObj) {
-                this.picAnchorObj.enabled = false;
-            }
-            if (this.captureRendMesh && this.captureRendMesh.sceneObject) {
-                this.captureRendMesh.sceneObject.enabled = false;
-            }
+            print("[PictureBehavior] Circles/mask enabled - CropRegion will update crop rect");
             // Convert all tracked positions to camera local space to find min/max
             const localPositions = this.trackedPositions.map(pos => this.camTrans.getInvertedWorldTransform().multiplyPoint(pos));
             // Find min and max x, y in camera local space, and average z
@@ -614,7 +430,7 @@ let PictureBehavior = (() => {
             const topRightPos = this.camTrans.getWorldTransform().multiplyPoint(topRightLocal);
             const bottomRightPos = this.camTrans.getWorldTransform().multiplyPoint(bottomRightLocal);
             const bottomLeftPos = this.camTrans.getWorldTransform().multiplyPoint(bottomLeftLocal);
-            // Set circle positions to form rectangle
+            // Set circle positions to form rectangle - CropRegion watches these!
             this.circleTrans[0].setWorldPosition(topLeftPos); // Top left
             this.circleTrans[1].setWorldPosition(topRightPos); // Top right
             this.circleTrans[2].setWorldPosition(bottomRightPos); // Bottom right

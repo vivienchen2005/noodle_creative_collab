@@ -19,6 +19,7 @@ function checkUndefined(property, showIfData) {
 // @input Component.RenderMeshVisual captureRendMesh
 // @input Asset.Texture screenCropTexture
 // @input AssignableType cropRegion
+// @input bool showCapturedImageIn3D
 if (!global.BaseScriptComponent) {
     function BaseScriptComponent() {}
     global.BaseScriptComponent = BaseScriptComponent;
@@ -40,6 +41,7 @@ awakeEvent.bind(() => {
     checkUndefined("captureRendMesh", []);
     checkUndefined("screenCropTexture", []);
     checkUndefined("cropRegion", []);
+    checkUndefined("showCapturedImageIn3D", []);
     if (script.onAwake) {
        script.onAwake();
     }
