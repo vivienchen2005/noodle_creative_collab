@@ -424,6 +424,7 @@ export class InputNodePrompt extends BaseScriptComponent {
         if (this.outputButton.onTriggerUp) {
             this.outputButton.onTriggerUp.add(() => {
                 print(`InputNodePrompt: Output button clicked!`);
+
                 this.onOutputButtonClicked();
             });
             print("InputNodePrompt: Output button click tracking set up");

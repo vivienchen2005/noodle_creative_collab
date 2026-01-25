@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 888
+    size: 891
     values:
       - Crop Circle.lspkg
       - Crop Circle.lspkg/3DModels
@@ -42,6 +42,9 @@ CollapsedEntities:
       - Fonts/Poppins-Bold.ttf
       - Fonts/Poppins-Medium.ttf
       - Hand Menu.lspkg
+      - Image 2.mat
+      - Image.mat
+      - Materials
       - Materials/Demo Mode/1.mat
       - Materials/Demo Mode/2.mat
       - Materials/Demo Mode/3.mat

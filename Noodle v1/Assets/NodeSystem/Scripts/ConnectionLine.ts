@@ -80,10 +80,10 @@ export class ConnectionLine extends BaseScriptComponent {
         this.bezierCurve.endPoint = this.endPoint;
 
         // Set optional properties
-        if (this.lineMaterial) {
-            this.bezierCurve.lineMaterial = this.lineMaterial;
+                if (this.lineMaterial) {
+                    this.bezierCurve.lineMaterial = this.lineMaterial;
         }
-        this.bezierCurve.curveHeight = this.curveHeight;
+                this.bezierCurve.curveHeight = this.curveHeight;
         this.bezierCurve.interpolationPoints = this.interpolationPoints;
         this.bezierCurve.curveDirection = this.curveDirection; // 2 = Cable droop style
 
@@ -107,8 +107,8 @@ export class ConnectionLine extends BaseScriptComponent {
             this.bezierCurve.startPoint = point;
         } else if (!this.isInitialized) {
             this.initializeBezierCurve();
+            }
         }
-    }
 
     /**
      * Update the end point (useful for dynamic connections)
@@ -129,8 +129,8 @@ export class ConnectionLine extends BaseScriptComponent {
         this.lineMaterial = material;
         if (this.bezierCurve) {
             this.bezierCurve.lineMaterial = material;
+            }
         }
-    }
 
     /**
      * Get the underlying BezierCurve component
@@ -194,7 +194,7 @@ export class ConnectionLine extends BaseScriptComponent {
         // Update the bezier curve
         if (this.bezierCurve) {
             this.bezierCurve.endPoint = targetNode;
-        }
+                }
 
         print("[ConnectionLine] Stopped dragging, connected to target node: " + targetNode.name);
     }

@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 944
+    size: 946
     values:
       - Crop Circle.lspkg/3DModels
       - Crop Circle.lspkg/3DModels/SWIS_Frame.mesh
@@ -42,6 +42,8 @@ CollapsedEntities:
       - Hand Menu.lspkg
       - Hand Menu.lspkg/Hand Menu.prefab
       - Hand Menu.lspkg/package_dependencies.json
+      - Image 2.mat
+      - Image.mat
       - Materials/Demo Mode/1.mat
       - Materials/Demo Mode/2.mat
       - Materials/Demo Mode/3.mat

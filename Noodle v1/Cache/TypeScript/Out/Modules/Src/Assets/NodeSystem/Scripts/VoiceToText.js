@@ -71,6 +71,7 @@ let VoiceToText = (() => {
             this.silenceUntilTerminationMs = this.silenceUntilTerminationMs;
             this.transcriptionText = this.transcriptionText;
             this.statusText = this.statusText;
+            this.instructionImage = this.instructionImage;
             this.asrModule = require('LensStudio:AsrModule');
             this.isTranscribing = false;
             this.accumulatedText = '';
@@ -84,6 +85,7 @@ let VoiceToText = (() => {
             this.silenceUntilTerminationMs = this.silenceUntilTerminationMs;
             this.transcriptionText = this.transcriptionText;
             this.statusText = this.statusText;
+            this.instructionImage = this.instructionImage;
             this.asrModule = require('LensStudio:AsrModule');
             this.isTranscribing = false;
             this.accumulatedText = '';
@@ -105,6 +107,9 @@ let VoiceToText = (() => {
                     this.toggleButton.onTriggerUp.add(() => {
                         print("VoiceToText: Button pressed, current state: " + (this.isTranscribing ? "transcribing" : "idle"));
                         // Toggle: if transcribing, stop; if not, start
+                        if (this.instructionImage) {
+                            this.instructionImage.enabled = false;
+                        }
                         if (this.isTranscribing) {
                             this.stopTranscribing();
                         }

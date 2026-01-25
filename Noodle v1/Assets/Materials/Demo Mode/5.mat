@@ -4,7 +4,9 @@
     - !<own> dc2e5623-6b25-41e5-9616-04f0b57b3511
 - !<PassInfo/dc2e5623-6b25-41e5-9616-04f0b57b3511>
   CachedProperties:
-    []
+    - Port_Default_N369:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
@@ -16,22 +18,35 @@
   FrustumCullPad: 0.000000
   InstanceCount: 1
   Defines:
+    - ENABLE_BASE_TEX
     - NODE_13_DROPLIST_ITEM 0
     - NODE_27_DROPLIST_ITEM 0
     - NODE_49_DROPLIST_ITEM 0
     - NODE_69_DROPLIST_ITEM 0
-  BlendMode: Disabled
+  BlendMode: AlphaTest
   Properties:
     Port_Default_N204:
       typeIdx: 1
       value: 0.000000
-    Port_Default_N369:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     PreviewEnabled:
       typeIdx: 0
       value: 0
+    alphaTestThreshold:
+      typeIdx: 1
+      value: 0.677000
     baseColor:
       typeIdx: 5
       value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    baseTex:
+      typeIdx: 9
+      value:
+        id: d1b9a1d5-872c-4c0d-97b4-15aea7c6d4d2
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
   Pass: !<reference> 82cbbd06-a4f9-4718-abd8-cc2ae3b83b77

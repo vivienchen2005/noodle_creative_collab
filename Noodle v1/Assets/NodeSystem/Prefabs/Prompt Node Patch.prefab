@@ -225,6 +225,7 @@
       silenceUntilTerminationMs: !<float> 2000.000000
       transcriptionText: !<reference.Text> 0221599e-c32a-459e-8e5b-455396c8f621
       statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      instructionImage: !<reference.SceneObject> b7026608-2d84-4a9c-932c-1a988993df9a
   ScriptTypes:
     "":
       {}
@@ -428,7 +429,7 @@
   PrefabRemaps:
     []
   Name: RoundButton
-  Enabled: true
+  Enabled: false
   ScriptAsset: !<reference> ecf4e352-5db4-4239-8a5e-c4c517a0f03c
   ScriptInputsDefault:
     _renderOrder: true
@@ -572,7 +573,7 @@
   Enabled: true
   ScriptAsset: !<reference> 09cdd2bd-3e60-4ca2-9e5a-3da5a9fa6cb0
   ScriptInputsDefault:
-    voiceButton: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -582,7 +583,7 @@
       outputButton: !<MappingBased.AssignableType_1> 93973cdc-7456-4249-9fc1-5deb1aa46e98
       promptText: !<reference.Text> 0221599e-c32a-459e-8e5b-455396c8f621
       voiceToTextComponent: !<MappingBased.AssignableType_2> 62cb71aa-2c62-49d8-89e2-a0555204c7ca
-      voiceButton: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      voiceButton: !<MappingBased.AssignableType_3> e99f2edb-8683-48d0-9943-457926117ffd
       voiceContainer: !<reference.SceneObject> 2ae2eac0-f675-41b5-bcc7-67833a81e59b
   ScriptTypes:
     "":

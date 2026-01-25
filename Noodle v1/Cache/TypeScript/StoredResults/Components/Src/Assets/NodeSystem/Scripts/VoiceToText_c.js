@@ -25,6 +25,7 @@ function checkUndefined(property, showIfData) {
 // @input Component.Text statusText {"hint":"Optional: Text component to show status (listening, processing, etc.)"}
 // @ui {"widget":"group_end"}
 // @ui {"widget":"separator"}
+// @input SceneObject instructionImage {"hint":"Instruction image to hide when output button is clicked (optional)"}
 if (!global.BaseScriptComponent) {
     function BaseScriptComponent() {}
     global.BaseScriptComponent = BaseScriptComponent;

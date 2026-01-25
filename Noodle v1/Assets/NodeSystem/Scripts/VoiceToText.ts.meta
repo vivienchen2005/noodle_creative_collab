@@ -26,6 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    instructionImage: false
     silenceUntilTerminationMs: false
     statusText: false
     toggleButton: false
@@ -43,6 +44,7 @@
       silenceUntilTerminationMs: !<float> 2000.000000
       transcriptionText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      instructionImage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -60,3 +62,4 @@
     - '// @input Component.Text statusText {"hint":"Optional: Text component to show status (listening, processing, etc.)"}'
     - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"separator"}'
+    - '// @input SceneObject instructionImage {"hint":"Instruction image to hide when output button is clicked (optional)"}'

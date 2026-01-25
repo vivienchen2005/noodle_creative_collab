@@ -39,6 +39,14 @@ export class VoiceToText extends BaseScriptComponent {
 
     @ui.separator
 
+    @input
+    @hint("Instruction image to hide when output button is clicked (optional)")
+    @allowUndefined
+    public instructionImage: SceneObject | null = null;
+
+
+
+
     private asrModule = require('LensStudio:AsrModule')
     private isTranscribing: boolean = false
     private accumulatedText: string = ''
@@ -62,6 +70,9 @@ export class VoiceToText extends BaseScriptComponent {
                 this.toggleButton.onTriggerUp.add(() => {
                     print("VoiceToText: Button pressed, current state: " + (this.isTranscribing ? "transcribing" : "idle"))
                     // Toggle: if transcribing, stop; if not, start
+                    if (this.instructionImage) {
+                        this.instructionImage.enabled = false;
+                    }
                     if (this.isTranscribing) {
                         this.stopTranscribing()
                     } else {

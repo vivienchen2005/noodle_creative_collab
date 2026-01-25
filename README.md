@@ -355,6 +355,7 @@ Connections use `BezierCurve` component with:
 ## 👥 Team
 
 **MIT RealityHack 2026** - Noodle Creative Collaboration Tool
+
 **Kavin Kumar**  
 [LinkedIn Profile](https://www.linkedin.com/in/rbkavin)
 
