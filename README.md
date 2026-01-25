@@ -356,9 +356,10 @@ Connections use `BezierCurve` component with:
 
 **MIT RealityHack 2026** - Noodle Creative Collaboration Tool
 
- **Kavin Kumar**  [LinkedIn Profile](https://www.linkedin.com/in/rbkavin)
- **Neha Sajja** [LinkedIn Profile](https://www.linkedin.com/in/neha-sajja-607071192/)
-
+ **Kavin Kumar**  [LinkedIn Profile](https://www.linkedin.com/in/rbkavin/)
+ **Neha Sajja**  [LinkedIn Profile](https://www.linkedin.com/in/neha-sajja-607071192/)
+ **Stacey Cho**  [LinkedIn Profile](https://www.linkedin.com/in/staceycho0323/)
+ **Ash Shah** [LinkedIN Profile](https://www.linkedin.com/in/shah94/)
 ---
 
 ## 📄 License
