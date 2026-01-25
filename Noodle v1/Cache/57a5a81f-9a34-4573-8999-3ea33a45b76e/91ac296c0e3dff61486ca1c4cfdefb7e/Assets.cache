@@ -1,0 +1,13 @@
+- !<AssetCache>
+  AssetFiles:
+    ecae5dad-e621-468e-93cb-7bf151184a8d: 57a5a81f-9a34-4573-8999-3ea33a45b76e/91ac296c0e3dff61486ca1c4cfdefb7e/Data/Ellipse 21.png
+  Assets:
+    - !<FileTexture/ecae5dad-e621-468e-93cb-7bf151184a8d>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 4
+        Height: 8
+  SourceHash: 91ac296c0e3dff61486ca1c4cfdefb7e
+  FileHash: 86ccb110b05cfab8479035fd6b37206e
+  NativePackageItems:
+    []

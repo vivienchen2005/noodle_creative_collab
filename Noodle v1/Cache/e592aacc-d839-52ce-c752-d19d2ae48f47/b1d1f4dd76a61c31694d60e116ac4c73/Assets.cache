@@ -1,0 +1,17 @@
+- !<AssetCache>
+  AssetFiles:
+    da6c9cf5-112c-4d33-9875-b8899717fef3: e592aacc-d839-52ce-c752-d19d2ae48f47/b1d1f4dd76a61c31694d60e116ac4c73/Data/SWIS_Frame.mesh
+  Assets:
+    - !<FileMesh/da6c9cf5-112c-4d33-9875-b8899717fef3>
+      PackagePath: ""
+      Info: !<MeshInfo>
+        Triangles: 48
+        Vertices: 84
+        Blendshapes:
+          - Pinch
+        Joints: 0
+        AabbSize: {x: 17.743671, y: 5.536779, z: 0.000001}
+  SourceHash: b1d1f4dd76a61c31694d60e116ac4c73
+  FileHash: 0c4f05ea3d051dd2c9dca6be9b9f9847
+  NativePackageItems:
+    []

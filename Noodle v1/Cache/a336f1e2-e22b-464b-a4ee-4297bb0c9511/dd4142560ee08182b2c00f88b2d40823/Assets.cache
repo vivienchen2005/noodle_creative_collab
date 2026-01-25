@@ -1,0 +1,10 @@
+- !<AssetCache>
+  AssetFiles:
+    e57313a5-152c-45cc-82b7-7ca4298fc932: a336f1e2-e22b-464b-a4ee-4297bb0c9511/dd4142560ee08182b2c00f88b2d40823/Data/Poppins-Bold.ttf
+  Assets:
+    - !<Font/e57313a5-152c-45cc-82b7-7ca4298fc932>
+      PackagePath: ""
+  SourceHash: dd4142560ee08182b2c00f88b2d40823
+  FileHash: 2a4c0523145ed1320b72093fd1c94b76
+  NativePackageItems:
+    []

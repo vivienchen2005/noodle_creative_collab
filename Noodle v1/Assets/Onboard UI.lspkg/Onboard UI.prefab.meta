@@ -1,0 +1,327 @@
+- !<AssetImportMetadata/4d680773-5ff6-0352-0783-88be1a00fa8c>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> ed975b0f-e98a-4cbe-b9e3-e7a06e7c7865
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> ed975b0f-e98a-4cbe-b9e3-e7a06e7c7865
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 0a3ad146-63f7-4d4c-a221-44b5b0e80f94
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefabAssetData/0a3ad146-63f7-4d4c-a221-44b5b0e80f94>
+  Prototype: !<ObjectOwner/1418ba9a-6e86-43df-a486-ec38700649d7>
+    PackagePath: ""
+    objects:
+      - !<own> 68ac0f6b-6698-4ad5-6d9b-b1462664455c
+- !<SceneObject/0c88e0b2-eaff-4b28-49ef-cfc316fcc021>
+  PrefabRemaps:
+    []
+  Name: G4
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.407150, z: -12.757336}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> dedffe7a-6ad3-483b-583f-e83702432bf4
+- !<Image/4a6e6617-93bd-47a9-665a-7d1970868ae0>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 046622a6-92f2-44a9-be21-3c5fb5b0e8f2
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/518a185a-2abd-4ede-73ed-0c3c347afb74>
+  PrefabRemaps:
+    []
+  Name: Start
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.407150, z: -12.757336}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 15.000000, y: 15.000000, z: 15.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4a6e6617-93bd-47a9-665a-7d1970868ae0
+- !<SceneObject/5aa29025-b223-4b56-71f6-f2b329913d83>
+  PrefabRemaps:
+    []
+  Name: Onboarding
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 79aa240d-4e30-4b05-7fe8-fc2b724ab94c
+- !<SceneObject/68ac0f6b-6698-4ad5-6d9b-b1462664455c>
+  PrefabRemaps:
+    []
+  Name: Onboard UI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 20.220566}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 32.000000, y: 32.000000, z: 32.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 5aa29025-b223-4b56-71f6-f2b329913d83
+    - !<own> a5f0155d-013b-4011-4873-4fda93c97d24
+    - !<own> d9e86b57-536f-4825-7ec5-67112dd10c04
+    - !<own> 99380865-1a78-4c99-728d-c59c3db81321
+    - !<own> f5e7ada5-d18d-47b2-59d8-f3004cabde44
+    - !<own> c8218849-b985-420a-5266-e64252f34034
+    - !<own> 0c88e0b2-eaff-4b28-49ef-cfc316fcc021
+    - !<own> 518a185a-2abd-4ede-73ed-0c3c347afb74
+  Components:
+    []
+- !<ScriptComponent/79aa240d-4e30-4b05-7fe8-fc2b724ab94c>
+  PrefabRemaps:
+    []
+  Name: Onboarding
+  Enabled: true
+  ScriptAsset: !<reference> 0f51abb6-7c55-4e88-bb6b-5789a16b4f1f
+  ScriptInputsDefault:
+    fadeDuration: true
+    loopSequence: true
+    startOnAwake: true
+    OnboardingContainer: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      imageComponents: !<reference.Image[]>
+        - !<reference> e9ee69bb-a38b-4428-7054-114166cfe1a7
+        - !<reference> e22e5235-14e8-4d51-5ef6-4a6baca96a93
+        - !<reference> 8543e9e8-c707-48b8-7bd1-6aa419cf54ed
+        - !<reference> 7ae606a4-4d9f-4b10-798f-1ffa330e5667
+        - !<reference> b1ca2010-f416-49e3-699f-9a20cbd82987
+        - !<reference> dedffe7a-6ad3-483b-583f-e83702432bf4
+        - !<reference> 4a6e6617-93bd-47a9-665a-7d1970868ae0
+      displayDuration: 3.500000
+      fadeDuration: 0.300000
+      loopSequence: false
+      startOnAwake: true
+      OnboardingContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
+- !<Image/7ae606a4-4d9f-4b10-798f-1ffa330e5667>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> a7dc6396-1e91-4040-885c-ff5f15b5e738
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/8543e9e8-c707-48b8-7bd1-6aa419cf54ed>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 37ee9e82-a72e-4cdc-8387-d7ae63192702
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/99380865-1a78-4c99-728d-c59c3db81321>
+  PrefabRemaps:
+    []
+  Name: G1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.407150, z: -12.757336}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 8543e9e8-c707-48b8-7bd1-6aa419cf54ed
+- !<SceneObject/a5f0155d-013b-4011-4873-4fda93c97d24>
+  PrefabRemaps:
+    []
+  Name: Logo
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.407150, z: -12.757336}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e9ee69bb-a38b-4428-7054-114166cfe1a7
+- !<Image/b1ca2010-f416-49e3-699f-9a20cbd82987>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 5ca4154d-5a89-49b0-a11c-2969029b1f2a
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/c8218849-b985-420a-5266-e64252f34034>
+  PrefabRemaps:
+    []
+  Name: G3
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.407150, z: -12.757336}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b1ca2010-f416-49e3-699f-9a20cbd82987
+- !<SceneObject/d9e86b57-536f-4825-7ec5-67112dd10c04>
+  PrefabRemaps:
+    []
+  Name: Title
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.407150, z: -12.757336}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e22e5235-14e8-4d51-5ef6-4a6baca96a93
+- !<Image/dedffe7a-6ad3-483b-583f-e83702432bf4>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 59d0c82d-b72f-4e45-84c8-312b904c4894
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/e22e5235-14e8-4d51-5ef6-4a6baca96a93>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b12335ab-f48a-44b1-9ad8-59827ca376bf
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/e9ee69bb-a38b-4428-7054-114166cfe1a7>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b67deb71-a046-4f87-90d3-145dbe61d899
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/f5e7ada5-d18d-47b2-59d8-f3004cabde44>
+  PrefabRemaps:
+    []
+  Name: G2
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.407150, z: -12.757336}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7ae606a4-4d9f-4b10-798f-1ffa330e5667

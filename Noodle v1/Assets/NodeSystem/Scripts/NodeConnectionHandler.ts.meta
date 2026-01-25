@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/efea563f-9cf1-41d8-a0f8-538e1d70f4d3>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a5e3d655-8c07-4f9e-b0c1-93a125433308
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a5e3d655-8c07-4f9e-b0c1-93a125433308
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> fb73b81c-7ac4-4559-8bbc-a7399ba02ecc
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/fb73b81c-7ac4-4559-8bbc-a7399ba02ecc>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1a22eb65-ea16-491e-88c8-679b7c2c47e3
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    connectionMaterial: false
+    connectionThreshold: false
+    handType: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - connectionMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      handType: !<float> 0.000000
+      connectionThreshold: 0.100000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.Material connectionMaterial {"hint":"Material for connection lines"}'
+    - '// @input float handType {"hint":"Hand type to use for gestures (0 = Right, 1 = Left)", "widget":"combobox", "values":[{"label":"Right", "value":0}, {"label":"Left", "value":1}]}'
+    - '// @input float connectionThreshold = 0.1 {"hint":"Distance threshold for connecting to a node (in meters)"}'

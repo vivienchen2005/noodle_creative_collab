@@ -1,0 +1,13 @@
+- !<AssetCache>
+  AssetFiles:
+    5c8e38df-acd6-4b73-bbbf-2a6a8b8b7460: a71e1dd2-a4bf-3889-9334-0d8d60c9a4a2/855ad8de938b48fd483b02df50cbe0f0/Data/StartUI.png
+  Assets:
+    - !<FileTexture/5c8e38df-acd6-4b73-bbbf-2a6a8b8b7460>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 552
+        Height: 160
+  SourceHash: 855ad8de938b48fd483b02df50cbe0f0
+  FileHash: 3f3d0eab5b3937fc58ccc77e0f9eca21
+  NativePackageItems:
+    []

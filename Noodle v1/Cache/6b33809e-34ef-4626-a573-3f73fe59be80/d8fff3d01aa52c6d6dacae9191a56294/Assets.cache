@@ -1,0 +1,10 @@
+- !<AssetCache>
+  AssetFiles:
+    50939696-91a6-4abb-b1f7-9d2cccc9440d: 6b33809e-34ef-4626-a573-3f73fe59be80/d8fff3d01aa52c6d6dacae9191a56294/Data/InputNode_ANALYSIS.md
+  Assets:
+    - !<MarkdownAsset/50939696-91a6-4abb-b1f7-9d2cccc9440d>
+      PackagePath: ""
+  SourceHash: d8fff3d01aa52c6d6dacae9191a56294
+  FileHash: 047867df4d924e006458b5f5e8524e90
+  NativePackageItems:
+    []

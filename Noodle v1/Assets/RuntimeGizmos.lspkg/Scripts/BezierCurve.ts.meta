@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/066a7dbe-be36-4e6d-9015-1e20177141d9>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 7efcfbea-8fb5-4032-8fc5-c6137205d0cf
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 7efcfbea-8fb5-4032-8fc5-c6137205d0cf
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8751ff41-e3fe-49e3-9760-6beac8018677
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8751ff41-e3fe-49e3-9760-6beac8018677>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 0f368a27-06ce-48d5-b24b-efdd9953f61e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _color: false
+    controlPointDistance: false
+    curveDirection: false
+    curveHeight: false
+    endPoint: false
+    interpolationPoints: false
+    lineMaterial: false
+    lineStyle: false
+    lineWidth: false
+    startPoint: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - startPoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      endPoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      interpolationPoints: !<float> 20.000000
+      curveHeight: 0.500000
+      curveDirection: !<float> 0.000000
+      controlPointDistance: 0.330000
+      lineMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      _color: !<Vec3> {x: 1.000000, y: 1.000000, z: 0.000000}
+      lineWidth: 0.500000
+      lineStyle: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject startPoint {"hint":"The start point of the curve"}'
+    - '// @input SceneObject endPoint {"hint":"The end point of the curve"}'
+    - '// @input float interpolationPoints = 100 {"hint":"Number of interpolation points along the curve (higher = smoother)"}'
+    - '// @input float curveHeight = 0.15 {"hint":"Curve sag/arc amount - positive values arc up, negative droop down (cable style)"}'
+    - '// @input float curveDirection = 2 {"hint":"Curve style - Up: arc upward, Right: curve right, Forward: natural cable droop", "widget":"combobox", "values":[{"label":"Up", "value":0}, {"label":"Right", "value":1}, {"label":"Cable (Droop)", "value":2}]}'
+    - '// @input float controlPointDistance = 0.4 {"hint":"Control point distance - how far from start/end the control points extend along the path (affects curve smoothness)"}'
+    - // @input Asset.Material lineMaterial
+    - '// @input vec3 _color = {0.498,0.925,0.984} {"widget":"color"}'
+    - // @input float lineWidth = 0.3
+    - '// @input float lineStyle {"widget":"combobox", "values":[{"label":"Full", "value":0}, {"label":"Split", "value":1}, {"label":"FadedEnd", "value":2}]}'

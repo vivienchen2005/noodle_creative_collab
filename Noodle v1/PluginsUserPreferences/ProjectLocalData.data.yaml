@@ -1,0 +1,16 @@
+data:
+  externalSources:
+    - 0fa177d3-6a3d-40cb-9c21-2950d21f491c: /Applications/Lens Studio spectacles 5_15_3.app/Contents/Plugins/Es_ShaderGraph_Model.bundle/InstantiationResources/image_unlit.ss_graph
+    - 125a8522-0a58-4da9-8ea4-f35163312acb: /Users/kavin/Downloads/mic.png
+    - 18479c07-4128-4481-9d20-3969a8b3f08b: /Users/kavin/Downloads/Ellipse 19.png
+    - 1f221695-7f8e-42f9-b5a3-25cd5c608e10: /Users/kavin/Library/Preferences/Snap/Lens Studio/LibraryComponents/RemoteServiceGateway@0.1.9/RemoteServiceGateway.lspkg
+    - 27413cc9-730c-4863-a1ad-dab79e77ccbd: /Users/kavin/Downloads/Poppins/Poppins-Medium.ttf
+    - 4c66d009-6b03-4b38-9933-1207310fbd56: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/Resources/Normal.png
+    - 57a5a81f-9a34-4573-8999-3ea33a45b76e: /Users/kavin/Downloads/Ellipse 21.png
+    - 6d24eb16-29a6-45bf-9781-2c6cf0bbb71e: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/Resources/MaterialParams.png
+    - 864320a2-ea76-4b15-a3c7-d2ee2a2622ab: /Users/kavin/Documents/snapchat/base/SPECTACLES-MIT-REALITY-HACK-2026 Main/YOUR PROJECT IN THIS FOLDER/Spectacles Project - MINIMUM SETUP/Cache/0c19701e-ac08-4326-b922-87de30b0c0ce/64f8184ad55127180e7094e9b5f50bac/Data/Components/Interaction/InteractorLineVisual/InteractorLineMat.ss_graph
+    - a10ff3c2-24d6-469f-ab70-8295e593fa10: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/Meshes/Resources/Sphere.mesh
+    - a336f1e2-e22b-464b-a4ee-4297bb0c9511: /Users/kavin/Downloads/Poppins/Poppins-Bold.ttf
+    - c83f6b0c-c999-40c7-9bcf-e3621b2fed08: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/PBRMaterial/Resources/pbr.ss_graph
+    - d35d07e1-65e0-4220-875f-f3a4f0d89e44: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/UnlitMaterial/Resources/unlit.ss_graph
+    - ede8ce75-0ced-4347-9960-34762d527ddb: /Users/kavin/Documents/snapchat/MIT REality Hack/Remote AI Setup base/Assets/Scripts/VoiceToText.ts

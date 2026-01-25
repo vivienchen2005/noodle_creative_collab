@@ -1,0 +1,44 @@
+- !<AssetImportMetadata/692d1e43-8b53-4c76-883c-fdc2e5dacd36>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3f982b8d-8cd9-4587-bf2b-231a6c435874
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3f982b8d-8cd9-4587-bf2b-231a6c435874
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> e79b9f2a-f668-4bd4-a887-2d1662fe8aa9
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/e79b9f2a-f668-4bd4-a887-2d1662fe8aa9>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 29c6292c-2f7f-4ab3-85e1-de28a5632388
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    connectionMaterial: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - connectionMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.Material connectionMaterial {"hint":"Material for connection lines (BezierCurve)"}'

@@ -1,0 +1,10 @@
+- !<AssetCache>
+  AssetFiles:
+    94adb0af-4ac2-46f1-a72e-109c7d804549: cf292430-baad-4192-a2dd-c1ad629cbbd6/8588a2b46ca8a68e60fcf33688d5a510/Data/SETUP_GUIDE.md
+  Assets:
+    - !<MarkdownAsset/94adb0af-4ac2-46f1-a72e-109c7d804549>
+      PackagePath: ""
+  SourceHash: 8588a2b46ca8a68e60fcf33688d5a510
+  FileHash: 61021225b7f8c506803da22861b252a5
+  NativePackageItems:
+    []

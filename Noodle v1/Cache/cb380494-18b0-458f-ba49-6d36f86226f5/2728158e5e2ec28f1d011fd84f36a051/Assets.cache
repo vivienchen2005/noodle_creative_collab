@@ -1,0 +1,10 @@
+- !<AssetCache>
+  AssetFiles:
+    326d0e88-a647-4af1-b049-837129882ae6: cb380494-18b0-458f-ba49-6d36f86226f5/2728158e5e2ec28f1d011fd84f36a051/Data/QUICK_START.md
+  Assets:
+    - !<MarkdownAsset/326d0e88-a647-4af1-b049-837129882ae6>
+      PackagePath: ""
+  SourceHash: 2728158e5e2ec28f1d011fd84f36a051
+  FileHash: d51c02444dbed15c852d30280816fb60
+  NativePackageItems:
+    []

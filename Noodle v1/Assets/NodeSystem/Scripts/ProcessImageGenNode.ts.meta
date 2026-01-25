@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/e66ca0b6-e9bb-49dc-b1bc-a7f17d631b98>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b04714f3-684d-499e-8de9-dc4529b49015
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b04714f3-684d-499e-8de9-dc4529b49015
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6a7ca86b-50b3-4288-a345-93688adefb59
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/6a7ca86b-50b3-4288-a345-93688adefb59>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: d317953d-3dcf-40f1-8eb5-c1e2bf463b60
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    baseNode: false
+    connectionMaterial: false
+    generateButton: false
+    imageInputSection: false
+    loadingIndicator: false
+    outputButton: false
+    outputImage: false
+    statusText: false
+    textInputSection: false
+    titleText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - baseNode: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      titleText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      generateButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      connectionMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      textInputSection: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      imageInputSection: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      outputImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      loadingIndicator: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      outputButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType baseNode {"hint":"BaseNode component (required)"}'
+    - '// @input Component.Text titleText {"hint":"Title text component (optional - will be created if not set)"}'
+    - '// @input AssignableType_1 generateButton {"hint":"Generate button (will be created if not set)"}'
+    - '// @input Asset.Material connectionMaterial {"hint":"Material for connection lines"}'
+    - '// @input SceneObject textInputSection {"hint":"Text input section SceneObject (where text connections attach)"}'
+    - '// @input SceneObject imageInputSection {"hint":"Image input section SceneObject (where image connections attach)"}'
+    - '// @input Component.Image outputImage {"hint":"Image component to display generated image (will be created if not set)"}'
+    - '// @input Component.Text statusText {"hint":"Optional: Text component to show status/error messages"}'
+    - '// @input SceneObject loadingIndicator {"hint":"Optional: SceneObject to show/hide as loading indicator"}'
+    - '// @input AssignableType_2 outputButton {"hint":"Output button for connecting generated image to other nodes"}'

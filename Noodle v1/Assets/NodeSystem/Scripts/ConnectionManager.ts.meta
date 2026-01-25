@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/7580f05a-a721-4be2-ab45-056400ee5b5b>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b84a6a3a-75d7-4344-a668-343f68873a54
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b84a6a3a-75d7-4344-a668-343f68873a54
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 09ab76dc-e731-4482-bc33-93b66c4427af
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/09ab76dc-e731-4482-bc33-93b66c4427af>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 81d5b8da-6bd9-4677-add2-e1b0e0ee6c52
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    connectionMaterial: false
+    curveHeight: false
+    interpolationPoints: false
+    lineColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - connectionMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      curveHeight: 0.200000
+      interpolationPoints: !<float> 20.000000
+      lineColor: !<Vec3> {x: 1.000000, y: 1.000000, z: 0.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.Material connectionMaterial {"hint":"Material for connection lines"}'
+    - // @input float curveHeight = 0.2
+    - // @input float interpolationPoints = 20
+    - '// @input vec3 lineColor = "{1, 1, 0}" {"widget":"color"}'

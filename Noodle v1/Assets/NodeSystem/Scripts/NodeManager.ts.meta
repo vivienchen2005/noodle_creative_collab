@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/2751fc65-e7d0-40b2-b28a-1aea1420320d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> caecfac4-5330-440a-95ed-cc704d30ff01
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> caecfac4-5330-440a-95ed-cc704d30ff01
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b1db1baf-4f1d-48e7-bb0f-565fdd53131a
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b1db1baf-4f1d-48e7-bb0f-565fdd53131a>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: b976af45-e742-4f5d-be22-9ef879b46d44
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    connectionMaterial: false
+    connectionsParent: false
+    defaultCurveHeight: false
+    nodesParent: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - connectionMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      defaultCurveHeight: 0.100000
+      nodesParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      connectionsParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.Material connectionMaterial {"hint":"Material for connection lines - REQUIRED for connections to be visible"}'
+    - '// @input float defaultCurveHeight = 0.1 {"hint":"Default curve height for connections"}'
+    - '// @input SceneObject nodesParent {"hint":"Parent object for all nodes (optional - for organization)"}'
+    - '// @input SceneObject connectionsParent {"hint":"Parent object for all connections (optional - for organization)"}'

@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/1064c06b-75e2-4196-b92a-3d4bbce9829f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 09cdd2bd-3e60-4ca2-9e5a-3da5a9fa6cb0
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 09cdd2bd-3e60-4ca2-9e5a-3da5a9fa6cb0
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 0139b5fc-4a02-40b8-b018-6b5f559063d3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/0139b5fc-4a02-40b8-b018-6b5f559063d3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 71f9627c-b2eb-4cf4-88ae-745f287d7d03
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    baseNode: false
+    outputButton: false
+    promptText: false
+    titleText: false
+    voiceButton: false
+    voiceContainer: false
+    voiceToTextComponent: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - baseNode: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      titleText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      outputButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      promptText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      voiceToTextComponent: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      voiceButton: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      voiceContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType baseNode {"hint":"BaseNode component (required)"}'
+    - '// @input Component.Text titleText {"hint":"Title text component (optional - will be created if not set)"}'
+    - '// @input AssignableType_1 outputButton {"hint":"Round button for output connection (will be created if not set)"}'
+    - '// @input Component.Text promptText {"hint":"Text component for displaying prompt text (will be created if not set)"}'
+    - '// @input AssignableType_2 voiceToTextComponent {"hint":"Voice to text component (will be created if not set)"}'
+    - '// @input AssignableType_3 voiceButton {"hint":"Button for voice-to-text (will be created if not set)"}'
+    - '// @input SceneObject voiceContainer {"hint":"Parent object for all voice-related UI (voice button, text display, etc.)"}'

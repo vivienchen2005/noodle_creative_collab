@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/ede8ce75-0ced-4347-9960-34762d527ddb>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9d057659-aaf5-4c34-a801-0c51173bbc3d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9d057659-aaf5-4c34-a801-0c51173bbc3d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c0066117-0653-41da-bc35-f33e89ff4d82
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c0066117-0653-41da-bc35-f33e89ff4d82>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 6081d0d5-5524-4365-b58e-2d6715716c24
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    silenceUntilTerminationMs: false
+    statusText: false
+    toggleButton: false
+    transcriptionText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - toggleButton: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      silenceUntilTerminationMs: !<float> 2000.000000
+      transcriptionText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"Voice to Text (ASR)"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Controls"}'
+    - '// @input AssignableType toggleButton {"hint":"Button to toggle start/stop voice transcription (works with RectangleButton, RoundButton, CapsuleButton, etc.)"}'
+    - '// @input float silenceUntilTerminationMs = 2000 {"hint":"Whether to auto-stop after silence (milliseconds). Set to 0 to disable auto-stop."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Display"}'
+    - '// @input Component.Text transcriptionText {"hint":"Optional: Text component to display transcribed text in real-time"}'
+    - '// @input Component.Text statusText {"hint":"Optional: Text component to show status (listening, processing, etc.)"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'

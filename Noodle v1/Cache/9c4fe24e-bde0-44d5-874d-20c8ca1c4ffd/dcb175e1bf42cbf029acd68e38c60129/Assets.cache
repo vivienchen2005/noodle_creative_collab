@@ -1,0 +1,13 @@
+- !<AssetCache>
+  AssetFiles:
+    dc12c184-71a2-4c47-af72-1d740382ee65: 2602ee79-93d1-3085-b2a6-ac96b9d8bafa/dcb175e1bf42cbf029acd68e38c60129/Data/check_toggledHovered.png
+  Assets:
+    - !<FileTexture/dc12c184-71a2-4c47-af72-1d740382ee65>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 128
+        Height: 128
+  SourceHash: dcb175e1bf42cbf029acd68e38c60129
+  FileHash: bf5733c91d3a5eb7762e821779d77045
+  NativePackageItems:
+    []
