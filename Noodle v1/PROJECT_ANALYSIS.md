@@ -1,326 +1,367 @@
-# Noodle v1 - Project Analysis
+# 🍜 Noodle - Creative Collaboration Tool for Spectacles
 
-## Project Overview
+> A visual node-based AI creative tool for Snap Spectacles that enables voice-to-text prompts, image capture, AI image generation, and 3D model generation through an intuitive patch/node interface.
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Node Types](#node-types)
+- [Getting Started](#getting-started)
+- [API Requirements](#api-requirements)
+- [Project Structure](#project-structure)
+- [Technical Details](#technical-details)
+- [Dependencies](#dependencies)
+
+---
+
+## 🎯 Overview
 
 **Project Name:** Noodle v1  
-**Lens Studio Version:** 5.15.3 (Build 26011319)  
+**Platform:** Snap Spectacles (2024)  
+**Lens Studio Version:** 5.15.3+  
 **Template:** Spectacles Starter  
-**Platform:** Spectacles (2024)  
-**Lens Type:** EXPERIMENTAL_API  
-**Activation Camera:** Front & Back  
+**License:** MIT RealityHack 2026  
+
+Noodle is a visual programming environment for Spectacles that allows users to create AI-powered creative workflows by connecting nodes together. Users can:
+
+- Speak prompts using voice-to-text
+- Capture images from the real world using hand gestures
+- Generate AI images from text and/or image inputs
+- Generate 3D models from text and/or image inputs
+- Chain outputs together (e.g., generated image → 3D model)
 
 ---
 
-## Project Structure
+## ✨ Features
 
-All assets are located under `Assets/` as required:
+### 🎤 Voice-to-Text Input
+- Toggle-based voice recording using ASR (Automatic Speech Recognition)
+- Auto-stop after configurable silence period
+- Real-time transcription display
+- Works with any SpectaclesUIKit button type
 
-```
-Assets/
-├── NodeSystem/              # Visual node-based connection system
-│   ├── Scripts/            # Node system scripts
-│   ├── Materials/          # (Empty - materials needed)
-│   ├── Prefabs/            # (Empty - prefabs needed)
-│   └── CONNECTION_SETUP.md # Setup documentation
-├── Crop Circle.lspkg/       # Camera cropping package
-├── SpectaclesUIKit.lspkg/   # UI framework package
-├── RuntimeGizmos.lspkg/     # Debug visualization package
-├── Hand Menu.lspkg/         # Hand menu package
-└── [Scene assets]          # Materials, textures, meshes
-```
+### 📸 Image Capture with Crop Circle
+- Hand gesture-based capture (dual pinch to activate)
+- Draw a circle with your hands to define crop region
+- Automatic frame capture when hands move away
+- Re-capture support for iterating on images
 
----
+### 🎨 AI Image Generation (Gemini)
+- Text-to-image generation
+- Image-to-image generation (style transfer, modifications)
+- Combined text + image input support
+- Output chaining to other nodes
 
-## Core Systems
+### 🧊 3D Model Generation (Snap3D)
+- Text-to-3D generation
+- Image-to-3D generation (uses Gemini to describe image first)
+- Combined text + image input support
+- Configurable mesh refinement and scaling
+- Interactive/draggable generated models
 
-### 1. Node System (`Assets/NodeSystem/`)
-
-A visual node-based system for creating connections between nodes using bezier curves.
-
-#### Components:
-
-**BaseNode.ts** (274 lines)
-- Base component for all nodes
-- Extends `BaseScriptComponent`
-- Uses `SpectaclesUIKit` Frame component
-- Features:
-  - Fixed frame size (configurable in centimeters)
-  - Node types: "text", "image", "3d" (via ComboBox)
-  - Auto-generated unique node IDs
-  - Connection points: "in" (left center) and "out" (right center)
-  - Auto-registration with NodeManager
-  - Frame visibility management
-
-**NodeManager.ts** (303 lines)
-- Singleton manager for all nodes and connections
-- Features:
-  - Node registration/unregistration
-  - Connection creation/removal
-  - Auto-discovery of nodes in scene
-  - Connection tracking (incoming/outgoing)
-  - Node deletion with connection cleanup
-  - Shared connection material management
-  - Optional parent organization for nodes/connections
-
-**NodeConnectionHandler.ts** (295 lines)
-- Handles gesture-based connection creation
-- Features:
-  - Grab gesture detection (Right/Left hand)
-  - Connection dragging
-  - Proximity-based node detection
-  - Connection point finding (out/in points)
-  - Palm orientation detection (for future use)
-  - Connection threshold configuration
-
-**ConnectionLine.ts** (210 lines)
-- Visual connection line between nodes
-- Uses `RuntimeGizmos` BezierCurve component
-- Features:
-  - Bezier curve rendering
-  - Dragging support (temporary connections)
-  - Automatic position updates
-  - Connection point tracking
-  - Material-based rendering
-
-**NodeMenu.ts** (56 lines)
-- UI menu for node creation (minimal implementation)
-- Features:
-  - Show/hide menu
-  - Position-based display
-  - Event system for node type selection
-  - TODO: Full implementation pending
-
-#### Current Status:
-- ✅ Core node system implemented
-- ✅ Connection system working
-- ✅ Gesture-based dragging
-- ⚠️ Materials folder empty (connection materials needed)
-- ⚠️ Prefabs folder empty (node prefabs needed)
-- ⚠️ NodeMenu needs full implementation
+### 🔗 Visual Node Connections
+- Smooth bezier curve connections between nodes
+- Click-based connection workflow
+- Multiple connection support per node
+- Cyan-colored cables (#7FECFB) with natural droop
 
 ---
 
-### 2. Crop Circle Package (`Assets/Crop Circle.lspkg/`)
+## 🏗 Architecture
 
-Camera-based cropping system with hand gesture support.
-
-#### Components:
-
-**CameraService.ts** (73 lines)
-- Camera management service
-- Features:
-  - Editor vs Spectacles camera handling
-  - Left/Right camera setup for Spectacles
-  - Virtual camera configuration
-  - World-to-camera space conversion
-  - Camera texture management
-  - Screen crop texture support
-
-**PictureController.ts** (149 lines)
-- Main controller for picture/crop functionality
-- Features:
-  - Hand gesture detection (left/right pinch)
-  - Scanner prefab instantiation
-  - CameraService integration
-  - Editor testing support
-  - Automatic CameraService assignment to CropRegion
-
-**CropRegion.ts** (Not read, but referenced)
-- Handles crop region definition
-
-**PictureBehavior.ts** (Not read, but referenced)
-- Picture display behavior
-
-**CaptionBehavior.ts** (Not read, but referenced)
-- Caption display behavior
-
-**PinchVisualIndicator.ts** (Not read, but referenced)
-- Visual feedback for pinch gestures
-
-#### Package Structure:
 ```
-Crop Circle.lspkg/
-├── Scripts/              # 6 TypeScript files
-├── 3DModels/             # 3 mesh files
-├── Images/               # 4 images (PNG, GIF)
-├── Materials/            # 5 materials + shader graphs
-├── Prefabs/              # Scanner prefab
-└── Rendering/            # Camera textures
+┌─────────────────────────────────────────────────────────────────┐
+│                        Node System                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌──────────────┐     ┌───────────────────┐     ┌────────────┐  │
+│  │InputNodePrompt│────▶│ProcessImageGenNode│────▶│Process3DNode│ │
+│  │  (Voice/Text) │     │  (Gemini AI)      │     │ (Snap3D)   │  │
+│  └──────────────┘     └───────────────────┘     └────────────┘  │
+│                              ▲                         ▲         │
+│  ┌──────────────┐            │                         │         │
+│  │InputNodeImage │───────────┴─────────────────────────┘         │
+│  │ (Crop Circle) │                                               │
+│  └──────────────┘                                                │
+│                                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  ConnectionLine (BezierCurve) │ NodeConnectionController        │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Packages Used
+## 📦 Node Types
 
-### 1. SpectaclesUIKit.lspkg
-- **Purpose:** UI framework for Spectacles
-- **Usage:** 
-  - Frame component (used in BaseNode)
-  - UI elements and components
-- **Files:** 222 files (111 meta, 60 TS, 11 PNG, etc.)
+### Input Nodes
 
-### 2. RuntimeGizmos.lspkg
-- **Purpose:** Debug visualization tools
-- **Usage:** 
-  - BezierCurve component (used in ConnectionLine)
-  - Line rendering utilities
-- **Files:** 12 TypeScript files
+#### `InputNodePrompt`
+Voice-to-text prompt input node.
 
-### 3. Hand Menu.lspkg
-- **Purpose:** Hand-based menu system
-- **Status:** Package present but minimal usage
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `outputButton` | CapsuleButton | Connection output point |
+| `voiceButton` | BaseButton | Toggle voice recording |
+| `promptText` | Text | Displays transcribed text |
+
+**Output:** Text string (prompt)
 
 ---
 
-## Configuration Files
+#### `InputNodeImage`
+Camera image capture node using Crop Circle.
 
-### tsconfig.json
-- **Target:** ES2021
-- **Module:** CommonJS
-- **Paths:** Configured for Assets/ and Packages/
-- **Includes:** TypeScript files in Assets and Packages
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `outputButton` | RoundButton | Connection output point |
+| `captureButton` | CapsuleButton | Trigger capture mode |
+| `cropCircleObject` | SceneObject | Crop Circle prefab reference |
 
-### jsconfig.json
-- **Target:** ES2021
-- **Base URL:** Assets/
-- **Includes:** JavaScript files
-
-### Noodle v1.esproj
-- **Lens Name:** "Specs Starter"
-- **Descriptors:** EXPERIMENTAL_API
-- **Compatibilities:** Spectacles
-- **Template:** Spectacles
+**Output:** Texture, Material
 
 ---
 
-## Key Features
+### Process Nodes
 
-### ✅ Implemented:
-1. **Node System**
-   - Base node component with Frame integration
-   - Node manager with singleton pattern
-   - Connection line rendering with bezier curves
-   - Gesture-based connection creation
-   - Auto-registration of nodes
+#### `ProcessImageGenNode`
+AI image generation using Google Gemini.
 
-2. **Camera System**
-   - Camera service for editor/Spectacles
-   - Virtual camera setup
-   - World-to-camera space conversion
-   - Crop texture support
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `generateButton` | CapsuleButton | Trigger generation |
+| `textInputSection` | SceneObject | Text connection input |
+| `imageInputSection` | SceneObject | Image connection input |
+| `outputButton` | RoundButton | Output for chaining |
+| `outputImage` | Image | Displays generated image |
 
-3. **Hand Gestures**
-   - Pinch detection (left/right)
-   - Grab gesture handling
-   - Hand tracking integration
-
-### ⚠️ Partially Implemented:
-1. **NodeMenu** - Basic structure, needs full UI implementation
-2. **Connection Materials** - Materials folder is empty
-3. **Node Prefabs** - Prefabs folder is empty
-
-### 📝 TODO (from CONNECTION_SETUP.md):
-1. Detect node grabbing using Frame's Interactable
-2. Proximity detection for connection points
-3. Visual feedback (highlight connection points on hover)
-4. Connection validation (prevent invalid connections)
+**Inputs:** Text (required) OR Text + Image  
+**Output:** Generated image texture
 
 ---
 
-## Dependencies
+#### `Process3DNode`
+3D model generation using Snap3D.
 
-### External Packages:
-- `SpectaclesInteractionKit` - Referenced in NodeConnectionHandler
-- `SpectaclesUIKit` - Used for Frame component
-- `RuntimeGizmos` - Used for BezierCurve
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `generateButton` | CapsuleButton | Trigger generation |
+| `textInputSection` | SceneObject | Text connection input |
+| `imageInputSection` | SceneObject | Image connection input |
+| `modelRoot` | SceneObject | Where 3D model spawns |
+| `modelMaterial` | Material | Material for 3D model |
+| `refineMesh` | boolean | Higher quality mesh |
+| `modelScale` | number | Scale factor (default: 20) |
+| `makeInteractable` | boolean | Enable drag/move |
 
-### Lens Studio Modules:
-- `LensStudio:CameraModule` - Camera access
-- `LensStudio:GestureModule` - Gesture detection
-
----
-
-## Code Quality Observations
-
-### ✅ Good Practices:
-- TypeScript with proper typing
-- Singleton patterns where appropriate
-- Comprehensive logging
-- Error handling
-- Component lifecycle management
-- Clear separation of concerns
-
-### ⚠️ Areas for Improvement:
-- Some hardcoded values (connection thresholds)
-- Missing null checks in some places
-- NodeMenu needs full implementation
-- Materials and prefabs need to be created
+**Inputs:** Text OR Image OR Both  
+**Output:** 3D RenderMeshVisual
 
 ---
 
-## Scene Structure
+## 🚀 Getting Started
 
-The scene file (`Scene.scene`) contains:
-- Camera Object with Camera component
-- Lighting setup
-- Multiple scene objects (12 root objects)
-- Render layers configured
+### Prerequisites
 
----
+1. **Lens Studio** 5.15.3 or later
+2. **Spectacles** device or Preview mode
+3. **API Keys:**
+   - Google/Gemini API token (for image generation)
+   - Snap token (for 3D generation)
 
-## Development Notes
+### Setup
 
-### Setup Requirements:
-1. **Connection Material** - Must be assigned to NodeManager for connections to be visible
-2. **Node Prefabs** - Need to be created for different node types
-3. **Materials** - Connection line materials need to be created
-4. **Frame Component** - BaseNode auto-creates Frame if not present
+1. Open project in Lens Studio
+2. Add `RemoteServiceGatewayCredentials` component to a SceneObject
+3. Configure API tokens:
+   - Set **Google Token** for Gemini image generation
+   - Set **Snap Token** for Snap3D model generation
+4. Assign nodes in the scene hierarchy
+5. Connect `connectionMaterial` to process nodes for visible connections
 
-### Integration Points:
-- NodeSystem uses SpectaclesUIKit Frame component
-- ConnectionLine uses RuntimeGizmos BezierCurve
-- Crop Circle uses SIK (Spectacles Interaction Kit) for hand tracking
-- CameraService handles both editor and device cameras
+### Basic Workflow
 
----
-
-## Next Steps (Recommendations)
-
-1. **Create Connection Materials**
-   - Add materials to `NodeSystem/Materials/`
-   - Assign to NodeManager's `connectionMaterial` field
-
-2. **Create Node Prefabs**
-   - Create prefabs for different node types (text, image, 3d)
-   - Add to `NodeSystem/Prefabs/`
-
-3. **Complete NodeMenu**
-   - Implement full UI for node type selection
-   - Connect to node creation system
-
-4. **Add Visual Feedback**
-   - Highlight connection points on hover
-   - Show connection preview while dragging
-
-5. **Connection Validation**
-   - Prevent self-connections
-   - Validate connection types
-   - Add connection rules if needed
+1. **Create a prompt:** Tap voice button, speak your prompt
+2. **Connect to process node:** Click prompt output → click process node input
+3. **Generate:** Click the Generate button on the process node
+4. **Chain outputs:** Connect ImageGen output to 3D node for image-to-3D
 
 ---
 
-## File Statistics
+## 🔑 API Requirements
 
-- **TypeScript Files:** 77 total
-  - NodeSystem: 5 files
-  - Crop Circle: 6 files
-  - SpectaclesUIKit: 60 files
-  - RuntimeGizmos: 6 files
+### RemoteServiceGatewayCredentials
 
-- **JavaScript Files:** 0 (TypeScript-only project)
+This component must be present in the scene and configured:
 
-- **Total Scripts in Assets:** 77 TypeScript files
+```typescript
+// Required for ProcessImageGenNode (Gemini)
+AvaliableApiTypes.Google  // Google/Gemini API token
+
+// Required for Process3DNode (Snap3D)
+AvaliableApiTypes.Snap    // Snap token for 3D generation
+```
+
+### Gemini API
+- Used for: Text-to-image, Image-to-image generation
+- Model: `gemini-2.0-flash-preview-image-generation`
+- Endpoint: Google AI Studio
+
+### Snap3D API
+- Used for: Text-to-3D, Image-to-3D generation
+- Returns: GLB mesh data
+- Features: Mesh refinement, vertex colors
 
 ---
 
-*Analysis generated from existing project files - no new files created*
+## 📁 Project Structure
+
+```
+Noodle v1/
+├── Assets/
+│   ├── NodeSystem/
+│   │   └── Scripts/
+│   │       ├── BaseNode.ts              # Base frame component
+│   │       ├── InputNodePrompt.ts       # Voice/text input node
+│   │       ├── InputNodeImage.ts        # Image capture node
+│   │       ├── ProcessImageGenNode.ts   # AI image generation
+│   │       ├── Process3DNode.ts         # 3D model generation
+│   │       ├── VoiceToText.ts           # ASR component
+│   │       ├── ConnectionLine.ts        # Bezier curve wrapper
+│   │       ├── NodeConnectionController.ts # Connection management
+│   │       ├── NodeConnectionHandler.ts # Gesture-based connections
+│   │       ├── NodeManager.ts           # Node registry
+│   │       ├── ConnectionManager.ts     # Connection registry
+│   │       └── NodeMenu.ts              # Node creation menu
+│   │
+│   ├── Crop Circle.lspkg/
+│   │   └── Scripts/
+│   │       ├── CameraService.ts         # Camera management
+│   │       ├── PictureController.ts     # Capture orchestration
+│   │       ├── PictureBehavior.ts       # Capture logic
+│   │       ├── CropRegion.ts            # Crop rectangle
+│   │       ├── CaptionBehavior.ts       # Caption display
+│   │       └── PinchVisualIndicator.ts  # Pinch feedback
+│   │
+│   ├── RuntimeGizmos.lspkg/
+│   │   └── Scripts/
+│   │       └── BezierCurve.ts           # Bezier curve rendering
+│   │
+│   ├── SpectaclesUIKit.lspkg/           # UI framework
+│   ├── RemoteServiceGateway.lspkg       # API gateway
+│   └── Materials/                        # Shared materials
+│
+├── Packages/
+│   ├── SpectaclesInteractionKit.lspkg   # Hand tracking & gestures
+│   └── SpectaclesUIKit.lspkg            # UI components
+│
+└── Support/
+    └── StudioLib.d.ts                    # Type definitions
+```
+
+---
+
+## 🔧 Technical Details
+
+### Connection System
+
+Connections use `BezierCurve` component with:
+- **100 interpolation points** for smooth curves
+- **Cable droop style** (curveDirection: 2)
+- **Cyan color** (#7FECFB / `vec3(0.498, 0.925, 0.984)`)
+- **0.3 line width**
+- **0.15 curve height** (subtle droop)
+
+### Node Connection Flow
+
+1. User clicks output button on source node
+2. `NodeConnectionController` sets pending connection
+3. User clicks input section on target node
+4. Controller validates and creates connection
+5. `ConnectionLine` creates visual bezier curve
+6. Nodes register parent/child relationships
+
+### Image Capture Flow
+
+1. User clicks Capture button
+2. Crop Circle object is unhidden
+3. User performs dual pinch gesture
+4. Circle is drawn between hand positions
+5. `CropRegion` calculates crop rectangle
+6. On release, `PictureBehavior` captures frame
+7. Cropped texture is passed to node
+8. Crop Circle is hidden, image displayed
+
+### Voice-to-Text Flow
+
+1. User taps voice button to start
+2. ASR module begins listening
+3. Real-time transcription displayed
+4. Auto-stops after silence (configurable)
+5. Final text stored for connection output
+
+---
+
+## 📚 Dependencies
+
+### Core Packages
+
+| Package | Purpose |
+|---------|---------|
+| `SpectaclesUIKit.lspkg` | UI components (Frame, Buttons, etc.) |
+| `SpectaclesInteractionKit.lspkg` | Hand tracking, gestures, interactions |
+| `RuntimeGizmos.lspkg` | BezierCurve, debug visualization |
+| `RemoteServiceGateway.lspkg` | API gateway for Gemini & Snap3D |
+
+### Lens Studio Modules
+
+| Module | Purpose |
+|--------|---------|
+| `LensStudio:AsrModule` | Automatic Speech Recognition |
+| `LensStudio:CameraModule` | Camera access |
+| `LensStudio:GestureModule` | Gesture detection |
+
+---
+
+## 🎮 Controls
+
+| Gesture | Action |
+|---------|--------|
+| **Tap** (output button) | Start connection |
+| **Tap** (input section) | Complete connection |
+| **Tap** (voice button) | Toggle voice recording |
+| **Tap** (capture button) | Enter capture mode |
+| **Dual Pinch + Draw** | Define crop region |
+| **Release Pinch** | Capture frame |
+| **Tap** (generate button) | Generate AI content |
+
+---
+
+## 📝 Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | Jan 2026 | Initial release - MIT RealityHack 2026 |
+
+---
+
+## 👥 Team
+
+**MIT RealityHack 2026** - Noodle Creative Collaboration Tool
+
+---
+
+## 📄 License
+
+MIT RealityHack 2026 Project
+
+---
+
+*Documentation generated for Noodle v1 - A visual node-based AI creative tool for Snap Spectacles*
