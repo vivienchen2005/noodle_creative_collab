@@ -8,6 +8,7 @@ SPECS DEVS (OUR SAMPLES AND PACKAGES)/*
 # ===================
 # Lens Studio Cache & Build
 # ===================
+Noodle v1/Cache/*
 **/Cache/
 **/cache/
 *.lock
@@ -72,3 +73,14 @@ logs/
 *.zip
 *.tar.gz
 *.rar
+
+# ===================
+# Security - API Keys & Credentials
+# ===================
+.env
+.env.*
+*.env
+secrets.json
+credentials.json
+**/api_keys*
+**/*_credentials*

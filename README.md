@@ -1,119 +1,168 @@
-# 🍜 Noodle - AI Creative Collaboration for Spectacles
+# 🍜 Noodle - Creative Collaboration Tool for Spectacles
 
-<p align="center">
-  <strong>A visual node-based AI creative tool for Snap Spectacles</strong><br>
-  Voice-to-text • Image Capture • AI Image Generation • 3D Model Generation
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Platform-Snap%20Spectacles-FFFC00?style=for-the-badge&logo=snapchat&logoColor=black" alt="Platform">
-  <img src="https://img.shields.io/badge/Lens%20Studio-5.15.3+-00A5E0?style=for-the-badge" alt="Lens Studio">
-  <img src="https://img.shields.io/badge/MIT%20Reality%20Hack-2026-FF6B6B?style=for-the-badge" alt="MIT Reality Hack 2026">
-</p>
+> A visual node-based AI creative tool for Snap Spectacles that enables voice-to-text prompts, image capture, AI image generation, and 3D model generation through an intuitive patch/node interface.
 
 ---
 
-## 🎬 Demo
+## 📋 Table of Contents
 
-> *Transform your voice into AI-generated images and 3D models in augmented reality*
-
-**Core Workflow:**
-1. 🎤 **Speak** your creative prompt
-2. 📸 **Capture** reference images from the real world
-3. 🎨 **Generate** AI images with Gemini
-4. 🧊 **Create** 3D models with Snap3D
-5. 🔗 **Chain** outputs together for complex workflows
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Node Types](#node-types)
+- [Getting Started](#getting-started)
+- [API Requirements](#api-requirements)
+- [Project Structure](#project-structure)
+- [Technical Details](#technical-details)
+- [Dependencies](#dependencies)
 
 ---
 
-## 🎯 What is Noodle?
+## 🎯 Overview
 
-Noodle is a **visual programming environment** for Snap Spectacles that democratizes AI-powered creative workflows. Instead of complex interfaces, users simply:
+**Project Name:** Noodle v1  
+**Platform:** Snap Spectacles (2024)  
+**Lens Studio Version:** 5.15.3+  
+**Template:** Spectacles Starter  
+**License:** MIT RealityHack 2026  
 
-- **Connect nodes** like a visual patch system
-- **Speak prompts** instead of typing
-- **Gesture to capture** images from the real world
-- **Generate content** with a single tap
+Noodle is a visual programming environment for Spectacles that allows users to create AI-powered creative workflows by connecting nodes together. Users can:
 
-Perfect for:
-- **Artists** exploring AI-assisted creation
-- **Designers** rapid prototyping in AR
-- **Creators** who want intuitive AI tools
-- **Developers** building on Spectacles platform
+- Speak prompts using voice-to-text
+- Capture images from the real world using hand gestures
+- Generate AI images from text and/or image inputs
+- Generate 3D models from text and/or image inputs
+- Chain outputs together (e.g., generated image → 3D model)
 
 ---
 
 ## ✨ Features
 
 ### 🎤 Voice-to-Text Input
-| Feature | Description |
-|---------|-------------|
-| ASR Integration | Automatic Speech Recognition via Lens Studio |
-| Toggle Recording | Tap to start/stop voice capture |
-| Auto-Stop | Configurable silence detection (default: 2s) |
-| Real-time Display | See transcription as you speak |
+- Toggle-based voice recording using ASR (Automatic Speech Recognition)
+- Auto-stop after configurable silence period
+- Real-time transcription display
+- Works with any SpectaclesUIKit button type
 
-### 📸 Image Capture (Crop Circle)
-| Feature | Description |
-|---------|-------------|
-| Dual Pinch Activation | Natural hand gesture to start |
-| Draw to Crop | Circle your hands to define capture region |
-| Auto-Capture | Frame captured when hands move away |
-| Re-capture Support | Iterate on images without restarting |
+### 📸 Image Capture with Crop Circle
+- Hand gesture-based capture (dual pinch to activate)
+- Draw a circle with your hands to define crop region
+- Automatic frame capture when hands move away
+- Re-capture support for iterating on images
 
 ### 🎨 AI Image Generation (Gemini)
-| Feature | Description |
-|---------|-------------|
-| Text-to-Image | Generate from voice prompts |
-| Image-to-Image | Style transfer & modifications |
-| Combined Input | Text + image for guided generation |
-| Output Chaining | Connect to other nodes |
+- Text-to-image generation
+- Image-to-image generation (style transfer, modifications)
+- Combined text + image input support
+- Output chaining to other nodes
 
 ### 🧊 3D Model Generation (Snap3D)
-| Feature | Description |
-|---------|-------------|
-| Text-to-3D | Generate models from descriptions |
-| Image-to-3D | Create 3D from captured images |
-| Mesh Refinement | Optional high-quality processing |
-| Interactive Models | Drag and move generated objects |
+- Text-to-3D generation
+- Image-to-3D generation (uses Gemini to describe image first)
+- Combined text + image input support
+- Configurable mesh refinement and scaling
+- Interactive/draggable generated models
 
-### 🔗 Visual Node System
-| Feature | Description |
-|---------|-------------|
-| Bezier Curves | Smooth, cable-like connections |
-| Click-to-Connect | Intuitive workflow |
-| Multi-Connection | Multiple outputs per node |
-| Visual Feedback | Cyan cables (#7FECFB) |
+### 🔗 Visual Node Connections
+- Smooth bezier curve connections between nodes
+- Click-based connection workflow
+- Multiple connection support per node
+- Cyan-colored cables (#7FECFB) with natural droop
 
 ---
 
 ## 🏗 Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                           NOODLE NODE SYSTEM                             │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│   INPUT NODES                    PROCESS NODES                           │
-│   ───────────                    ─────────────                           │
-│                                                                          │
-│   ┌─────────────────┐           ┌─────────────────────┐                 │
-│   │ InputNodePrompt │──────────▶│ ProcessImageGenNode │                 │
-│   │   🎤 Voice/Text │           │     🎨 Gemini AI    │                 │
-│   └─────────────────┘           └──────────┬──────────┘                 │
-│                                            │                             │
-│   ┌─────────────────┐                      │   ┌─────────────────┐      │
-│   │ InputNodeImage  │──────────────────────┼──▶│  Process3DNode  │      │
-│   │  📸 Crop Circle │                      │   │   🧊 Snap3D     │      │
-│   └─────────────────┘                      │   └─────────────────┘      │
-│                                            │           ▲                 │
-│                                            └───────────┘                 │
-│                                        (Image → 3D chaining)             │
-│                                                                          │
-├─────────────────────────────────────────────────────────────────────────┤
-│   ConnectionLine (BezierCurve)  │  NodeConnectionController             │
-└─────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                        Node System                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌──────────────┐     ┌───────────────────┐     ┌────────────┐  │
+│  │InputNodePrompt│────▶│ProcessImageGenNode│────▶│Process3DNode│ │
+│  │  (Voice/Text) │     │  (Gemini AI)      │     │ (Snap3D)   │  │
+│  └──────────────┘     └───────────────────┘     └────────────┘  │
+│                              ▲                         ▲         │
+│  ┌──────────────┐            │                         │         │
+│  │InputNodeImage │───────────┴─────────────────────────┘         │
+│  │ (Crop Circle) │                                               │
+│  └──────────────┘                                                │
+│                                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  ConnectionLine (BezierCurve) │ NodeConnectionController        │
+└─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 📦 Node Types
+
+### Input Nodes
+
+#### `InputNodePrompt`
+Voice-to-text prompt input node.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `outputButton` | CapsuleButton | Connection output point |
+| `voiceButton` | BaseButton | Toggle voice recording |
+| `promptText` | Text | Displays transcribed text |
+
+**Output:** Text string (prompt)
+
+---
+
+#### `InputNodeImage`
+Camera image capture node using Crop Circle.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `outputButton` | RoundButton | Connection output point |
+| `captureButton` | CapsuleButton | Trigger capture mode |
+| `cropCircleObject` | SceneObject | Crop Circle prefab reference |
+
+**Output:** Texture, Material
+
+---
+
+### Process Nodes
+
+#### `ProcessImageGenNode`
+AI image generation using Google Gemini.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `generateButton` | CapsuleButton | Trigger generation |
+| `textInputSection` | SceneObject | Text connection input |
+| `imageInputSection` | SceneObject | Image connection input |
+| `outputButton` | RoundButton | Output for chaining |
+| `outputImage` | Image | Displays generated image |
+
+**Inputs:** Text (required) OR Text + Image  
+**Output:** Generated image texture
+
+---
+
+#### `Process3DNode`
+3D model generation using Snap3D.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `baseNode` | BaseNode | Required - Frame component |
+| `generateButton` | CapsuleButton | Trigger generation |
+| `textInputSection` | SceneObject | Text connection input |
+| `imageInputSection` | SceneObject | Image connection input |
+| `modelRoot` | SceneObject | Where 3D model spawns |
+| `modelMaterial` | Material | Material for 3D model |
+| `refineMesh` | boolean | Higher quality mesh |
+| `modelScale` | number | Scale factor (default: 20) |
+| `makeInteractable` | boolean | Enable drag/move |
+
+**Inputs:** Text OR Image OR Both  
+**Output:** 3D RenderMeshVisual
 
 ---
 
@@ -121,267 +170,201 @@ Perfect for:
 
 ### Prerequisites
 
-- **Lens Studio** 5.15.3 or later
-- **Snap Spectacles** (2024) or Preview mode
-- **API Keys:**
-  - 🔑 Google/Gemini API token
-  - 🔑 Snap token (for 3D generation)
+1. **Lens Studio** 5.15.3 or later
+2. **Spectacles** device or Preview mode
+3. **API Keys:**
+   - Google/Gemini API token (for image generation)
+   - Snap token (for 3D generation)
 
-### Quick Setup
+### Setup
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/rbkavin/noodle_creative_collab.git
+1. Open project in Lens Studio
+2. Add `RemoteServiceGatewayCredentials` component to a SceneObject
+3. Configure API tokens:
+   - Set **Google Token** for Gemini image generation
+   - Set **Snap Token** for Snap3D model generation
+4. Assign nodes in the scene hierarchy
+5. Connect `connectionMaterial` to process nodes for visible connections
 
-# 2. Open in Lens Studio
-# Open: Noodle v1/Noodle v1.esproj
+### Basic Workflow
 
-# 3. Configure API tokens (see below)
-```
+1. **Create a prompt:** Tap voice button, speak your prompt
+2. **Connect to process node:** Click prompt output → click process node input
+3. **Generate:** Click the Generate button on the process node
+4. **Chain outputs:** Connect ImageGen output to 3D node for image-to-3D
 
-### API Configuration
+---
 
-1. **Add RemoteServiceGatewayCredentials** component to any SceneObject
-2. **Set Google Token** for Gemini image generation
-3. **Set Snap Token** for Snap3D model generation
+## 🔑 API Requirements
+
+### RemoteServiceGatewayCredentials
+
+This component must be present in the scene and configured:
 
 ```typescript
-// Tokens are configured in RemoteServiceGatewayCredentials
-AvaliableApiTypes.Google  // → Gemini API
-AvaliableApiTypes.Snap    // → Snap3D API
+// Required for ProcessImageGenNode (Gemini)
+AvaliableApiTypes.Google  // Google/Gemini API token
+
+// Required for Process3DNode (Snap3D)
+AvaliableApiTypes.Snap    // Snap token for 3D generation
 ```
 
-### Your First Workflow
+### Gemini API
+- Used for: Text-to-image, Image-to-image generation
+- Model: `gemini-2.0-flash-preview-image-generation`
+- Endpoint: Google AI Studio
 
-1. **Open** the project in Lens Studio
-2. **Run** in Preview or deploy to Spectacles
-3. **Tap** the voice button and speak: *"A cute robot"*
-4. **Click** the prompt output button
-5. **Click** the ImageGen text input
-6. **Tap** Generate → AI image appears!
-7. **Connect** ImageGen output to 3D node
-8. **Tap** Generate → 3D model spawns!
-
----
-
-## 📦 Node Reference
-
-### `InputNodePrompt`
-> Voice-to-text input with ASR
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `baseNode` | BaseNode | ✅ | Frame component |
-| `voiceButton` | BaseButton | Auto | Recording toggle |
-| `outputButton` | CapsuleButton | Auto | Connection point |
-
-**Output:** `string` (transcribed text)
-
----
-
-### `InputNodeImage`
-> Camera capture with crop region
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `baseNode` | BaseNode | ✅ | Frame component |
-| `cropCircleObject` | SceneObject | ✅ | Crop Circle prefab |
-| `captureButton` | CapsuleButton | Auto | Capture trigger |
-
-**Output:** `Texture`, `Material`
-
----
-
-### `ProcessImageGenNode`
-> AI image generation via Gemini
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `baseNode` | BaseNode | ✅ | Frame component |
-| `connectionMaterial` | Material | ⚠️ | For visible connections |
-| `textInputSection` | SceneObject | Auto | Text input connector |
-| `imageInputSection` | SceneObject | Auto | Image input connector |
-
-**Accepts:** Text (required) OR Text + Image  
-**Output:** `Texture` (generated image)
-
----
-
-### `Process3DNode`
-> 3D model generation via Snap3D
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `baseNode` | BaseNode | ✅ | Frame component |
-| `modelMaterial` | Material | ✅ | Material for 3D model |
-| `modelRoot` | SceneObject | ✅ | Spawn location |
-| `refineMesh` | boolean | ❌ | Higher quality (slower) |
-| `modelScale` | number | ❌ | Scale factor (default: 20) |
-
-**Accepts:** Text OR Image OR Both  
-**Output:** `RenderMeshVisual` (3D model)
+### Snap3D API
+- Used for: Text-to-3D, Image-to-3D generation
+- Returns: GLB mesh data
+- Features: Mesh refinement, vertex colors
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Noodle/
-├── README.md                    # This file
-├── .gitignore                   # Git ignore rules
+Noodle v1/
+├── Assets/
+│   ├── NodeSystem/
+│   │   └── Scripts/
+│   │       ├── BaseNode.ts              # Base frame component
+│   │       ├── InputNodePrompt.ts       # Voice/text input node
+│   │       ├── InputNodeImage.ts        # Image capture node
+│   │       ├── ProcessImageGenNode.ts   # AI image generation
+│   │       ├── Process3DNode.ts         # 3D model generation
+│   │       ├── VoiceToText.ts           # ASR component
+│   │       ├── ConnectionLine.ts        # Bezier curve wrapper
+│   │       ├── NodeConnectionController.ts # Connection management
+│   │       ├── NodeConnectionHandler.ts # Gesture-based connections
+│   │       ├── NodeManager.ts           # Node registry
+│   │       ├── ConnectionManager.ts     # Connection registry
+│   │       └── NodeMenu.ts              # Node creation menu
+│   │
+│   ├── Crop Circle.lspkg/
+│   │   └── Scripts/
+│   │       ├── CameraService.ts         # Camera management
+│   │       ├── PictureController.ts     # Capture orchestration
+│   │       ├── PictureBehavior.ts       # Capture logic
+│   │       ├── CropRegion.ts            # Crop rectangle
+│   │       ├── CaptionBehavior.ts       # Caption display
+│   │       └── PinchVisualIndicator.ts  # Pinch feedback
+│   │
+│   ├── RuntimeGizmos.lspkg/
+│   │   └── Scripts/
+│   │       └── BezierCurve.ts           # Bezier curve rendering
+│   │
+│   ├── SpectaclesUIKit.lspkg/           # UI framework
+│   ├── RemoteServiceGateway.lspkg       # API gateway
+│   └── Materials/                        # Shared materials
 │
-└── Noodle v1/                   # Main Lens Studio project
-    ├── Noodle v1.esproj         # Project file
-    ├── Scene.scene              # Main scene
-    │
-    ├── Assets/
-    │   ├── NodeSystem/          # 🧠 Core node system
-    │   │   └── Scripts/
-    │   │       ├── BaseNode.ts
-    │   │       ├── InputNodePrompt.ts
-    │   │       ├── InputNodeImage.ts
-    │   │       ├── ProcessImageGenNode.ts
-    │   │       ├── Process3DNode.ts
-    │   │       ├── VoiceToText.ts
-    │   │       ├── ConnectionLine.ts
-    │   │       └── NodeConnectionController.ts
-    │   │
-    │   ├── Crop Circle.lspkg/   # 📸 Image capture system
-    │   │   └── Scripts/
-    │   │       ├── CameraService.ts
-    │   │       ├── PictureController.ts
-    │   │       ├── PictureBehavior.ts
-    │   │       └── CropRegion.ts
-    │   │
-    │   ├── RuntimeGizmos.lspkg/ # 🎨 Visual utilities
-    │   │   └── Scripts/
-    │   │       └── BezierCurve.ts
-    │   │
-    │   ├── SpectaclesUIKit.lspkg/      # UI framework
-    │   └── RemoteServiceGateway.lspkg  # API gateway
-    │
-    └── Packages/
-        ├── SpectaclesInteractionKit.lspkg  # Hand tracking
-        └── SpectaclesUIKit.lspkg           # UI components
+├── Packages/
+│   ├── SpectaclesInteractionKit.lspkg   # Hand tracking & gestures
+│   └── SpectaclesUIKit.lspkg            # UI components
+│
+└── Support/
+    └── StudioLib.d.ts                    # Type definitions
 ```
 
 ---
 
-## 🎮 Controls Reference
-
-| Gesture | Context | Action |
-|---------|---------|--------|
-| **Tap** | Voice button | Start/stop recording |
-| **Tap** | Capture button | Enter capture mode |
-| **Dual Pinch** | Capture mode | Start drawing crop region |
-| **Move hands** | While pinching | Define crop area |
-| **Release** | Pinching | Capture frame |
-| **Tap** | Output button | Start connection |
-| **Tap** | Input section | Complete connection |
-| **Tap** | Generate button | Run AI generation |
-| **Drag** | 3D model | Move in space |
-
----
-
-## 🔧 Technical Specifications
+## 🔧 Technical Details
 
 ### Connection System
-- **Interpolation:** 100 points (smooth curves)
-- **Style:** Cable droop (natural physics feel)
-- **Color:** Cyan `#7FECFB` / `vec3(0.498, 0.925, 0.984)`
-- **Line width:** 0.3
-- **Curve height:** 0.15
 
-### AI APIs
-| API | Model | Use Case |
-|-----|-------|----------|
-| Gemini | `gemini-2.0-flash-preview-image-generation` | Image generation |
-| Snap3D | Native Snap API | 3D model generation |
+Connections use `BezierCurve` component with:
+- **100 interpolation points** for smooth curves
+- **Cable droop style** (curveDirection: 2)
+- **Cyan color** (#7FECFB / `vec3(0.498, 0.925, 0.984)`)
+- **0.3 line width**
+- **0.15 curve height** (subtle droop)
 
-### Dependencies
+### Node Connection Flow
+
+1. User clicks output button on source node
+2. `NodeConnectionController` sets pending connection
+3. User clicks input section on target node
+4. Controller validates and creates connection
+5. `ConnectionLine` creates visual bezier curve
+6. Nodes register parent/child relationships
+
+### Image Capture Flow
+
+1. User clicks Capture button
+2. Crop Circle object is unhidden
+3. User performs dual pinch gesture
+4. Circle is drawn between hand positions
+5. `CropRegion` calculates crop rectangle
+6. On release, `PictureBehavior` captures frame
+7. Cropped texture is passed to node
+8. Crop Circle is hidden, image displayed
+
+### Voice-to-Text Flow
+
+1. User taps voice button to start
+2. ASR module begins listening
+3. Real-time transcription displayed
+4. Auto-stops after silence (configurable)
+5. Final text stored for connection output
+
+---
+
+## 📚 Dependencies
+
+### Core Packages
+
 | Package | Purpose |
 |---------|---------|
-| `SpectaclesUIKit` | UI components |
-| `SpectaclesInteractionKit` | Hand tracking & gestures |
-| `RuntimeGizmos` | BezierCurve rendering |
-| `RemoteServiceGateway` | API integration |
+| `SpectaclesUIKit.lspkg` | UI components (Frame, Buttons, etc.) |
+| `SpectaclesInteractionKit.lspkg` | Hand tracking, gestures, interactions |
+| `RuntimeGizmos.lspkg` | BezierCurve, debug visualization |
+| `RemoteServiceGateway.lspkg` | API gateway for Gemini & Snap3D |
+
+### Lens Studio Modules
+
+| Module | Purpose |
+|--------|---------|
+| `LensStudio:AsrModule` | Automatic Speech Recognition |
+| `LensStudio:CameraModule` | Camera access |
+| `LensStudio:GestureModule` | Gesture detection |
 
 ---
 
-## 🛠 Development
+## 🎮 Controls
 
-### Adding New Node Types
-
-1. Create new script extending pattern from `InputNodePrompt.ts` or `ProcessImageGenNode.ts`
-2. Implement `baseNode` integration
-3. Add input/output buttons as needed
-4. Register with `NodeConnectionController`
-5. Handle connection callbacks
-
-### Customizing Connections
-
-Edit `BezierCurve.ts` or `ConnectionLine.ts`:
-```typescript
-// Change connection color
-public _color: vec3 = new vec3(0.498, 0.925, 0.984);
-
-// Adjust curve style
-public curveDirection: number = 2; // 0=Up, 1=Right, 2=Cable
-```
+| Gesture | Action |
+|---------|--------|
+| **Tap** (output button) | Start connection |
+| **Tap** (input section) | Complete connection |
+| **Tap** (voice button) | Toggle voice recording |
+| **Tap** (capture button) | Enter capture mode |
+| **Dual Pinch + Draw** | Define crop region |
+| **Release Pinch** | Capture frame |
+| **Tap** (generate button) | Generate AI content |
 
 ---
 
-## 🐛 Troubleshooting
+## 📝 Version History
 
-| Issue | Solution |
-|-------|----------|
-| No connections visible | Assign `connectionMaterial` to process nodes |
-| Voice not working | Check ASR permissions in Lens settings |
-| 3D models not spawning | Verify `modelMaterial` and `modelRoot` are set |
-| API errors | Confirm tokens in RemoteServiceGatewayCredentials |
-| Capture not working | Ensure `cropCircleObject` is assigned |
-
----
-
-## 📝 Changelog
-
-### v1.0.0 (January 2026)
-- 🎉 Initial release at MIT Reality Hack 2026
-- ✅ Voice-to-text input nodes
-- ✅ Image capture with Crop Circle
-- ✅ Gemini AI image generation
-- ✅ Snap3D model generation
-- ✅ Visual bezier curve connections
-- ✅ Node chaining support
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | Jan 2026 | Initial release - MIT RealityHack 2026 |
 
 ---
 
 ## 👥 Team
 
-**MIT Reality Hack 2026**
-
+**MIT RealityHack 2026** - Noodle Creative Collaboration Tool
 **Kavin Kumar**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rbkavin)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/rbkavin)
+[LinkedIn Profile](https://www.linkedin.com/in/rbkavin)
+
 
 ---
 
 ## 📄 License
 
-This project was created at **MIT Reality Hack 2026**.
+MIT RealityHack 2026 Project
 
 ---
 
-## 🙏 Acknowledgments
-
-- **Snap Inc.** - Spectacles platform & Snap3D API
-- **Google** - Gemini AI API
-- **MIT Reality Hack** - Event & support
-- **Spectacles Developer Community** - Resources & inspiration
-
----
-
-<p align="center">
-  <strong>🍜 Noodle - Making AI creativity tangible in AR</strong><br>
-  <sub>Built with ❤️ at MIT Reality Hack 2026</sub>
-</p>
+*Documentation generated for Noodle v1 - A visual node-based AI creative tool for Snap Spectacles*

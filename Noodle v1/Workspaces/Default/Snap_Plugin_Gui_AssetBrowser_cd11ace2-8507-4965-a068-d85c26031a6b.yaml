@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 933
+    size: 929
     values:
       - Crop Circle.lspkg/3DModels
       - Crop Circle.lspkg/3DModels/SWIS_Frame.mesh
@@ -36,18 +36,19 @@ CollapsedEntities:
       - Crop Circle.lspkg/Scripts/PinchVisualIndicator.ts
       - Crop Circle.lspkg/package_dependencies.json
       - Echopark.hdr
-      - Empty inputImage 2.mat
-      - Empty inputImage.mat
       - Fonts
       - Fonts/Poppins-Bold.ttf
       - Fonts/Poppins-Medium.ttf
       - Hand Menu.lspkg
       - Hand Menu.lspkg/Hand Menu.prefab
       - Hand Menu.lspkg/package_dependencies.json
+      - Materials/Empty inputImage 2.mat
+      - Materials/Empty inputImage.mat
       - Materials/ImageMaterial.mat
       - Materials/Input.mat
       - Materials/Mic.mat
       - Materials/PBR.mat
+      - Materials/image_unlit.ss_graph
       - Materials/mic.png
       - Materials/output.mat
       - Materials/pbr.ss_graph
@@ -167,8 +168,6 @@ CollapsedEntities:
       - RuntimeGizmos.lspkg/Assets/Shader
       - RuntimeGizmos.lspkg/Assets/Shader/Simple Diffuse.ss_graph
       - RuntimeGizmos.lspkg/Assets/Shader/simple_pbr.ss_graph
-      - RuntimeGizmos.lspkg/Instantiation
-      - RuntimeGizmos.lspkg/Instantiation/Assets
       - RuntimeGizmos.lspkg/Instantiation/Assets/Base.png
       - RuntimeGizmos.lspkg/Instantiation/Assets/Simple Diffuse.ss_graph
       - RuntimeGizmos.lspkg/README.md
@@ -179,8 +178,6 @@ CollapsedEntities:
       - RuntimeGizmos.lspkg/Scripts/Line.ts
       - RuntimeGizmos.lspkg/Scripts/Spiral.ts
       - RuntimeGizmos.lspkg/Scripts/Spline.ts
-      - RuntimeGizmos.lspkg/_Art
-      - RuntimeGizmos.lspkg/_Art/Shader
       - RuntimeGizmos.lspkg/_Art/Shader/simple_pbr.ss_graph
       - RuntimeGizmos.lspkg/package.native
       - RuntimeGizmos.lspkg/package_dependencies.json
@@ -935,5 +932,4 @@ CollapsedEntities:
       - Textures/arrow.png
       - Textures/circle input.png
       - Textures/output Img.png
-      - image_unlit.ss_graph
   options: 4
