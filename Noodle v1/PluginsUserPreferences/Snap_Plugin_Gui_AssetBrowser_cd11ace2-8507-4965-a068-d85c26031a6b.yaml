@@ -1,8 +1,9 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 931
+    size: 933
     values:
+      - Crop Circle.lspkg
       - Crop Circle.lspkg/3DModels
       - Crop Circle.lspkg/3DModels/SWIS_Frame.mesh
       - Crop Circle.lspkg/3DModels/SWIS_tile_solid.mesh
@@ -13,6 +14,7 @@ CollapsedEntities:
       - Crop Circle.lspkg/Images/SWIS_frame.jpg
       - Crop Circle.lspkg/Images/loading.gif
       - Crop Circle.lspkg/Images/thinOutline.png
+      - Crop Circle.lspkg/Materials
       - Crop Circle.lspkg/Materials/CaptureVisual.mat
       - Crop Circle.lspkg/Materials/CaptureVisual.ss_graph
       - Crop Circle.lspkg/Materials/LensExp_hover_frame.ss_graph
@@ -39,9 +41,9 @@ CollapsedEntities:
       - Fonts
       - Fonts/Poppins-Bold.ttf
       - Fonts/Poppins-Medium.ttf
-      - Hand Menu.lspkg
       - Hand Menu.lspkg/Hand Menu.prefab
       - Hand Menu.lspkg/package_dependencies.json
+      - Materials
       - Materials/Demo Mode
       - Materials/Empty inputImage 2.mat
       - Materials/Empty inputImage.mat

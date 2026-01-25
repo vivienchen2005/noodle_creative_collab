@@ -193,7 +193,8 @@ AI image generation using Google Gemini.
    - Set **Google Token** for Gemini image generation
    - Set **Snap Token** for Snap3D model generation
 4. Assign nodes in the scene hierarchy
-5. Connect `connectionMaterial` to process nodes for visible connections
+
+> **Note:** For normal operation, disable the "Demo mode" SceneObject in the scene hierarchy to hide the demo Mode.
 
 ### Basic Workflow
 
