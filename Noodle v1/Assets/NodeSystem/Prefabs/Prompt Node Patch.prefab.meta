@@ -271,6 +271,7 @@
   Children:
     - !<own> 04bc05de-02aa-4a94-9b72-1286ecabbb19
     - !<own> 78c4358b-b6a2-43da-5fc8-dc04aadab36d
+    - !<own> 6a3228f5-98a5-4e4a-7be9-4cb2129f88e6
   Components:
     - !<own> 62cb71aa-2c62-49d8-761d-5faaadfb3835
 - !<Image/3fd00fb1-0edd-4d92-4ce5-1bf0a8edecdb>
@@ -307,7 +308,6 @@
     - !<own> 5dc0d017-1750-4386-4975-df7429ff1406
     - !<own> c346857c-14c6-48fc-765d-d88e6dff184e
     - !<own> 2ae2eac0-f675-41b5-4338-987cc57e1a64
-    - !<own> cc631f78-6729-4d88-aff1-bf821e9bf160
   Components:
     - !<own> 6c0e7cfa-251f-48f4-5e86-585e7fc22764
     - !<own> e5ce2f54-a4a1-47ab-6cc2-c5324ffaabed
@@ -335,6 +335,7 @@
   ScriptInputsDefault:
     silenceUntilTerminationMs: true
     statusText: true
+    instructionImage: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -343,7 +344,7 @@
       silenceUntilTerminationMs: !<float> 2000.000000
       transcriptionText: !<reference.Text> 0221599e-c32a-459e-71a4-baac693709de
       statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      instructionImage: !<reference.SceneObject> cc631f78-6729-4d88-aff1-bf821e9bf160
+      instructionImage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -428,6 +429,21 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<SceneObject/6a3228f5-98a5-4e4a-7be9-4cb2129f88e6>
+  PrefabRemaps:
+    []
+  Name: Voice Controll
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.014992, y: -20.024639, z: 0.300003}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 72bdaed9-d231-4247-579b-657a94499dbc
 - !<ScriptComponent/6c0e7cfa-251f-48f4-5e86-585e7fc22764>
   PrefabRemaps:
     []
@@ -444,6 +460,50 @@
       _frameSize: !<Vec2> {x: 20.000000, y: 20.000000}
       nodeType: text
       nodeId: ""
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/72bdaed9-d231-4247-579b-657a94499dbc>
+  PrefabRemaps:
+    []
+  Name: RoundButton
+  Enabled: true
+  ScriptAsset: !<reference> ecf4e352-5db4-4239-8a5e-c4c517a0f03c
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _playAudio: true
+    _hasShadow: true
+    _shadowPositionOffset: true
+    _toggleable: true
+    _defaultToOn: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _inactive: false
+      _playAudio: false
+      _style: Special
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      _width: !<float> 3.000000
   ScriptTypes:
     "":
       {}
@@ -466,7 +526,7 @@
   PrefabRemaps:
     []
   Name: RoundButton
-  Enabled: false
+  Enabled: true
   ScriptAsset: !<reference> ecf4e352-5db4-4239-8a5e-c4c517a0f03c
   ScriptInputsDefault:
     _renderOrder: true
@@ -553,40 +613,6 @@
     []
   Components:
     - !<own> 3fd00fb1-0edd-4d92-4ce5-1bf0a8edecdb
-- !<SceneObject/cc631f78-6729-4d88-aff1-bf821e9bf160>
-  PrefabRemaps:
-    []
-  Name: Ins
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.100000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> d2b4f0d2-9378-408f-8bbb-627f8bf2c78f
-- !<Image/d2b4f0d2-9378-408f-8bbb-627f8bf2c78f>
-  PrefabRemaps:
-    []
-  Name: Image
-  Enabled: true
-  RenderOrder: 0
-  StretchMode: Fit
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 76f6d351-e313-46e0-ab16-e778b00d2bd2
-  FlipX: false
-  FlipY: false
-  RotationAngle: 0
-  Pivot: {x: 0.000000, y: 0.000000}
-  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/d60d60fd-dea6-41e1-5359-010f55680f34>
   PrefabRemaps:
     []
@@ -619,7 +645,7 @@
       outputButton: !<MappingBased.AssignableType_1> 93973cdc-7456-4249-603e-a214e55b9167
       promptText: !<reference.Text> 0221599e-c32a-459e-71a4-baac693709de
       voiceToTextComponent: !<MappingBased.AssignableType_2> 62cb71aa-2c62-49d8-761d-5faaadfb3835
-      voiceButton: !<MappingBased.AssignableType_3> 0ed52628-8e8d-4041-a507-f079afc7231a
+      voiceButton: !<MappingBased.AssignableType_3> 72bdaed9-d231-4247-579b-657a94499dbc
       voiceContainer: !<reference.SceneObject> 2ae2eac0-f675-41b5-4338-987cc57e1a64
   ScriptTypes:
     "":

@@ -158,6 +158,7 @@
   PrefabRemaps:
     - 01a9e4e8-dcee-47fc-a638-826075d574cd: a229f9e9-e13f-4451-9c91-fbfdef53bee7
     - 0221599e-c32a-459e-8e5b-455396c8f621: 0221599e-c32a-459e-71a4-baac693709de
+    - 1424c915-0f9e-4e00-8591-c67fd531a681: 6a3228f5-98a5-4e4a-7be9-4cb2129f88e6
     - 1fd039b3-c00c-4328-a04d-362ff5dba534: 1fd039b3-c00c-4328-5fb2-c9d00a245acb
     - 2ae2eac0-f675-41b5-bcc7-67833a81e59b: 2ae2eac0-f675-41b5-4338-987cc57e1a64
     - 3fd00fb1-0edd-4d92-b31a-e40f57121324: 3fd00fb1-0edd-4d92-4ce5-1bf0a8edecdb
@@ -170,8 +171,7 @@
     - 9073ae5c-d095-4a57-a6d9-c03a41c2d860: 0ac57699-0ebb-46db-a81f-8ad91cbf80b3
     - 93973cdc-7456-4249-9fc1-5deb1aa46e98: 93973cdc-7456-4249-603e-a214e55b9167
     - 953940bb-ecba-47f2-8bbd-216db1cf5ba0: 04bc05de-02aa-4a94-9b72-1286ecabbb19
-    - b31b9928-5dff-4c47-a97c-bf3171ca654f: d2b4f0d2-9378-408f-8bbb-627f8bf2c78f
-    - b7026608-2d84-4a9c-932c-1a988993df9a: cc631f78-6729-4d88-aff1-bf821e9bf160
+    - be5d8640-4d8f-4ce0-98f8-c04afd5ab015: 72bdaed9-d231-4247-579b-657a94499dbc
     - c346857c-14c6-48fc-89a2-27719200e7b1: c346857c-14c6-48fc-765d-d88e6dff184e
     - c5cdb557-9138-40db-ba00-a328d3e96e11: c5cdb557-9138-40db-45ff-5cd72c1691ee
     - d60d60fd-dea6-41e1-aca6-fef0aa97f0cb: d60d60fd-dea6-41e1-5359-010f55680f34
@@ -217,6 +217,7 @@
   ScriptInputsDefault:
     silenceUntilTerminationMs: true
     statusText: true
+    instructionImage: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -225,7 +226,7 @@
       silenceUntilTerminationMs: !<float> 2000.000000
       transcriptionText: !<reference.Text> 0221599e-c32a-459e-8e5b-455396c8f621
       statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      instructionImage: !<reference.SceneObject> b7026608-2d84-4a9c-932c-1a988993df9a
+      instructionImage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}

@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/9136818c-920d-4c6a-8131-21223b4eef9e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e51aa153-b7e4-44bb-8f42-0d8639bcbb7d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e51aa153-b7e4-44bb-8f42-0d8639bcbb7d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3736ef47-5b2d-4ec9-b997-d5c7131cc703
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3736ef47-5b2d-4ec9-b997-d5c7131cc703>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 9982b176-8ff1-4631-9ac2-5ec7793fae05
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    animateSpawn: false
+    animationDuration: false
+    camera: false
+    spawnParent: false
+    spawnPrefab: false
+    spawnRotationMode: false
+    useLocalPosition: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - spawnPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      spawnParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useLocalPosition: false
+      spawnRotationMode: inherit
+      camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      animateSpawn: true
+      animationDuration: 0.300000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.ObjectPrefab spawnPrefab
+    - // @input SceneObject spawnParent
+    - // @input bool useLocalPosition
+    - '// @input string spawnRotationMode = "inherit" {"widget":"combobox", "values":[{"label":"Inherit from dragged object", "value":"inherit"}, {"label":"Face the user", "value":"faceUser"}, {"label":"Use prefab default", "value":"prefabDefault"}]}'
+    - // @input Component.Camera camera
+    - '// @input bool animateSpawn = true {"hint":"Animate spawned item scaling up"}'
+    - '// @input float animationDuration = 0.3 {"hint":"Duration of scale animation in seconds"}'
