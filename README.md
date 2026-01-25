@@ -1,20 +1,29 @@
 # 🍜 Noodle - Creative Collaboration Tool for Spectacles
 
+![Platform](https://img.shields.io/badge/Platform-Snap%20Spectacles-FFFC00?style=flat&logo=snapchat&logoColor=white)
+![Lens Studio](https://img.shields.io/badge/Lens%20Studio-5.15.3+-00C4CC?style=flat)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat)
+![Event](https://img.shields.io/badge/MIT%20Reality%20Hack-2026-red?style=flat)
+
 > A visual node-based AI creative tool for Snap Spectacles that enables voice-to-text prompts, image capture, AI image generation, and 3D model generation through an intuitive patch/node interface.
 
 ---
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Node Types](#node-types)
-- [Getting Started](#getting-started)
-- [API Requirements](#api-requirements)
-- [Project Structure](#project-structure)
-- [Technical Details](#technical-details)
-- [Dependencies](#dependencies)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Node Types](#-node-types)
+- [Getting Started](#-getting-started)
+- [API Requirements](#-api-requirements)
+- [Project Structure](#-project-structure)
+- [Technical Details](#-technical-details)
+- [Dependencies](#-dependencies)
+- [Controls](#-controls)
+- [Version History](#-version-history)
+- [Team](#-team)
+- [License](#-license)
 
 ---
 
@@ -356,10 +365,11 @@ Connections use `BezierCurve` component with:
 
 **MIT RealityHack 2026** - Noodle Creative Collaboration Tool
 
- **Kavin Kumar**  [LinkedIn Profile](https://www.linkedin.com/in/rbkavin/)
- **Neha Sajja**  [LinkedIn Profile](https://www.linkedin.com/in/neha-sajja-607071192/)
- **Stacey Cho**  [LinkedIn Profile](https://www.linkedin.com/in/staceycho0323/)
- **Ash Shah** [LinkedIN Profile](https://www.linkedin.com/in/shah94/)
+- **Kavin Kumar** - [LinkedIn Profile](https://www.linkedin.com/in/rbkavin/)
+- **Neha Sajja** - [LinkedIn Profile](https://www.linkedin.com/in/neha-sajja-607071192/)
+- **Stacey Cho** - [LinkedIn Profile](https://www.linkedin.com/in/staceycho0323/)
+- **Ash Shah** - [LinkedIn Profile](https://www.linkedin.com/in/shah94/)
+
 ---
 
 ## 📄 License
