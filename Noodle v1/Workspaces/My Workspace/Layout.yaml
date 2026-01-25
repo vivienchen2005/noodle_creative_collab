@@ -56,10 +56,10 @@ dock:
               - persistentName: Snap.Plugin.Gui.LoggerPanel
                 Uuid: 81de965d-0c94-4d28-82cf-901740003a1f
             type: section
-            current: 0
+            current: 1
         sizes:
-          - 677
-          - 249
+          - 791
+          - 135
         type: splitter
         orientation: vertical
     sizes:

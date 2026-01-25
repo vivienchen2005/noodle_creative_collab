@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 929
+    size: 944
     values:
       - Crop Circle.lspkg/3DModels
       - Crop Circle.lspkg/3DModels/SWIS_Frame.mesh
@@ -42,6 +42,13 @@ CollapsedEntities:
       - Hand Menu.lspkg
       - Hand Menu.lspkg/Hand Menu.prefab
       - Hand Menu.lspkg/package_dependencies.json
+      - Materials/Demo Mode/1.mat
+      - Materials/Demo Mode/2.mat
+      - Materials/Demo Mode/3.mat
+      - Materials/Demo Mode/4.mat
+      - Materials/Demo Mode/5.mat
+      - Materials/Demo Mode/6.mat
+      - Materials/Demo Mode/Prompt Ins.mat
       - Materials/Empty inputImage 2.mat
       - Materials/Empty inputImage.mat
       - Materials/ImageMaterial.mat
@@ -926,6 +933,14 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/package.native
       - SpectaclesUIKit.lspkg/package_dependencies.json
       - Textures/Circle.png
+      - Textures/Demo Mode/1.png
+      - Textures/Demo Mode/2.png
+      - Textures/Demo Mode/3.png
+      - Textures/Demo Mode/4.png
+      - Textures/Demo Mode/5.png
+      - Textures/Demo Mode/6.png
+      - Textures/Demo Mode/Capture_Example_UI.png
+      - Textures/Demo Mode/RecordExample_UI.png
       - Textures/Eclips.png
       - Textures/MaterialParams.png
       - Textures/Normal.png

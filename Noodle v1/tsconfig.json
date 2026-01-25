@@ -13,6 +13,10 @@
         "./Packages/*",
         "./Cache/TypeScript/Src/Packages/*"
       ],
+      "../Packages/Behavior.lsc/*": [
+        "./Assets/../Packages/Behavior.lsc/*",
+        "./Cache/TypeScript/Src/Assets/../Packages/Behavior.lsc/*"
+      ],
       "RemoteServiceGateway.lspkg/*": [
         "./Assets/RemoteServiceGateway.lspkg/*",
         "./Cache/TypeScript/Src/Assets/RemoteServiceGateway.lspkg/*"
@@ -30,6 +34,7 @@
     "./Assets/**/*.ts",
     "./Packages/**/*.ts",
     "./Cache/TypeScript/Src/Packages/**/*.ts",
+    "./Cache/TypeScript/Src/Assets/../Packages/Behavior.lsc/**/*.ts",
     "./Cache/TypeScript/Src/Assets/RemoteServiceGateway.lspkg/**/*.ts"
   ]
 }

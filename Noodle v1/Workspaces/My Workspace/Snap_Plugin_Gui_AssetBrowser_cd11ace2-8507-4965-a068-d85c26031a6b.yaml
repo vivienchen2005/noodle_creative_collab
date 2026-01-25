@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 874
+    size: 888
     values:
       - Crop Circle.lspkg
       - Crop Circle.lspkg/3DModels
@@ -42,7 +42,13 @@ CollapsedEntities:
       - Fonts/Poppins-Bold.ttf
       - Fonts/Poppins-Medium.ttf
       - Hand Menu.lspkg
-      - Materials
+      - Materials/Demo Mode/1.mat
+      - Materials/Demo Mode/2.mat
+      - Materials/Demo Mode/3.mat
+      - Materials/Demo Mode/4.mat
+      - Materials/Demo Mode/5.mat
+      - Materials/Demo Mode/6.mat
+      - Materials/Demo Mode/Prompt Ins.mat
       - Materials/Empty inputImage 2.mat
       - Materials/Empty inputImage.mat
       - Materials/ImageMaterial.mat
@@ -58,11 +64,11 @@ CollapsedEntities:
       - NodeSystem
       - NodeSystem/CONNECTION_SETUP.md
       - NodeSystem/Materials
-      - NodeSystem/Prefabs
       - NodeSystem/Prefabs/3d Node Patch.prefab
       - NodeSystem/Prefabs/Image Gen Node Patch.prefab
       - NodeSystem/Prefabs/Image Node Patch.prefab
       - NodeSystem/Prefabs/Prompt Node Patch.prefab
+      - NodeSystem/Scripts
       - NodeSystem/Scripts/BaseNode.ts
       - NodeSystem/Scripts/ConnectionLine.ts
       - NodeSystem/Scripts/ConnectionManager.ts
@@ -871,6 +877,14 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/package_dependencies.json
       - Textures
       - Textures/Circle.png
+      - Textures/Demo Mode/1.png
+      - Textures/Demo Mode/2.png
+      - Textures/Demo Mode/3.png
+      - Textures/Demo Mode/4.png
+      - Textures/Demo Mode/5.png
+      - Textures/Demo Mode/6.png
+      - Textures/Demo Mode/Capture_Example_UI.png
+      - Textures/Demo Mode/RecordExample_UI.png
       - Textures/Eclips.png
       - Textures/MaterialParams.png
       - Textures/Normal.png

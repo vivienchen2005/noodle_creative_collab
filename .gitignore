@@ -13,6 +13,10 @@ Noodle v1/Cache/*
 **/cache/
 *.lock
 *.esproj.*.lock
+Noodle v1/Support/*
+Noodle v1/BackUp/*
+Noodle v1/Workspaces/*
+
 
 # ===================
 # OS Generated Files
