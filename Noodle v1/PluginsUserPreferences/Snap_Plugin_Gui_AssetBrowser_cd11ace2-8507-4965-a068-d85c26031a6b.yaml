@@ -1,8 +1,10 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 933
+    size: 974
     values:
+      - ""
+      - Behavior.lsc
       - Crop Circle.lspkg
       - Crop Circle.lspkg/3DModels
       - Crop Circle.lspkg/3DModels/SWIS_Frame.mesh
@@ -27,6 +29,7 @@ CollapsedEntities:
       - Crop Circle.lspkg/Materials/unlit.ss_graph
       - Crop Circle.lspkg/Prefabs
       - Crop Circle.lspkg/Prefabs/Scanner.prefab
+      - Crop Circle.lspkg/Rendering
       - Crop Circle.lspkg/Rendering/Device Camera Texture.deviceCameraTexture
       - Crop Circle.lspkg/Rendering/Screen Crop Texture.screenCropTexture
       - Crop Circle.lspkg/Scripts
@@ -38,13 +41,25 @@ CollapsedEntities:
       - Crop Circle.lspkg/Scripts/PinchVisualIndicator.ts
       - Crop Circle.lspkg/package_dependencies.json
       - Echopark.hdr
+      - Echopark.hdr/Diffuse
+      - Echopark.hdr/Specular
       - Fonts
       - Fonts/Poppins-Bold.ttf
       - Fonts/Poppins-Medium.ttf
+      - Hand Menu.lspkg
       - Hand Menu.lspkg/Hand Menu.prefab
       - Hand Menu.lspkg/package_dependencies.json
+      - Image 2.mat
+      - Image.mat
       - Materials
       - Materials/Demo Mode
+      - Materials/Demo Mode/1.mat
+      - Materials/Demo Mode/2.mat
+      - Materials/Demo Mode/3.mat
+      - Materials/Demo Mode/4.mat
+      - Materials/Demo Mode/5.mat
+      - Materials/Demo Mode/6.mat
+      - Materials/Demo Mode/Prompt Ins.mat
       - Materials/Empty inputImage 2.mat
       - Materials/Empty inputImage.mat
       - Materials/ImageMaterial.mat
@@ -55,8 +70,10 @@ CollapsedEntities:
       - Materials/mic.png
       - Materials/output.mat
       - Materials/pbr.ss_graph
+      - Meshs
       - Meshs/Sphere.mesh
       - NodeSystem/CONNECTION_SETUP.md
+      - NodeSystem/Prefabs
       - NodeSystem/Prefabs/3d Node Patch.prefab
       - NodeSystem/Prefabs/Image Gen Node Patch.prefab
       - NodeSystem/Prefabs/Image Node Patch.prefab
@@ -71,12 +88,12 @@ CollapsedEntities:
       - NodeSystem/Scripts/NodeConnectionHandler.ts
       - NodeSystem/Scripts/NodeManager.ts
       - NodeSystem/Scripts/NodeMenu.ts
-      - NodeSystem/Scripts/Process3DNode.ts
-      - NodeSystem/Scripts/ProcessImageGenNode.ts
       - NodeSystem/Scripts/SpawnPatch.js
       - NodeSystem/Scripts/VoiceToText.ts
+      - Onboard UI.lspkg
       - Onboard UI.lspkg/Onboard UI.prefab
       - Onboard UI.lspkg/Onboarding.js
+      - Onboard UI.lspkg/Stacey UI
       - Onboard UI.lspkg/Stacey UI/G1.mat
       - Onboard UI.lspkg/Stacey UI/G2.mat
       - Onboard UI.lspkg/Stacey UI/G3.mat
@@ -92,9 +109,6 @@ CollapsedEntities:
       - Onboard UI.lspkg/Stacey UI/Title.mat
       - Onboard UI.lspkg/Stacey UI/Title.png
       - Onboard UI.lspkg/flat.ss_graph
-      - RemoteServiceGateway.lspkg
-      - RemoteServiceGateway.lspkg/Helpers
-      - RemoteServiceGateway.lspkg/Helpers/AudioProcessor.ts
       - RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput.ts
       - RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder.ts
       - RemoteServiceGateway.lspkg/Helpers/VideoController.ts
@@ -162,6 +176,9 @@ CollapsedEntities:
       - RemoteServiceGateway.lspkg/Utils/Event.ts
       - RemoteServiceGateway.lspkg/Utils/Promisfy.ts
       - RemoteServiceGateway.lspkg/package.native
+      - RuntimeGizmos.lspkg
+      - RuntimeGizmos.lspkg/Assets
+      - RuntimeGizmos.lspkg/Assets/Materials
       - RuntimeGizmos.lspkg/Assets/Materials/InteractorLineMat.ss_graph
       - RuntimeGizmos.lspkg/Assets/Materials/InteractorLineMaterial.mat
       - RuntimeGizmos.lspkg/Assets/Materials/PBR 2.mat
@@ -171,24 +188,33 @@ CollapsedEntities:
       - RuntimeGizmos.lspkg/Assets/Shader
       - RuntimeGizmos.lspkg/Assets/Shader/Simple Diffuse.ss_graph
       - RuntimeGizmos.lspkg/Assets/Shader/simple_pbr.ss_graph
+      - RuntimeGizmos.lspkg/Instantiation
+      - RuntimeGizmos.lspkg/Instantiation/Assets
       - RuntimeGizmos.lspkg/Instantiation/Assets/Base.png
       - RuntimeGizmos.lspkg/Instantiation/Assets/Simple Diffuse.ss_graph
       - RuntimeGizmos.lspkg/README.md
       - RuntimeGizmos.lspkg/RuntimeGizmos__PLACE_IN_SCENE.prefab
+      - RuntimeGizmos.lspkg/Scripts
       - RuntimeGizmos.lspkg/Scripts/BezierCurve.ts
       - RuntimeGizmos.lspkg/Scripts/Circle.ts
       - RuntimeGizmos.lspkg/Scripts/ClosedPolyline.ts
       - RuntimeGizmos.lspkg/Scripts/Line.ts
       - RuntimeGizmos.lspkg/Scripts/Spiral.ts
       - RuntimeGizmos.lspkg/Scripts/Spline.ts
+      - RuntimeGizmos.lspkg/_Art
+      - RuntimeGizmos.lspkg/_Art/Shader
       - RuntimeGizmos.lspkg/_Art/Shader/simple_pbr.ss_graph
       - RuntimeGizmos.lspkg/package.native
       - RuntimeGizmos.lspkg/package_dependencies.json
       - Scene.scene
+      - SpectaclesInteractionKit.lspkg
+      - SpectaclesInteractionKit.lspkg/Assets
       - SpectaclesInteractionKit.lspkg/Assets/Audio
       - SpectaclesInteractionKit.lspkg/Assets/Audio/HoverAudioTrack.wav
       - SpectaclesInteractionKit.lspkg/Assets/Audio/TriggerEndAudioTrack.wav
       - SpectaclesInteractionKit.lspkg/Assets/Audio/TriggerStartAudioTrack.wav
+      - SpectaclesInteractionKit.lspkg/Assets/Materials
+      - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/FingerHighlightLeft.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/FingerHighlightRight.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/FingerTipGlow.mat
@@ -241,6 +267,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Materials/SpritePreset.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/TargetOutlineMaterial.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/Text3DDefault.mat
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/BoxMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/ButtonCapsuleMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/ButtonSphereMesh.mesh
@@ -338,6 +365,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Textures/SIKContainerExampleImage.jpg
       - SpectaclesInteractionKit.lspkg/Assets/Textures/SIKLogo.png
       - SpectaclesInteractionKit.lspkg/Assets/Textures/ScrollBarRectangle.png
+      - SpectaclesInteractionKit.lspkg/Components
       - SpectaclesInteractionKit.lspkg/Components/Helpers
       - SpectaclesInteractionKit.lspkg/Components/Helpers/ButtonFeedback.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/CapsuleMeshCustomizer.ts
@@ -350,6 +378,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Components/Helpers/ScrollBarFeedback.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/SliderFeedback.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/ToggleFeedback.ts
+      - SpectaclesInteractionKit.lspkg/Components/Interaction
       - SpectaclesInteractionKit.lspkg/Components/Interaction/Billboard
       - SpectaclesInteractionKit.lspkg/Components/Interaction/Billboard/Billboard.ts
       - SpectaclesInteractionKit.lspkg/Components/Interaction/Billboard/BillboardController.ts
@@ -385,6 +414,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/scale-tl.png
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/scale-tr.png
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/translate.png
+      - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineMat.ss_graph
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineMaterial.mat
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineRenderer.ts
@@ -928,11 +958,22 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/Textures/test-image.jpg
       - SpectaclesUIKit.lspkg/package.native
       - SpectaclesUIKit.lspkg/package_dependencies.json
+      - Textures
       - Textures/Circle.png
       - Textures/Demo Mode
+      - Textures/Demo Mode/1.png
+      - Textures/Demo Mode/2.png
+      - Textures/Demo Mode/3.png
+      - Textures/Demo Mode/4.png
+      - Textures/Demo Mode/5.png
+      - Textures/Demo Mode/6.png
+      - Textures/Demo Mode/Capture_Example_UI.png
+      - Textures/Demo Mode/RecordExample_UI.png
+      - Textures/Device Camera Texture.deviceCameraTexture
       - Textures/Eclips.png
       - Textures/MaterialParams.png
       - Textures/Normal.png
+      - Textures/Render Target.renderTarget
       - Textures/arrow.png
       - Textures/circle input.png
       - Textures/output Img.png

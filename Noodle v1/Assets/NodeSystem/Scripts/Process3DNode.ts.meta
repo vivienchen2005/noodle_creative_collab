@@ -60,7 +60,7 @@
       modelScale: !<float> 20.000000
       makeInteractable: true
       modelRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      modelMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      modelMaterial: !<reference.Material> 1433c885-5edc-48dc-b978-d7ab6bf97b23
       statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       loadingIndicator: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:

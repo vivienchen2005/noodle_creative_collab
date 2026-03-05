@@ -26,7 +26,7 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: 3d Gen
+  Text: 3d Generation
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -278,6 +278,25 @@
     []
   Components:
     - !<own> 84c19f6d-5791-4869-755c-847925549534
+- !<Image/3fc8dff8-09c4-4047-a7f7-44bf720372da>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> e59333c3-61de-49c6-8298-cafba9cefc21
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/43479f4f-8594-4a9f-7cbf-556046247d86>
   PrefabRemaps:
     []
@@ -371,7 +390,7 @@
       modelScale: !<float> 10.000000
       makeInteractable: true
       modelRoot: !<reference.SceneObject> 488f1829-7383-45e5-4267-52d1231b0737
-      modelMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      modelMaterial: !<reference.Material> 1433c885-5edc-48dc-b978-d7ab6bf97b23
       statusText: !<reference.Text> 84c19f6d-5791-4869-755c-847925549534
       loadingIndicator: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
@@ -635,6 +654,7 @@
     - !<own> 488f1829-7383-45e5-4267-52d1231b0737
     - !<own> 4f22ce68-2bb0-4de7-610b-a7cd793a005a
     - !<own> 3be51dc2-7a4d-48ca-42c4-9bfa506bfd0d
+    - !<own> ec10abb2-84db-4c04-a090-29425782fb9f
   Components:
     - !<own> 9c4e1386-4d08-46ef-6588-593b13e23eb6
     - !<own> 77dfb587-ce40-4c2b-734b-c763cbb3fbe1
@@ -935,3 +955,18 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/ec10abb2-84db-4c04-a090-29425782fb9f>
+  PrefabRemaps:
+    []
+  Name: Demo 1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -11.434067, y: 12.274485, z: 0.099998}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3fc8dff8-09c4-4047-a7f7-44bf720372da

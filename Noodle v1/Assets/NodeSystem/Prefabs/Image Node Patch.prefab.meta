@@ -49,6 +49,7 @@
     - !<own> db62a8b6-edeb-4be8-5204-5a9a28cb022e
     - !<own> d5d6e4cd-ddb0-4154-7d0e-45fe98e93aaf
     - !<own> c1b60c19-e3eb-4c21-9ace-f302e5f4a8e9
+    - !<own> b7e50433-2498-482c-bbdc-58989c8ea68b
   Components:
     - !<own> 0f5d8604-e7c6-48a3-6ab2-da06c63ea758
     - !<own> e06f9c09-c69f-4647-7bde-571241b5de67
@@ -179,6 +180,40 @@
     []
   Components:
     - !<own> c6836498-a2a2-4e3d-7cce-7344b9590344
+- !<SceneObject/b7e50433-2498-482c-bbdc-58989c8ea68b>
+  PrefabRemaps:
+    []
+  Name: Demo
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -16.218193, y: 9.887915, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 4.000000, y: 4.000000, z: 4.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ba4b5d41-60f4-41d0-b098-09b105833970
+- !<Image/ba4b5d41-60f4-41d0-b098-09b105833970>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 629bacc7-7b6f-4e85-9e23-cc30b33c3d4e
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/c1b60c19-e3eb-4c21-9ace-f302e5f4a8e9>
   PrefabRemaps:
     []
@@ -303,7 +338,7 @@
   OverflowHorizontal: Overflow
   Fill: !<TextFill>
     Mode: Solid
-    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Color: {x: 0.498039, y: 0.925490, z: 0.984314, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
     ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
