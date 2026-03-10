@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 974
+    size: 981
     values:
       - ""
       - Behavior.lsc
@@ -65,6 +65,7 @@ CollapsedEntities:
       - Materials/ImageMaterial.mat
       - Materials/Input.mat
       - Materials/Mic.mat
+      - Materials/PBR 2.mat
       - Materials/PBR.mat
       - Materials/image_unlit.ss_graph
       - Materials/mic.png
@@ -82,12 +83,12 @@ CollapsedEntities:
       - NodeSystem/Scripts/ConnectionLine.ts
       - NodeSystem/Scripts/ConnectionManager.ts
       - NodeSystem/Scripts/DragDropSpawnAndReset.ts
-      - NodeSystem/Scripts/InputNodeImage.ts
-      - NodeSystem/Scripts/InputNodePrompt.ts
       - NodeSystem/Scripts/NodeConnectionController.ts
       - NodeSystem/Scripts/NodeConnectionHandler.ts
       - NodeSystem/Scripts/NodeManager.ts
       - NodeSystem/Scripts/NodeMenu.ts
+      - NodeSystem/Scripts/Process3DNode.ts
+      - NodeSystem/Scripts/ProcessImageGenNode.ts
       - NodeSystem/Scripts/SpawnPatch.js
       - NodeSystem/Scripts/VoiceToText.ts
       - Onboard UI.lspkg
@@ -109,6 +110,9 @@ CollapsedEntities:
       - Onboard UI.lspkg/Stacey UI/Title.mat
       - Onboard UI.lspkg/Stacey UI/Title.png
       - Onboard UI.lspkg/flat.ss_graph
+      - RemoteServiceGateway.lspkg
+      - RemoteServiceGateway.lspkg/Helpers
+      - RemoteServiceGateway.lspkg/Helpers/AudioProcessor.ts
       - RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput.ts
       - RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder.ts
       - RemoteServiceGateway.lspkg/Helpers/VideoController.ts
@@ -976,5 +980,8 @@ CollapsedEntities:
       - Textures/Render Target.renderTarget
       - Textures/arrow.png
       - Textures/circle input.png
+      - Textures/floralpattern.jpg
+      - Textures/gold.jpg
       - Textures/output Img.png
+      - Textures/plaster.png
   options: 4

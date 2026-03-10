@@ -373,7 +373,6 @@
     refineMesh: true
     useVertexColor: true
     makeInteractable: true
-    modelMaterial: true
     loadingIndicator: true
   ScriptTypesDefault:
     {}
@@ -390,7 +389,7 @@
       modelScale: !<float> 10.000000
       makeInteractable: true
       modelRoot: !<reference.SceneObject> 488f1829-7383-45e5-4267-52d1231b0737
-      modelMaterial: !<reference.Material> 1433c885-5edc-48dc-b978-d7ab6bf97b23
+      modelMaterial: !<reference.Material> 5c82780f-3aaa-4434-90fa-2ac3a5eec69d
       statusText: !<reference.Text> 84c19f6d-5791-4869-755c-847925549534
       loadingIndicator: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:

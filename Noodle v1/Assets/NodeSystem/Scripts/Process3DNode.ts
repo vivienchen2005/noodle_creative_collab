@@ -892,6 +892,23 @@ export class Process3DNode extends BaseScriptComponent {
         }
     }
 
+    private applyMaterialEverywhere(root: SceneObject, mat: Material) {
+        const stack: SceneObject[] = [root];
+        while (stack.length > 0) {
+            const so = stack.pop();
+
+            const rmv = so.getComponent("Component.RenderMeshVisual") as RenderMeshVisual;
+            if (rmv) {
+                rmv.mainMaterial = mat;
+            }
+
+            const n = so.getChildrenCount();
+            for (let i = 0; i < n; i++) {
+                stack.push(so.getChild(i));
+            }
+        }
+    }
+
     /**
      * Check if Remote Service Gateway credentials are configured
      */
@@ -1009,6 +1026,7 @@ export class Process3DNode extends BaseScriptComponent {
 
         this.updateStatus("Generating 3D model...");
 
+        prompt = "pillow";
         print("Process3DNode: Generating 3D model with prompt: " + prompt);
 
         // Clean up temporary model (base mesh) if exists
@@ -1042,6 +1060,7 @@ export class Process3DNode extends BaseScriptComponent {
                             this._tempModel.destroy();
                             this._tempModel = null;
                         }
+                
                         this.instantiateModel(gltfAssetData.gltfAsset, true, true);
                     } else if (value === "failed") {
                         const error = assetOrError as Snap3DTypes.ErrorData;
@@ -1099,6 +1118,12 @@ export class Process3DNode extends BaseScriptComponent {
                     const sizeVec = vec3.one().uniformScale(this.modelScale);
                     modelTransform.setLocalScale(sizeVec);
 
+                    const imgData = this.getImageInputData();
+                    
+                    this.modelMaterial.mainPass.baseTex = imgData.texture;
+
+                    this.applyMaterialEverywhere(sceneObject, this.modelMaterial);
+
                     // Make interactable if enabled
                     let finalModelObject: SceneObject = sceneObject;
                     if (this.makeInteractable && isFinal) {
@@ -1110,6 +1135,7 @@ export class Process3DNode extends BaseScriptComponent {
 
                     // Store the model
                     if (isFinal) {
+
                         this._currentModel = finalModelObject;
                         this._generatedModels.push(finalModelObject);
                         print("Process3DNode: Model added to generated models list (total: " + this._generatedModels.length + ")");
@@ -1147,6 +1173,15 @@ export class Process3DNode extends BaseScriptComponent {
                 print("Process3DNode: Instantiation progress: " + (progress * 100).toFixed(0) + "%");
             }
         );
+
+        // sceneObject is the instantiated model root returned by tryInstantiateAsync
+        // const cloned = this.modelMaterial.clone();   // important: don't edit shared asset
+        // const img = this.getImageInputData();        // get texture from your connected image node
+
+        // if (img?.texture) {
+        //     cloned.mainPass.baseTex = img.texture;   // set texture
+        // }
+        // this.applyMaterialEverywhere(this.sceneObject, cloned);
     }
 
     /**
