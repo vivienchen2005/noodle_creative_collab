@@ -16,6 +16,7 @@ import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interact
 import { InteractableStateMachine } from "SpectaclesUIKit.lspkg/Scripts/Utility/InteractableStateMachine";
 import { InteractableManipulation } from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation";
 import { TargetingMode } from "SpectaclesInteractionKit.lspkg/Core/Interactor/Interactor";
+import { TextureLibraryNode } from "./TextureLibraryNode";
 
 /**
  * Process3DNode - A process node for 3D generation
@@ -484,6 +485,9 @@ export class Process3DNode extends BaseScriptComponent {
         // Check if source is InputNodeImage
         const imageInputNode = sourceNode.getComponent(InputNodeImage.getTypeName() as any) as InputNodeImage;
 
+        // Check if source is TextureLibraryNode
+        const textureLibraryNode = sourceNode.getComponent(TextureLibraryNode.getTypeName() as any) as TextureLibraryNode;
+
         // Check if source is ProcessImageGenNode (chained from image generation)
         const imageGenNode = sourceNode.getComponent(ProcessImageGenNode.getTypeName() as any) as ProcessImageGenNode;
 
@@ -497,6 +501,11 @@ export class Process3DNode extends BaseScriptComponent {
             outputButtonObject = imageInputNode.getOutputButtonObject();
             sourceType = "InputNodeImage";
             imageInputNode.addChildNode(this.sceneObject);
+        } else if (textureLibraryNode) {
+            outputButtonId = textureLibraryNode.getOutputButtonId();
+            outputButtonObject = textureLibraryNode.getOutputButtonObject();
+            sourceType = "TextureLibraryNode";
+            textureLibraryNode.addChildNode(this.sceneObject);
         } else if (imageGenNode) {
             // Check if the source ProcessImageGenNode has a generated image
             if (!imageGenNode.hasGeneratedImage()) {
@@ -508,9 +517,11 @@ export class Process3DNode extends BaseScriptComponent {
             sourceType = "ProcessImageGenNode (chained)";
             imageGenNode.addChildNode(this.sceneObject);
         } else {
-            print(`Process3DNode: Source node is not an InputNodeImage or ProcessImageGenNode`);
+            print(`Process3DNode: Source node is not an InputNodeImage, TextureLibraryNode, or ProcessImageGenNode`);
             return false;
         }
+
+        this.clearExistingImageConnections();
 
         // Generate unique connection ID
         const connectionId = `image_${sourceButtonId || outputButtonId}_${this._imageInputButtonId}_${Date.now()}`;
@@ -816,7 +827,18 @@ export class Process3DNode extends BaseScriptComponent {
             };
         }
 
-        // Check if source is ProcessImageGenNode (chained)
+        // Check if source is TextureLibraryNode
+        const textureLibraryNode = this._connectedImageNode.getComponent(TextureLibraryNode.getTypeName() as any) as TextureLibraryNode;
+        if (textureLibraryNode) {
+            const data = textureLibraryNode.getOutputData();
+            return {
+                texture: data.texture,
+                material: data.material,
+                imageComponent: data.imageComponent
+            };
+        }
+
+        // Check if source is ProcessImageGenNode
         const imageGenNode = this._connectedImageNode.getComponent(ProcessImageGenNode.getTypeName() as any) as ProcessImageGenNode;
         if (imageGenNode) {
             const data = imageGenNode.getOutputData();
@@ -1013,6 +1035,34 @@ export class Process3DNode extends BaseScriptComponent {
         });
     }
 
+    private clearExistingImageConnections(): void {
+        this._imageConnections.forEach((connectionInfo) => {
+            if (connectionInfo.curve && connectionInfo.curve.sceneObject) {
+                connectionInfo.curve.sceneObject.destroy();
+            }
+
+            const imageInputNode = connectionInfo.sourceNode.getComponent(InputNodeImage.getTypeName() as any) as InputNodeImage;
+            if (imageInputNode) {
+                imageInputNode.removeChildNode(this.sceneObject);
+            }
+
+            const textureLibraryNode = connectionInfo.sourceNode.getComponent(TextureLibraryNode.getTypeName() as any) as TextureLibraryNode;
+            if (textureLibraryNode) {
+                textureLibraryNode.removeChildNode(this.sceneObject);
+            }
+
+            const imageGenNode = connectionInfo.sourceNode.getComponent(ProcessImageGenNode.getTypeName() as any) as ProcessImageGenNode;
+            if (imageGenNode) {
+                imageGenNode.removeChildNode(this.sceneObject);
+            }
+        });
+
+        this._imageConnections.clear();
+        this._connectedImageNode = null;
+
+        print("Process3DNode: Cleared existing image connections");
+    }
+
     /**
      * Generate 3D model using Snap3D with the given prompt
      */
@@ -1026,7 +1076,6 @@ export class Process3DNode extends BaseScriptComponent {
 
         this.updateStatus("Generating 3D model...");
 
-        prompt = "pillow";
         print("Process3DNode: Generating 3D model with prompt: " + prompt);
 
         // Clean up temporary model (base mesh) if exists
@@ -1120,9 +1169,14 @@ export class Process3DNode extends BaseScriptComponent {
 
                     const imgData = this.getImageInputData();
                     
-                    this.modelMaterial.mainPass.baseTex = imgData.texture;
+                    // Clone the material so each generated model gets its own copy
+                    const modelMatInstance = this.modelMaterial.clone();
 
-                    this.applyMaterialEverywhere(sceneObject, this.modelMaterial);
+                    if (imgData && imgData.texture) {
+                        modelMatInstance.mainPass.baseTex = imgData.texture;
+                    }
+
+                    this.applyMaterialEverywhere(sceneObject, modelMatInstance);
 
                     // Make interactable if enabled
                     let finalModelObject: SceneObject = sceneObject;
@@ -1144,6 +1198,7 @@ export class Process3DNode extends BaseScriptComponent {
                     }
 
                     if (isRefined && isFinal) {
+                        this.spinObjectOnce(finalModelObject, 0.8);
                         // Refined mesh is complete
                         this.updateStatus("3D model generated successfully! (Total: " + this._generatedModels.length + ")");
                         this._isGenerating = false;
@@ -1242,6 +1297,40 @@ export class Process3DNode extends BaseScriptComponent {
             print("Process3DNode: Warning - Could not make model interactable: " + error);
             return null;
         }
+    }
+
+    private spinObjectOnce(target: SceneObject, duration: number = 0.8): void {
+        if (!target) return;
+
+        const transform = target.getTransform();
+        const startRot = transform.getLocalRotation();
+
+        let elapsed = 0;
+
+        const updateEvent = this.createEvent("UpdateEvent");
+        updateEvent.bind(() => {
+            if (!target || isNull(target)) {
+                updateEvent.enabled = false;
+                return;
+            }
+
+            const dt = getDeltaTime();
+            elapsed += dt;
+
+            const t = Math.min(elapsed / duration, 1);
+
+            // 360 degrees around Y
+            const angle = Math.PI * 2 * t;
+            const spinRot = quat.angleAxis(angle, vec3.up());
+
+            transform.setLocalRotation(startRot.multiply(spinRot));
+
+            if (t >= 1) {
+                // Snap exactly back to original orientation after full rotation
+                transform.setLocalRotation(startRot);
+                updateEvent.enabled = false;
+            }
+        });
     }
 
     /**

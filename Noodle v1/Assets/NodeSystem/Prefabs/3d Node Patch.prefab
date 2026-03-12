@@ -89,7 +89,7 @@
   PrefabRemaps:
     []
   Name: Demo 1
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -11.434067, y: 12.274485, z: 0.099998}
@@ -646,9 +646,7 @@
     - c478bdbd-6e32-487b-a2ae-86483f9b9562: 3fc8dff8-09c4-4047-a7f7-44bf720372da
     - c806c149-8259-4f62-8119-e87733cb5c89: c806c149-8259-4f62-7ee6-1788cc34a376
     - c9342432-ff75-46c2-818d-2d97bb4d6976: c9342432-ff75-46c2-7e72-d26844b29689
-    - cc01b36e-ab37-45aa-af23-22cb43212be1: 3a8c6943-4cbb-46f7-8e46-f7d8f03cfdd6
     - d82af243-660d-4c40-85d8-b77360f8cb41: d82af243-660d-4c40-7a27-488c9f0734be
-    - f3686cc4-4f08-4afd-9836-479b8774b40f: cd54165e-0581-44c8-bae3-0bf26e9835ab
   Name: 3d Node Patch
   Enabled: true
   Layers: 1
@@ -840,7 +838,7 @@
   PrefabRemaps:
     []
   Name: Output
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 14.000000, y: 0.000000, z: 0.300000}

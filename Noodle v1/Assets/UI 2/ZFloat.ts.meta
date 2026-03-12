@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/025b2812-2710-4565-9628-c83af8bce85f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 6451121c-0c7f-47c1-b839-3ed9aa17f9f1
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 6451121c-0c7f-47c1-b839-3ed9aa17f9f1
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c075b2ca-097e-472a-ad19-cab7afa99c64
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c075b2ca-097e-472a-ad19-cab7afa99c64>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: d0f4016f-8131-48a8-8abb-6305998f5454
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    phaseOffset: false
+    rockDegrees: false
+    rockSpeed: false
+    zOffset: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - phaseOffset: !<float> 0.000000
+      rockDegrees: !<float> 8.000000
+      rockSpeed: 0.800000
+      zOffset: !<float> 5.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input float phaseOffset
+    - // @input float rockDegrees = 8
+    - // @input float rockSpeed = 0.8
+    - // @input float zOffset = 5

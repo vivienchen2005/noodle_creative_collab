@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/4b75c977-37cc-45aa-a31b-68a333fd4316>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1199306e-8b57-4d0f-9c54-2fc4251e4aa7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1199306e-8b57-4d0f-9c54-2fc4251e4aa7
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 277c98b1-f131-4d51-8b87-5bb62728849e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/277c98b1-f131-4d51-8b87-5bb62728849e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: a41fb86f-e6f1-4828-88f2-ad3866f19624
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    pinchButtonScript: false
+    scaleAmount: false
+    scaleSpeed: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - pinchButtonScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      scaleAmount: 1.150000
+      scaleSpeed: !<float> 10.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Component.ScriptComponent pinchButtonScript
+    - // @input float scaleAmount = 1.15
+    - // @input float scaleSpeed = 10

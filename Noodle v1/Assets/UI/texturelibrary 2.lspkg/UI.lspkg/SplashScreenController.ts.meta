@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/9a3f5f33-b518-4c38-9aa2-037307201fe4>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e7f7d1fd-e0e8-42ee-bb2a-3db4eb6d24bd
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e7f7d1fd-e0e8-42ee-bb2a-3db4eb6d24bd
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 37c8e056-921e-49d5-8ea0-f104e749d7cd
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/37c8e056-921e-49d5-8ea0-f104e749d7cd>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: fde11b5b-5ab8-426f-ba20-ce13589b2604
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    fadeDuration: false
+    mainRoot: false
+    splashRoot: false
+    toggleGroup: false
+    vfxAudio: false
+    vfxObject: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - vfxObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      splashRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      mainRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      toggleGroup: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      vfxAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      fadeDuration: 1.500000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject vfxObject
+    - // @input SceneObject splashRoot
+    - // @input SceneObject mainRoot
+    - // @input SceneObject toggleGroup
+    - // @input Component.AudioComponent vfxAudio
+    - // @input float fadeDuration = 3

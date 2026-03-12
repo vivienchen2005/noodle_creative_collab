@@ -1,0 +1,47 @@
+- !<AssetImportMetadata/97c0d841-8789-4e3b-aecd-377ffcb52b53>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 553f8e57-5f0f-4630-9620-9f6e1b08f549
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 553f8e57-5f0f-4630-9620-9f6e1b08f549
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> eebf994e-270c-482a-9144-bdf6cdf39dd9
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/eebf994e-270c-482a-9144-bdf6cdf39dd9>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: cdc37df2-39a1-4dbe-967f-a8bbabd93363
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    floatDistance: false
+    floatSpeed: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - floatDistance: !<float> 3.000000
+      floatSpeed: 1.500000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input float floatDistance = 3
+    - // @input float floatSpeed = 1.5

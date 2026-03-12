@@ -1,0 +1,49 @@
+- !<AssetImportMetadata/3f373198-e05d-617a-6c5a-a94c3b9b84e9>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 53f1960b-8793-449e-b9a5-53e2d71f21a2
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 53f1960b-8793-449e-b9a5-53e2d71f21a2
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    AssetLibraryId: 6GcuV85wpCnK95hA6soD0c
+  AssetDataMap:
+    ObjectPrefab: !<own> 3a7a65a4-e11f-4040-a7ee-3fcbab920051
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<VFXComponent/1f5dbe56-4bf6-4455-9cd6-746802341138>
+  PrefabRemaps:
+    []
+  Name: VFX Component
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  VFXAsset: !<reference> f5a0b406-1bf1-462a-b680-bcec82a5fd33
+- !<SceneObject/318038fb-360a-4b4c-81a0-7f60cf730f77>
+  PrefabRemaps:
+    []
+  Name: Multi-Mesh VFX__PLACE_IN_SCENE
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1f5dbe56-4bf6-4455-9cd6-746802341138
+- !<ObjectPrefabAssetData/3a7a65a4-e11f-4040-a7ee-3fcbab920051>
+  Prototype: !<ObjectOwner/a5441f29-a3f8-4006-ba9f-356f0a1f5211>
+    PackagePath: ""
+    objects:
+      - !<own> 318038fb-360a-4b4c-81a0-7f60cf730f77

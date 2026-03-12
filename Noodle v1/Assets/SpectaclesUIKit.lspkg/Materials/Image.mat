@@ -4,32 +4,9 @@
     - !<own> fe0b85cc-4235-4672-90e5-b0dd64e259e9
 - !<PassInfo/fe0b85cc-4235-4672-90e5-b0dd64e259e9>
   CachedProperties:
-    - baseTexBorderColor:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    - baseTexDims:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    - baseTexTransform:
-        typeIdx: 7
-        value:
-          0: {x: 1.000000, y: 0.000000, z: 0.000000}
-          1: {x: 0.000000, y: 1.000000, z: 0.000000}
-          2: {x: 0.000000, y: 0.000000, z: 1.000000}
-    - baseTexUvMinMax:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    - overrideTimeDelta:
-        typeIdx: 1
-        value: 0.000000
-    - overrideTimeElapsed:
-        typeIdx: 1
-        value: 0.000000
-    - overrideTimeEnabled:
-        typeIdx: 0
-        value: 0
+    []
   DepthWrite: false
-  DepthTest: true
+  DepthTest: false
   DepthFunction: LessEqual
   TwoSided: false
   ColorMask: {x: true, y: true, z: true, w: true}
@@ -39,11 +16,11 @@
   FrustumCullPad: 0.000000
   InstanceCount: 1
   Defines:
+    - ENABLE_BASE_TEX
     - NODE_13_DROPLIST_ITEM 0
     - NODE_27_DROPLIST_ITEM 0
     - NODE_49_DROPLIST_ITEM 0
     - NODE_69_DROPLIST_ITEM 0
-    - ENABLE_BASE_TEX
   BlendMode: PremultipliedAlphaAuto
   Properties:
     Port_Default_N204:
@@ -58,7 +35,7 @@
     baseTex:
       typeIdx: 9
       value:
-        id: 5725b925-6e7b-4f46-aed1-e20a4626cd8a
+        id: 5f434fb7-316e-478a-b1e6-d96075703a96
         sampler:
           filteringMode: Trilinear
           wrapModeU: ClampToEdge
@@ -67,4 +44,4 @@
           borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
           mipmaps: false
         type: Texture2D
-  Pass: !<reference> 0f662639-f8ba-4377-815b-2aa87e97026f
+  Pass: !<reference> 8d36a502-0c59-4633-92f5-f56c8c73b6f7

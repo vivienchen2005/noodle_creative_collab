@@ -1,6 +1,7 @@
 import { ConnectionLine } from "./ConnectionLine";
 import { InputNodePrompt } from "./InputNodePrompt";
 import { InputNodeImage } from "./InputNodeImage";
+import { TextureLibraryNode } from "./TextureLibraryNode";
 
 /**
  * Connection data structure
@@ -351,6 +352,11 @@ export class ConnectionManager extends BaseScriptComponent {
         const imageNode = sourceNode.getComponent(InputNodeImage.getTypeName() as any) as InputNodeImage;
         if (imageNode) {
             return imageNode.getOutputData();
+        }
+
+        const textureLibraryNode = sourceNode.getComponent(TextureLibraryNode.getTypeName() as any) as TextureLibraryNode;
+        if (textureLibraryNode) {
+            return textureLibraryNode.getOutputData();
         }
 
         return null;

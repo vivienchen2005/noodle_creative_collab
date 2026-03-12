@@ -13,9 +13,25 @@
         "./Packages/*",
         "./Cache/TypeScript/Src/Packages/*"
       ],
+      "/UI 2/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/*": [
+        "./Assets/UI 2/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/*",
+        "./Cache/TypeScript/Src/Assets/UI 2/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/*"
+      ],
+      "/UI 2/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/*": [
+        "./Assets/UI 2/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/*",
+        "./Cache/TypeScript/Src/Assets/UI 2/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/*"
+      ],
       "RemoteServiceGateway.lspkg/*": [
         "./Assets/RemoteServiceGateway.lspkg/*",
         "./Cache/TypeScript/Src/Assets/RemoteServiceGateway.lspkg/*"
+      ],
+      "UI/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/*": [
+        "./Assets/UI/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/*",
+        "./Cache/TypeScript/Src/Assets/UI/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/*"
+      ],
+      "UI/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/*": [
+        "./Assets/UI/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/*",
+        "./Cache/TypeScript/Src/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/*"
       ]
     },
     "skipDefaultLibCheck": true,
@@ -30,6 +46,10 @@
     "./Assets/**/*.ts",
     "./Packages/**/*.ts",
     "./Cache/TypeScript/Src/Packages/**/*.ts",
-    "./Cache/TypeScript/Src/Assets/RemoteServiceGateway.lspkg/**/*.ts"
+    "./Cache/TypeScript/Src/Assets/UI/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/**/*.ts",
+    "./Cache/TypeScript/Src/Assets/RemoteServiceGateway.lspkg/**/*.ts",
+    "./Cache/TypeScript/Src/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/**/*.ts",
+    "./Cache/TypeScript/Src/Assets/UI 2/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg/**/*.ts",
+    "./Cache/TypeScript/Src/Assets/UI 2/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg/**/*.ts"
   ]
 }

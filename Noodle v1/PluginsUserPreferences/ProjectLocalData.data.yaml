@@ -1,20 +1,51 @@
 data:
   externalSources:
+    - 025b2812-2710-4565-9628-c83af8bce85f: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/ZFloat.ts"
+    - 04154097-fe38-4b74-bb95-dee9a0a2f3b0: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/UI.lspkg/VFXFollowCamera.ts"
+    - 07a06e54-75b3-4aea-80bc-0f4b5a6072d2: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/LOGO FINAL.png"
     - 0fa177d3-6a3d-40cb-9c21-2950d21f491c: /Applications/Lens Studio spectacles 5_15_3.app/Contents/Plugins/Es_ShaderGraph_Model.bundle/InstantiationResources/image_unlit.ss_graph
+    - 1052f034-16e4-4fd0-8267-d1a184ce87e9: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/UI.lspkg/ZFloat.ts"
     - 125a8522-0a58-4da9-8ea4-f35163312acb: /Users/kavin/Downloads/mic.png
     - 18479c07-4128-4481-9d20-3969a8b3f08b: /Users/kavin/Downloads/Ellipse 19.png
+    - 1cf189e1-d09f-d866-0bbc-ada53fe08825: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/Crafty Materials Pack.lspkg/Textures/PencilTextures2.png"
     - 1f221695-7f8e-42f9-b5a3-25cd5c608e10: /Users/kavin/Library/Preferences/Snap/Lens Studio/LibraryComponents/RemoteServiceGateway@0.1.9/RemoteServiceGateway.lspkg
     - 27413cc9-730c-4863-a1ad-dab79e77ccbd: /Users/kavin/Downloads/Poppins/Poppins-Medium.ttf
+    - 348a85a9-e785-4346-ba14-65de13a2c052: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/VFXFollowCamera.ts"
+    - 410121bf-097e-498b-8470-2b022bc181ff: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/images (1).jpeg"
+    - 4940c11f-47d8-43e4-9b00-1a442ae46cc6: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/SpectaclesInteractionKit.lspkg"
+    - 4a1caec2-667c-4fd4-8576-89e3c64e2626: "C:/Program Files/Snap Inc/Lens Studio/JsPlugins/PresetsRegistry/Assets/TypeScript/Resources/Untitled TypeScript.ts"
+    - 4a521d69-c94e-40b5-9e3a-6749f08d53be: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/images copy 3.jpeg"
+    - 4b75c977-37cc-45aa-a31b-68a333fd4316: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/HoverScale.ts"
     - 4c66d009-6b03-4b38-9933-1207310fbd56: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/Resources/Normal.png
+    - 548d3a1d-443e-4c93-8f10-94109abbebcc: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/petals-sand-7913-in-architextures.jpg"
+    - 5691dfdc-eb92-4018-8d7b-e9a3cde6e806: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/SpectaclesUIKit.lspkg"
     - 57a5a81f-9a34-4573-8999-3ea33a45b76e: /Users/kavin/Downloads/Ellipse 21.png
+    - 629e5c26-8604-4753-eacf-5451ff8301de: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/Glitter SFX Pack.lspkg/Audio/glitter_long_3.mp3"
+    - 645bcb9a-ec1b-9051-03d9-245a7fffe76b: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/UI.lspkg/OldPlayer.ts"
+    - 6a1c8390-83e1-4bff-9931-644200fb7790: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/UI.lspkg/ImageSequencePlayer.ts"
+    - 6a32f220-a0cd-4494-b3a3-67d1f6908fed: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/flat.ss_graph"
     - 6d24eb16-29a6-45bf-9781-2c6cf0bbb71e: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/Resources/MaterialParams.png
+    - 793dad18-3481-c610-8bad-5413abf53449: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/Multi-Mesh VFX.lspkg/VFX/Multi-Mesh Emitter.vfxgraph"
     - 7b1034dd-2f7f-4c1a-aa68-7afc5392c38a: "C:/Users/Vivien Chen/Downloads/floralpattern.jpg"
     - 864320a2-ea76-4b15-a3c7-d2ee2a2622ab: /Users/kavin/Documents/snapchat/base/SPECTACLES-MIT-REALITY-HACK-2026 Main/YOUR PROJECT IN THIS FOLDER/Spectacles Project - MINIMUM SETUP/Cache/0c19701e-ac08-4326-b922-87de30b0c0ce/64f8184ad55127180e7094e9b5f50bac/Data/Components/Interaction/InteractorLineVisual/InteractorLineMat.ss_graph
     - 9136818c-920d-4c6a-8131-21223b4eef9e: /Applications/Lens Studio.app/Contents/JsPlugins/PresetsRegistry/Assets/TypeScript/Resources/Untitled TypeScript.ts
+    - 927e5485-b28b-4feb-bb24-9fb6a6658b17: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/LOGO FINAL.png"
+    - 97b46f91-18fd-495a-84c1-1fa6fb709a9a: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/SplashScreenController.ts"
+    - 97c0d841-8789-4e3b-aecd-377ffcb52b53: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/UI.lspkg/YFloat.ts"
+    - 97cdb341-183c-4bfd-9d9d-a8152c61cb4b: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/courtyard-wallpaper-2421-in-architextures.jpg"
+    - 99d2a8e8-7188-4d7f-bba0-2143936d96ff: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/images copy 2.jpeg"
+    - 9a3f5f33-b518-4c38-9aa2-037307201fe4: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/UI.lspkg/SplashScreenController.ts"
     - a10ff3c2-24d6-469f-ab70-8295e593fa10: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/Meshes/Resources/Sphere.mesh
     - a336f1e2-e22b-464b-a4ee-4297bb0c9511: /Users/kavin/Downloads/Poppins/Poppins-Bold.ttf
+    - a653404f-d42d-464a-8171-d0538bf72642: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/images copy 4.jpeg"
+    - ae451123-5e1f-482e-b644-350cf9fdf081: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/ImageSequencePlayer.ts"
+    - be8909a9-45d6-42f5-af5a-02ec4288152e: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/Are you a new player_.ts"
     - c342fc00-351a-4ee9-bb9c-6eb0cf2320de: "C:/Users/Vivien Chen/Downloads/plaster.png"
     - c83f6b0c-c999-40c7-9bcf-e3621b2fed08: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/PBRMaterial/Resources/pbr.ss_graph
+    - cdd6ada4-082c-438c-9087-4023c8194747: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/montauk-daisy--cedar-stack-3276-in-architextures 3.jpg"
     - d35d07e1-65e0-4220-875f-f3a4f0d89e44: /Applications/Lens Studio spectacles 5_15_3.app/Contents/JsPlugins/PresetsRegistry/Assets/UnlitMaterial/Resources/unlit.ss_graph
     - dc30a656-5629-4947-a370-d1d8aad8709f: "C:/Users/Vivien Chen/Downloads/gold.jpg"
+    - edcc8441-739b-4a19-91e5-66ab5d4a3d3b: "C:/Users/Vivien Chen/Downloads/noodle_creative_collab/Noodle v1/Assets/UI/texturelibrary 2.lspkg/UI.lspkg/Rolf-Mu-ller 3.webp"
     - ede8ce75-0ced-4347-9960-34762d527ddb: /Users/kavin/Documents/snapchat/MIT REality Hack/Remote AI Setup base/Assets/Scripts/VoiceToText.ts
+    - f04cd748-8d06-4689-00f6-acfa851b26b8: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/UI.lspkg/Are you a new player_.ts"
+    - f68e4158-319b-41b2-8eeb-136e39e62bfc: "C:/Users/Vivien Chen/Downloads/Object_PainterUI/Assets/Hand.png"

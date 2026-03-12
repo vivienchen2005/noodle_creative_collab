@@ -1,0 +1,107 @@
+- !<AssetImportMetadata/4a1caec2-667c-4fd4-8576-89e3c64e2626>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 22d281f3-9236-4a11-9308-ecbed7bf956b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 22d281f3-9236-4a11-9308-ecbed7bf956b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 09897f1d-f440-4efb-b26d-8c6d24a3a746
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/09897f1d-f440-4efb-b26d-8c6d24a3a746>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 43130a41-d67f-4b28-ae89-70cc897c41de
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    baseNode: false
+    defaultSelectionIndex: false
+    outputButton: false
+    previewImage: false
+    texture1: false
+    texture1Preview: false
+    texture2: false
+    texture2Preview: false
+    texture3: false
+    texture3Preview: false
+    texture4: false
+    texture4Preview: false
+    texture5: false
+    texture5Preview: false
+    texture6: false
+    texture6Preview: false
+    texture7: false
+    texture7Preview: false
+    texture8: false
+    texture8Preview: false
+    titleText: false
+    toggleGroup: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - baseNode: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      titleText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      outputButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      previewImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      toggleGroup: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      texture1: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture2: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture3: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture4: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture5: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture6: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture7: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture8: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      texture1Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      texture2Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      texture3Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      texture4Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      texture5Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      texture6Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      texture7Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      texture8Preview: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      defaultSelectionIndex: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType baseNode
+    - // @input Component.Text titleText
+    - // @input AssignableType_1 outputButton
+    - // @input Component.Image previewImage
+    - // @input AssignableType_2 toggleGroup
+    - // @input Asset.Texture texture1
+    - // @input Asset.Texture texture2
+    - // @input Asset.Texture texture3
+    - // @input Asset.Texture texture4
+    - // @input Asset.Texture texture5
+    - // @input Asset.Texture texture6
+    - // @input Asset.Texture texture7
+    - // @input Asset.Texture texture8
+    - // @input Component.Image texture1Preview
+    - // @input Component.Image texture2Preview
+    - // @input Component.Image texture3Preview
+    - // @input Component.Image texture4Preview
+    - // @input Component.Image texture5Preview
+    - // @input Component.Image texture6Preview
+    - // @input Component.Image texture7Preview
+    - // @input Component.Image texture8Preview
+    - '// @input float defaultSelectionIndex {"hint":"Optional default selected texture index (1-8). Set 0 for none."}'

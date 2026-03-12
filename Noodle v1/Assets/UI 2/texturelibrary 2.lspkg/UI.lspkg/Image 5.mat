@@ -1,0 +1,50 @@
+- !<Material/56937bec-0385-4578-ad2e-7faef75dfccf>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> 28905a6b-8a74-45b4-92c1-55fc7dd575a0
+- !<PassInfo/28905a6b-8a74-45b4-92c1-55fc7dd575a0>
+  CachedProperties:
+    - Port_Default_N204:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Default_N369:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - PreviewEnabled:
+        typeIdx: 0
+        value: 0
+    - baseColor:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.640000}
+    - baseTex:
+        typeIdx: 9
+        value:
+          id: 3ef8048d-7032-4aae-b552-f27f7c0bd5e1
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: ClampToEdge
+            wrapModeV: ClampToEdge
+            wrapModeW: ClampToEdge
+            borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+            mipmaps: false
+          type: Texture2D
+  DepthWrite: false
+  DepthTest: false
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 1
+  Defines:
+    - NODE_13_DROPLIST_ITEM 0
+    - NODE_27_DROPLIST_ITEM 0
+    - NODE_49_DROPLIST_ITEM 0
+    - NODE_69_DROPLIST_ITEM 0
+    - ENABLE_BASE_TEX
+  BlendMode: PremultipliedAlphaAuto
+  Properties:
+    {}
+  Pass: !<reference> 68101cd6-ce05-4ff9-a7fc-cd7bfd80cae3

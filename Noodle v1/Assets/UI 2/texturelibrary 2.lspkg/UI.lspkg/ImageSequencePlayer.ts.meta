@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/ae451123-5e1f-482e-b644-350cf9fdf081>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 15c50362-7133-4435-a9cc-17ffbe0c0093
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 15c50362-7133-4435-a9cc-17ffbe0c0093
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 0694ed7f-9973-454f-a2b4-a1af23d570b4
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/0694ed7f-9973-454f-a2b4-a1af23d570b4>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 4b9c52d0-1d6e-46b6-a4e7-d5772ec6e2cf
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    displayTime: false
+    fadeDuration: false
+    images: false
+    loopSequence: false
+    onboardingContainer: false
+    startAutomatically: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - images: !<reference.SceneObject[]>
+        []
+      displayTime: 3.500000
+      fadeDuration: 0.300000
+      loopSequence: false
+      startAutomatically: true
+      onboardingContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - "// @input SceneObject[] images = {}"
+    - // @input float displayTime = 3.5
+    - // @input float fadeDuration = 0.3
+    - // @input bool loopSequence
+    - // @input bool startAutomatically
+    - // @input SceneObject onboardingContainer
